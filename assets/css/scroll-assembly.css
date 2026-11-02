@@ -193,13 +193,12 @@ html.gsap-active .section-heading-row .section-intro {
 }
 
 /* ==========================================================================
-   TRANSPARENT BORDER / SHELL PILL INTERACTION
-   Pill interior transparent, subtle border, smooth orange fill sweep on hover
+   TRANSPARENT BORDER / SHELL PILL INTERACTION (HEADER CTA & BUTTONS)
+   Pill interior transparent, subtle border, smooth orange fill sweep, button glow
    ========================================================================== */
 .header-cta,
 .all-work-link,
-.pill-btn,
-.stack-tags b {
+.pill-btn {
   position: relative;
   overflow: hidden !important;
   isolation: isolate;
@@ -214,8 +213,7 @@ html.gsap-active .section-heading-row .section-intro {
 
 .header-cta::before,
 .all-work-link::before,
-.pill-btn::before,
-.stack-tags b::before {
+.pill-btn::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -235,9 +233,7 @@ html.gsap-active .section-heading-row .section-intro {
   .all-work-link:hover::before,
   .all-work-link:focus-visible::before,
   .pill-btn:hover::before,
-  .pill-btn:focus-visible::before,
-  .stack-tags b:hover::before,
-  .stack-tags b:focus-visible::before {
+  .pill-btn:focus-visible::before {
     transform: scaleX(1);
   }
 
@@ -250,41 +246,141 @@ html.gsap-active .section-heading-row .section-intro {
     border-color: #F26A21 !important;
     color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 18px rgba(242, 106, 33, 0.28);
+    box-shadow: 0 0 20px rgba(242, 106, 33, 0.48), 0 4px 18px rgba(0, 0, 0, 0.25) !important;
+  }
+}
+
+/* ==========================================================================
+   STACK TECH TAGS (PILL BOXES AS IN USER IMAGE):
+   On hover: Fill black instead of orange, text turns orange, button hovers and glows!
+   ========================================================================== */
+.stack-tags b {
+  position: relative;
+  overflow: hidden !important;
+  isolation: isolate;
+  background-color: transparent !important;
+  border: 1px solid rgba(23, 23, 23, 0.24) !important;
+  border-radius: var(--radius-pill, 9999px) !important;
+  transition: border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.32s ease,
+              text-shadow 0.32s ease,
+              transform 0.22s ease;
+  cursor: default;
+}
+
+.stack-tags b::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #171717; /* Solid Black / Obsidian Fill */
+  transform-origin: center center;
+  transform: scale(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+@media (hover: hover) {
+  .stack-tags b:hover::before,
+  .stack-tags b:focus-visible::before {
+    transform: scale(1);
   }
 
   .stack-tags b:hover,
   .stack-tags b:focus-visible {
     border-color: #F26A21 !important;
-    color: #FFFFFF !important;
+    color: #F26A21 !important; /* Text turns Orange */
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(242, 106, 33, 0.22);
+    box-shadow: 0 0 16px rgba(242, 106, 33, 0.48), 0 4px 12px rgba(0, 0, 0, 0.28) !important; /* Button Glow */
+    text-shadow: 0 0 8px rgba(242, 106, 33, 0.6) !important; /* Text Glow */
   }
 }
 
 /* ==========================================================================
-   MUTED GREY TEXT HOVER INTERACTION
-   Smooth transition to orange accent on hover without turning whole sections orange
+   MUTED GREY TEXT HOVER & GLOW INTERACTION
+   All grey text elements, subheadings, kickers, notes, and metadata
+   smoothly turn orange and radiate an ambient glow on hover/touch
    ========================================================================== */
-.hero-aside p,
-.hero-copy em,
-.contact-bottom p,
+.section-kicker,
+.section-kicker span,
+.eyebrow,
+.eyebrow span,
+.eyebrow-year,
 .section-intro,
+.hero-aside p,
+.tiny-label,
+.hero-copy em,
+.service-card p,
+.card-index,
+.process-step p,
+.process-step > span,
+.step-num,
+.credential-box p,
+.stack-feature p,
+.stack-feature-label,
+.stack-group span,
+.stack-note,
+.about-statement h2 span,
 .about-copy p,
+.about-facts-item p,
+.about-facts-item span,
 .academic-meta-row p,
-.academic-lead p {
-  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+.academic-meta-row span,
+.academic-lead p,
+.curriculum-card p,
+.curriculum-card-num,
+.degree-timeline-badge,
+.degree-status-pill,
+.faq-list summary,
+.faq-list details p,
+.contact-overline,
+.contact-bottom p,
+.site-footer span {
+  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              text-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (hover: hover) {
-  .hero-aside p:hover,
-  .hero-copy em:hover,
-  .contact-bottom p:hover,
+  .section-kicker:hover,
+  .section-kicker:hover span,
+  .eyebrow:hover,
+  .eyebrow:hover span,
+  .eyebrow-year:hover,
   .section-intro:hover,
+  .hero-aside p:hover,
+  .tiny-label:hover,
+  .hero-copy em:hover,
+  .service-card p:hover,
+  .card-index:hover,
+  .process-step p:hover,
+  .process-step > span:hover,
+  .step-num:hover,
+  .credential-box p:hover,
+  .stack-feature p:hover,
+  .stack-feature-label:hover,
+  .stack-group span:hover,
+  .stack-note:hover,
+  .about-statement h2 span:hover,
   .about-copy p:hover,
+  .about-facts-item p:hover,
+  .about-facts-item span:hover,
   .academic-meta-row p:hover,
-  .academic-lead p:hover {
+  .academic-meta-row span:hover,
+  .academic-lead p:hover,
+  .curriculum-card p:hover,
+  .curriculum-card-num:hover,
+  .degree-timeline-badge:hover,
+  .degree-status-pill:hover,
+  .faq-list summary:hover,
+  .faq-list details p:hover,
+  .contact-overline:hover,
+  .contact-bottom p:hover,
+  .site-footer span:hover {
     color: #F26A21 !important;
+    text-shadow: 0 0 12px rgba(242, 106, 33, 0.6), 0 0 24px rgba(242, 106, 33, 0.3) !important;
     cursor: default;
   }
 }

@@ -400,17 +400,19 @@ document.addEventListener("DOMContentLoaded", () => {
       activeTarget = null;
       navLinks.forEach((link) => link.classList.remove("is-hovered"));
 
+      gsap.killTweensOf(pill);
       gsap.to(pill, {
         opacity: 0,
-        scale: 0.2,
-        duration: 0.24,
+        scale: 0.1,
+        duration: 0.2,
         ease: "power2.inOut",
         onComplete: () => {
           gsap.set(pill, {
             width: 14,
             height: 14,
             borderRadius: "50%",
-            scale: 1,
+            scale: 0,
+            opacity: 0,
             rotation: 0
           });
         }
@@ -427,8 +429,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const targetX = link.offsetLeft + link.offsetWidth * 0.5;
       const targetY = link.offsetTop + link.offsetHeight * 0.5;
-      const targetW = link.offsetWidth;
-      const targetH = link.offsetHeight;
+      const targetW = link.offsetWidth + 6;
+      const targetH = link.offsetHeight + 4;
 
       gsap.killTweensOf(pill);
       gsap.to(pill, {
@@ -436,12 +438,12 @@ document.addEventListener("DOMContentLoaded", () => {
         y: targetY,
         width: targetW,
         height: targetH,
-        borderRadius: "9999px",
+        borderRadius: "8px",
         scaleX: 1,
         scaleY: 1,
         rotation: 0,
         opacity: 1,
-        duration: 0.32,
+        duration: 0.28,
         ease: "power3.out",
         overwrite: "auto"
       });
