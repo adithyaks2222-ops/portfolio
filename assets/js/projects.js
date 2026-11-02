@@ -132,14 +132,18 @@ const PORTFOLIO_PROJECTS = [
 ];
 
 // Helper to render homepage project cards automatically
-function renderProjectShowcase(containerId = "projects-showcase-container") {
+function renderProjectShowcase(containerId = "projects-showcase-container", prefix = "") {
   const container = document.getElementById(containerId);
   if (!container) return;
 
+  // If container already contains static pre-rendered cards, keep them
+  if (container.children.length > 0 && !container.dataset.dynamic) return;
+  container.dataset.dynamic = "true";
+
   container.innerHTML = PORTFOLIO_PROJECTS.map(project => `
-    <a class="project-card reveal" href="${project.detailUrl}" aria-label="View case study for ${project.title}">
+    <a class="project-card reveal" href="${prefix}${project.detailUrl}" aria-label="View case study for ${project.title}">
       <div class="project-visual">
-        <img src="${project.previewImage}" alt="${project.title} preview screenshot" class="project-preview-img" loading="lazy">
+        <img src="${prefix}${project.previewImage}" alt="${project.title} preview screenshot" class="project-preview-img" loading="lazy">
         <span class="visual-tag">${project.category}</span>
       </div>
       <div class="project-info">
@@ -153,7 +157,7 @@ function renderProjectShowcase(containerId = "projects-showcase-container") {
         <div class="project-tech-pills">
           ${project.techStack.map(tech => `
             <span class="tech-pill-mini">
-              <img src="${tech.icon}" alt="" aria-hidden="true" class="tech-icon-mini">
+              <img src="${prefix}${tech.icon}" alt="" aria-hidden="true" class="tech-icon-mini">
               <span>${tech.name}</span>
             </span>
           `).join("")}

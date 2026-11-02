@@ -298,6 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // fills with solid black (#171717), and contracts smoothly upon exit.
   // ==========================================================================
   function initNavLiquidCursor() {
+    if (typeof gsap === "undefined") return;
     const nav = document.querySelector(".main-nav");
     if (!nav) return;
 
