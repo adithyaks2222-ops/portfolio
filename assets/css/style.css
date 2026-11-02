@@ -641,14 +641,23 @@ textarea {
   }
 }
 
-/* Central Nucleus */
+/* Central Nucleus (Interactive LinkedIn Gateway) */
 .atom-nucleus {
   position: absolute;
   width: 68px;
   height: 68px;
   display: grid;
   place-items: center;
-  z-index: 5;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+
+.atom-nucleus:focus-visible .nucleus-core {
+  outline: 2px solid #F26A21;
+  outline-offset: 3px;
 }
 
 .nucleus-pulse {
@@ -657,6 +666,7 @@ textarea {
   border-radius: 50%;
   border: 1px dashed rgba(242, 106, 33, 0.38);
   animation: nucleus-spin 12s linear infinite;
+  pointer-events: none;
 }
 
 .nucleus-core {
@@ -669,15 +679,32 @@ textarea {
   place-items: center;
   border: 1.5px solid rgba(242, 106, 33, 0.5);
   box-shadow: 0 4px 18px rgba(23, 24, 22, 0.22);
-  transition: transform 0.3s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.32s ease,
+              box-shadow 0.32s ease;
 }
 
+.atom-nucleus:hover .nucleus-core {
+  transform: scale(1.1);
+  border-color: #F26A21;
+  box-shadow: 0 0 20px rgba(242, 106, 33, 0.5), 0 6px 22px rgba(23, 24, 22, 0.35);
+}
+
+.atom-nucleus:hover .nucleus-mono,
+.atom-nucleus:hover .nucleus-monogram {
+  color: #F26A21;
+  text-shadow: 0 0 8px rgba(242, 106, 33, 0.65);
+}
+
+.nucleus-mono,
 .nucleus-monogram {
   font-family: var(--mono, "DM Mono", monospace);
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.08em;
   color: #F5F4EF;
+  transition: color 0.32s ease, text-shadow 0.32s ease;
+  user-select: none;
 }
 
 @keyframes nucleus-spin {
