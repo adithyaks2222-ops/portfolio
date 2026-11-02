@@ -121,6 +121,17 @@ const PORTFOLIO_PROJECTS = [
   }
 ];
 
+// Defense-in-depth HTML sanitization helper
+function escapeHtml(str) {
+  if (typeof str !== "string") return str == null ? "" : String(str);
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 // Helper to render homepage project cards automatically
 function renderProjectShowcase(containerId = "projects-showcase-container", prefix = "") {
   const container = document.getElementById(containerId);
@@ -131,24 +142,24 @@ function renderProjectShowcase(containerId = "projects-showcase-container", pref
   container.dataset.dynamic = "true";
 
   container.innerHTML = PORTFOLIO_PROJECTS.map(project => `
-    <a class="project-card reveal" href="${prefix}${project.detailUrl}" aria-label="View case study for ${project.title}">
+    <a class="project-card reveal" href="${prefix}${escapeHtml(project.detailUrl)}" aria-label="View case study for ${escapeHtml(project.title)}">
       <div class="project-visual">
-        <img src="${prefix}${project.previewImage}" alt="${project.title} preview screenshot" class="project-preview-img" loading="lazy">
-        <span class="visual-tag">${project.category}</span>
+        <img src="${prefix}${escapeHtml(project.previewImage)}" alt="${escapeHtml(project.title)} preview screenshot" class="project-preview-img" loading="lazy">
+        <span class="visual-tag">${escapeHtml(project.category)}</span>
       </div>
       <div class="project-info">
         <div class="project-info-main">
           <div class="project-title-row">
-            <h3 class="project-card-title">${project.title} <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
-            <span class="project-status-badge ${project.statusClass}">${project.status}</span>
+            <h3 class="project-card-title">${escapeHtml(project.title)} <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+            <span class="project-status-badge ${escapeHtml(project.statusClass)}">${escapeHtml(project.status)}</span>
           </div>
-          <p class="project-one-liner">${project.shortDescription}</p>
+          <p class="project-one-liner">${escapeHtml(project.shortDescription)}</p>
         </div>
         <div class="project-tech-pills">
           ${project.techStack.map(tech => `
             <span class="tech-pill-mini">
-              <img src="${prefix}${tech.icon}" alt="" aria-hidden="true" class="tech-icon-mini">
-              <span>${tech.name}</span>
+              <img src="${prefix}${escapeHtml(tech.icon)}" alt="" aria-hidden="true" class="tech-icon-mini">
+              <span>${escapeHtml(tech.name)}</span>
             </span>
           `).join("")}
         </div>

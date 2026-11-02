@@ -773,7 +773,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Subpage Header Entrance (if on subpages)
 
-    const subpageHeader = document.querySelector(".subpage-header");
+    const subpageHeader = document.querySelector(".subpage-header, .subpage-hero");
 
     if (subpageHeader) {
 

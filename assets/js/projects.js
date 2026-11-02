@@ -1,12 +1,6 @@
 /**
  * CENTRAL PROJECTS REPOSITORY
  * Scalable architecture for Adithya K S Portfolio
- * 
- * To add a new project in the future:
- * 1. Add its HTML detail page in `projects/<project-id>.html`
- * 2. Add its preview images/mockups in `assets/images/projects/`
- * 3. Add an entry to this array
- * The homepage showcase will automatically render the new project card!
  */
 
 const PORTFOLIO_PROJECTS = [
@@ -14,8 +8,8 @@ const PORTFOLIO_PROJECTS = [
     id: "capx",
     title: "CAPX",
     tagline: "Cyber Analysis & Protection eXplorer",
-    category: "DEFENSIVE SECURITY / SYSTEM ANALYSIS",
-    shortDescription: "A Windows system analysis and security inspection application.",
+    category: "DEFENSIVE SECURITY",
+    shortDescription: "Windows system analysis and security inspection utility.",
     status: "In Development",
     statusClass: "in-dev",
     previewImage: "assets/images/projects/capx.svg",
@@ -27,16 +21,15 @@ const PORTFOLIO_PROJECTS = [
       { name: "Python", icon: "assets/images/icons/python.svg" },
       { name: "Flask", icon: "assets/images/icons/flask.svg" },
       { name: "JavaScript", icon: "assets/images/icons/javascript.svg" },
-      { name: "HTML5", icon: "assets/images/icons/html5.svg" },
-      { name: "CSS3", icon: "assets/images/icons/css3.svg" }
+      { name: "HTML5", icon: "assets/images/icons/html5.svg" }
     ]
   },
   {
     id: "phisheye",
     title: "PhishEye",
     tagline: "Heuristic Phishing Detection Extension",
-    category: "BROWSER SECURITY / HEURISTICS",
-    shortDescription: "A Chrome extension that analyses URLs and website content for potential phishing indicators.",
+    category: "BROWSER SECURITY",
+    shortDescription: "Chrome extension analyzing URLs for phishing indicators.",
     status: "Development",
     statusClass: "in-dev",
     previewImage: "assets/images/projects/phisheye.svg",
@@ -47,16 +40,15 @@ const PORTFOLIO_PROJECTS = [
     techStack: [
       { name: "JavaScript", icon: "assets/images/icons/javascript.svg" },
       { name: "Chrome API", icon: "assets/images/icons/chrome.svg" },
-      { name: "HTML5", icon: "assets/images/icons/html5.svg" },
-      { name: "CSS3", icon: "assets/images/icons/css3.svg" }
+      { name: "HTML5", icon: "assets/images/icons/html5.svg" }
     ]
   },
   {
     id: "jarvx",
     title: "JARVX",
     tagline: "Python Command-Line Network Scanner",
-    category: "NETWORKING / CLI UTILITY",
-    shortDescription: "A Python command-line network scanning utility.",
+    category: "CLI NETWORKING",
+    shortDescription: "Lightweight command-line network diagnostic tool.",
     status: "Prototype",
     statusClass: "prototype",
     previewImage: "assets/images/projects/jarvx.svg",
@@ -67,15 +59,15 @@ const PORTFOLIO_PROJECTS = [
     techStack: [
       { name: "Python", icon: "assets/images/icons/python.svg" },
       { name: "Sockets", icon: "assets/images/icons/cisco.svg" },
-      { name: "PyInstaller", icon: "assets/images/icons/linux.svg" }
+      { name: "Linux", icon: "assets/images/icons/linux.svg" }
     ]
   },
   {
     id: "codeburner",
     title: "CodeBurner",
-    tagline: "AI-Assisted Code Review & Feedback Extension",
-    category: "DEVELOPER EXPERIENCE / AI",
-    shortDescription: "An AI-assisted code review and feedback extension for Visual Studio Code.",
+    tagline: "Ephemeral Code Paste Application",
+    category: "DEV TOOLS",
+    shortDescription: "Paste-sharing web application with burning expiration.",
     status: "MVP Completed",
     statusClass: "mvp",
     previewImage: "assets/images/projects/codeburner.svg",
@@ -85,17 +77,16 @@ const PORTFOLIO_PROJECTS = [
     downloadUrl: null,
     techStack: [
       { name: "JavaScript", icon: "assets/images/icons/javascript.svg" },
-      { name: "VS Code API", icon: "assets/images/icons/vscode.svg" },
-      { name: "Ollama", icon: "assets/images/icons/ollama.svg" },
-      { name: "Llama 3", icon: "assets/images/icons/python.svg" }
+      { name: "Node.js", icon: "assets/images/icons/nodejs.svg" },
+      { name: "MongoDB", icon: "assets/images/icons/mongodb.svg" }
     ]
   },
   {
     id: "starkforge",
     title: "StarkForge",
-    tagline: "Interactive Educational Technology Platform",
-    category: "EDTECH / INTERACTIVE LEARNING",
-    shortDescription: "An interactive educational technology platform for computer science and logic simulation.",
+    tagline: "Interactive Developer Dashboard",
+    category: "DASHBOARD",
+    shortDescription: "Developer dashboard with system monitors and widgets.",
     status: "Actively Developing",
     statusClass: "in-dev",
     previewImage: "assets/images/projects/starkforge.svg",
@@ -112,10 +103,10 @@ const PORTFOLIO_PROJECTS = [
   {
     id: "geotagger",
     title: "GeoTagger",
-    tagline: "Location-Based Photo Organization Tool",
-    category: "PRODUCTIVITY / GEOLOCATION",
-    shortDescription: "A location-based photo organization and verification tool.",
-    status: "Project Prototype",
+    tagline: "Geolocation Verification Utility",
+    category: "GEOLOCATION",
+    shortDescription: "Photo geolocation extraction and map verification utility.",
+    status: "Prototype",
     statusClass: "prototype",
     previewImage: "assets/images/projects/geotagger.svg",
     detailUrl: "projects/geotagger.html",
@@ -123,13 +114,23 @@ const PORTFOLIO_PROJECTS = [
     liveDemoUrl: null,
     downloadUrl: null,
     techStack: [
-      { name: "HTML5", icon: "assets/images/icons/html5.svg" },
-      { name: "CSS3", icon: "assets/images/icons/css3.svg" },
       { name: "JavaScript", icon: "assets/images/icons/javascript.svg" },
-      { name: "Google Maps", icon: "assets/images/icons/chrome.svg" }
+      { name: "Maps API", icon: "assets/images/icons/chrome.svg" },
+      { name: "HTML5", icon: "assets/images/icons/html5.svg" }
     ]
   }
 ];
+
+// Defense-in-depth HTML sanitization helper
+function escapeHtml(str) {
+  if (typeof str !== "string") return str == null ? "" : String(str);
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 // Helper to render homepage project cards automatically
 function renderProjectShowcase(containerId = "projects-showcase-container", prefix = "") {
@@ -141,24 +142,24 @@ function renderProjectShowcase(containerId = "projects-showcase-container", pref
   container.dataset.dynamic = "true";
 
   container.innerHTML = PORTFOLIO_PROJECTS.map(project => `
-    <a class="project-card reveal" href="${prefix}${project.detailUrl}" aria-label="View case study for ${project.title}">
+    <a class="project-card reveal" href="${prefix}${escapeHtml(project.detailUrl)}" aria-label="View case study for ${escapeHtml(project.title)}">
       <div class="project-visual">
-        <img src="${prefix}${project.previewImage}" alt="${project.title} preview screenshot" class="project-preview-img" loading="lazy">
-        <span class="visual-tag">${project.category}</span>
+        <img src="${prefix}${escapeHtml(project.previewImage)}" alt="${escapeHtml(project.title)} preview screenshot" class="project-preview-img" loading="lazy">
+        <span class="visual-tag">${escapeHtml(project.category)}</span>
       </div>
       <div class="project-info">
         <div class="project-info-main">
           <div class="project-title-row">
-            <h3 class="project-card-title">${project.title} <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
-            <span class="project-status-badge ${project.statusClass}">${project.status}</span>
+            <h3 class="project-card-title">${escapeHtml(project.title)} <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+            <span class="project-status-badge ${escapeHtml(project.statusClass)}">${escapeHtml(project.status)}</span>
           </div>
-          <p class="project-one-liner">${project.shortDescription}</p>
+          <p class="project-one-liner">${escapeHtml(project.shortDescription)}</p>
         </div>
         <div class="project-tech-pills">
           ${project.techStack.map(tech => `
             <span class="tech-pill-mini">
-              <img src="${prefix}${tech.icon}" alt="" aria-hidden="true" class="tech-icon-mini">
-              <span>${tech.name}</span>
+              <img src="${prefix}${escapeHtml(tech.icon)}" alt="" aria-hidden="true" class="tech-icon-mini">
+              <span>${escapeHtml(tech.name)}</span>
             </span>
           `).join("")}
         </div>
