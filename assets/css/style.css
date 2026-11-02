@@ -138,37 +138,19 @@ textarea {
    02. TYPOGRAPHY HELPERS & LABELS
    -------------------------------------------------------------------------- */
 .eyebrow,
-.section-kicker,
 .tiny-label,
 .project-type,
 .stack-feature-label,
 .stack-group>span,
 .contact-overline,
 .site-footer,
-.art-label,
-.marquee-label-text,
 .card-index,
 .process-step>span,
-.pedestal-tag,
-.perspective-card-index {
+{
   font-family: var(--mono, "DM Mono", monospace);
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.section-kicker {
-  color: #777970;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 46px;
-}
-
-.section-kicker span {
-  color: #a0a197;
 }
 
 .section-heading-row {
@@ -659,8 +641,8 @@ textarea {
   border: 1.5px solid rgba(242, 106, 33, 0.5);
   box-shadow: 0 4px 18px rgba(23, 24, 22, 0.22);
   transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.32s ease,
-              box-shadow 0.32s ease;
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
 }
 
 .atom-nucleus:hover .nucleus-core {
@@ -714,377 +696,6 @@ textarea {
 }
 
 /* --------------------------------------------------------------------------
-   05. CENTRAL SEATED PORTRAIT WITH 3D PERSPECTIVE CORRIDOR (PART 2)
-   -------------------------------------------------------------------------- */
-.perspective-section {
-  padding-top: 100px;
-  padding-bottom: 120px;
-  background-color: var(--ink);
-  color: var(--paper);
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line-dark);
-}
-
-.perspective-section .section-kicker {
-  color: #a1a398;
-  border-bottom-color: var(--line-dark);
-}
-
-.perspective-section .section-kicker span {
-  color: var(--accent);
-}
-
-.perspective-header {
-  margin-bottom: 45px;
-}
-
-.perspective-header h2 {
-  color: var(--paper);
-}
-
-.perspective-header h2 span {
-  color: #7e8278;
-}
-
-/* 3D Perspective Stage Viewport */
-.perspective-stage-viewport {
-  perspective: 1300px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 560px;
-  padding: 40px 0;
-  width: 100%;
-}
-
-/* Floor Grid Perspective Lines converging to center */
-.perspective-stage-viewport::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  right: 5%;
-  height: 240px;
-  background: linear-gradient(to top, rgba(242, 106, 33, 0.05), transparent), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px);
-  transform: rotateX(65deg);
-  transform-origin: bottom center;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Perspective Corridor Wings */
-.perspective-wing {
-  display: flex;
-  gap: 20px;
-  transform-style: preserve-3d;
-  z-index: 2;
-  will-change: transform;
-}
-
-/* Left Corridor: angled towards center */
-.wing-left {
-  transform: rotateY(32deg) rotateX(2deg) translateZ(-30px);
-  transform-origin: right center;
-  animation: float-left-wing 7s ease-in-out infinite alternate;
-}
-
-/* Right Corridor: angled towards center symmetrically */
-.wing-right {
-  transform: rotateY(-32deg) rotateX(2deg) translateZ(-30px);
-  transform-origin: left center;
-  animation: float-right-wing 7.5s ease-in-out infinite alternate;
-}
-
-@keyframes float-left-wing {
-  0% {
-    transform: rotateY(32deg) rotateX(2deg) translateZ(-30px) translateY(0);
-  }
-
-  100% {
-    transform: rotateY(30deg) rotateX(1deg) translateZ(-20px) translateY(-8px);
-  }
-}
-
-@keyframes float-right-wing {
-  0% {
-    transform: rotateY(-32deg) rotateX(2deg) translateZ(-30px) translateY(0);
-  }
-
-  100% {
-    transform: rotateY(-30deg) rotateX(1deg) translateZ(-20px) translateY(-8px);
-  }
-}
-
-/* Perspective Tech Panels */
-.perspective-card {
-  width: 195px;
-  min-height: 250px;
-  background: rgba(30, 33, 28, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-sm);
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: transform var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast), background var(--trans-fast);
-  transform-style: preserve-3d;
-  position: relative;
-  cursor: default;
-}
-
-/* Outer cards appear larger and more angled as requested */
-.card-outer-left {
-  transform: scale(1.08) translateZ(35px);
-}
-
-.card-mid-left {
-  transform: scale(0.98) translateZ(0px);
-}
-
-.card-inner-left {
-  transform: scale(0.90) translateZ(-40px);
-}
-
-.card-inner-right {
-  transform: scale(0.90) translateZ(-40px);
-}
-
-.card-mid-right {
-  transform: scale(0.98) translateZ(0px);
-}
-
-.card-outer-right {
-  transform: scale(1.08) translateZ(35px);
-}
-
-.perspective-card:hover {
-  transform: translateZ(55px) scale(1.12);
-  border-color: var(--accent);
-  background: rgba(36, 40, 34, 0.98);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(242, 106, 33, 0.25);
-  z-index: 10;
-}
-
-.perspective-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.perspective-card-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: grid;
-  place-items: center;
-  padding: 6px;
-}
-
-.perspective-card-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.perspective-card-index {
-  color: #8b8e83;
-  font-size: 9px;
-}
-
-.perspective-card-body h4 {
-  font-family: var(--display, "Manrope", sans-serif);
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: -0.03em;
-  color: var(--paper);
-  margin: 0 0 8px;
-  line-height: 1.2;
-}
-
-.perspective-card-body p {
-  font-size: 11px;
-  line-height: 1.6;
-  color: #9ea196;
-  margin: 0;
-}
-
-.perspective-card-footer {
-  margin-top: 20px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.perspective-card-footer span {
-  font-family: var(--mono, "DM Mono", monospace);
-  font-size: 9px;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-}
-
-/* Central Stage & Seated Portrait */
-.perspective-center {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 10px;
-  transform-style: preserve-3d;
-}
-
-.portrait-stage-wrap {
-  width: 320px;
-  height: 440px;
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-/* Ambient Backlight Halo behind portrait */
-.portrait-aura {
-  position: absolute;
-  width: 290px;
-  height: 290px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(242, 106, 33, 0.22) 0%, rgba(242, 106, 33, 0.05) 50%, transparent 75%);
-  top: 60px;
-  pointer-events: none;
-  filter: blur(20px);
-}
-
-/* Main Seated Portrait Image */
-.portrait-seated-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6));
-  transition: transform var(--trans-normal);
-}
-
-.portrait-stage-wrap:hover .portrait-seated-img {
-  transform: scale(1.02);
-}
-
-/* Stage Pedestal Tag beneath Portrait */
-.stage-pedestal {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(25, 28, 24, 0.92);
-  border: 1px solid rgba(242, 106, 33, 0.4);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  margin-top: -15px;
-  position: relative;
-  z-index: 6;
-}
-
-.pedestal-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-}
-
-.pedestal-tag {
-  color: var(--paper);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-}
-
-
-/* Logo Marquee Card Pill */
-.marquee-logo-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  padding: 9px 18px;
-  background: rgba(33, 36, 31, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-pill);
-  transition: color var(--trans-fast), background-color var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast);
-  cursor: default;
-}
-
-.marquee-logo-card:hover {
-  background: rgba(45, 49, 42, 0.95);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-}
-
-.marquee-icon-wrap {
-  width: 20px;
-  height: 20px;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-
-.marquee-icon-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.marquee-tech-name {
-  font-family: var(--sans, "DM Sans", sans-serif);
-  font-weight: 500;
-  font-size: 13px;
-  color: var(--paper);
-  letter-spacing: -0.01em;
-}
-
-.marquee-row-header-pill {
-  font-family: var(--mono, "DM Mono", monospace);
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  border: 1px solid rgba(242, 106, 33, 0.45);
-  background: rgba(242, 106, 33, 0.08);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  margin-right: 14px;
-}
-
-@keyframes marquee-left {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* --------------------------------------------------------------------------
    07. SERVICES / WHAT I DO
    -------------------------------------------------------------------------- */
 .services,
@@ -1120,16 +731,8 @@ textarea {
   border-right: 0;
 }
 
-
-
 .card-index {
   color: #999b91;
-}
-
-.service-icon {
-  font-size: 30px;
-  margin: 30px 0 22px;
-  color: var(--ink);
 }
 
 .service-card h3 {
@@ -1420,12 +1023,6 @@ textarea {
   color: #96988e;
 }
 
-.process-icon {
-  font-size: 25px;
-  margin: 27px 0 20px;
-  color: var(--ink);
-}
-
 .process-step h3 {
   font-family: var(--display, "Manrope", sans-serif);
   font-weight: 700;
@@ -1555,11 +1152,6 @@ textarea {
   padding-bottom: 75px;
 }
 
-.contact-section .section-kicker {
-  color: #a1a398;
-  border-bottom-color: var(--line-dark);
-}
-
 .contact-main {
   padding: 75px 0 70px;
 }
@@ -1687,26 +1279,6 @@ html.no-js .reveal {
 /* --------------------------------------------------------------------------
    16. RESPONSIVE DESIGN (TABLET & MOBILE)
    -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
-  .perspective-card {
-    width: 165px;
-    min-height: 230px;
-    padding: 18px 14px;
-  }
-
-  .portrait-stage-wrap {
-    width: 270px;
-    height: 380px;
-  }
-
-  .wing-left {
-    transform: rotateY(24deg) rotateX(1deg) translateZ(-20px);
-  }
-
-  .wing-right {
-    transform: rotateY(-24deg) rotateX(1deg) translateZ(-20px);
-  }
-}
 
 @media (max-width: 900px) {
   .hero {
@@ -1752,46 +1324,7 @@ html.no-js .reveal {
     grid-template-columns: 1fr;
   }
 
-  /* Tablet Perspective stage */
-  .perspective-stage-viewport {
-    flex-direction: column;
-    perspective: none;
-    min-height: auto;
-    gap: 30px;
-    padding: 20px 0;
   }
-
-  .perspective-stage-viewport::before {
-    display: none;
-  }
-
-  .perspective-center {
-    order: 1;
-    margin: 0;
-  }
-
-  .wing-left {
-    order: 2;
-    transform: none;
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .wing-right {
-    order: 3;
-    transform: none;
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .perspective-card {
-    transform: none;
-    width: 210px;
-    min-height: 200px;
-  }
-}
 
 @media (max-width: 640px) {
   .site-header {
@@ -1869,15 +1402,7 @@ html.no-js .reveal {
     opacity: 0.5;
   }
 
-  .orbit-core {
-    width: 60px;
-    height: 60px;
-    font-size: 15px;
-  }
-
-  .art-label {
-    display: none;
-  }
+  
 
   .hero-bottom {
     display: block;
@@ -1936,11 +1461,7 @@ html.no-js .reveal {
     border-bottom: 0;
   }
 
-  .service-icon {
-    margin: 20px 0 14px;
-  }
-
-
+  
 
   .stack-layout {
     grid-template-columns: 1fr;
@@ -2040,16 +1561,7 @@ html.no-js .reveal {
     display: none;
   }
 
-  /* Mobile 3D Perspective section */
-  .portrait-stage-wrap {
-    width: 240px;
-    height: 340px;
-  }
-
-  .perspective-card {
-    width: 100%;
-    max-width: 300px;
-  }
+  
 }
 
 /* --------------------------------------------------------------------------
@@ -2070,17 +1582,8 @@ html.no-js .reveal {
     transform: none;
   }
 
-  .track-row-1,
-  .track-row-2,
-  .track-row-3,
-  .wing-left,
-  .wing-right {
-    animation: none;
-  }
+  
 }
-
-
-
 
 .back-nav-bar {
   padding: 24px var(--gutter);
@@ -2476,7 +1979,6 @@ html.no-js .reveal {
   }
 }
 
-
 /* ==========================================================================
    08.1 ACADEMIC PATHWAY & CURRICULUM FOUNDATIONS
    ========================================================================== */
@@ -2695,7 +2197,6 @@ html.no-js .reveal {
   }
 }
 
-
 /* ==========================================================================
    LIQUID CURSOR NAVIGATION STYLES
    ========================================================================== */
@@ -2724,9 +2225,9 @@ html.no-js .reveal {
   border-radius: var(--radius-pill);
   color: var(--ink);
   transition: color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-              background-color 0.25s ease,
-              text-shadow 0.25s ease,
-              box-shadow 0.25s ease;
+    background-color 0.25s ease,
+    text-shadow 0.25s ease,
+    box-shadow 0.25s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2888,8 +2389,6 @@ html.no-js .reveal {
   opacity: 0.95;
 }
 
-
-
 .project-card:hover .project-status-badge {
   color: #F26A21;
   border-color: #F26A21;
@@ -2912,6 +2411,7 @@ html.no-js .reveal {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .project-card,
   .project-preview-img,
   .arrow-glyph {
@@ -2919,7 +2419,6 @@ html.no-js .reveal {
     transform: none;
   }
 }
-
 
 /* Gray Subheadings & Typography Word Hover Interaction */
 .gray-word {
@@ -2955,8 +2454,6 @@ html.no-js .reveal {
   display: block;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-
 
 /* Card Information & Content: Generous breathing space */
 .project-info {

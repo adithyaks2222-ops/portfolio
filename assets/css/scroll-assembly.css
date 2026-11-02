@@ -17,7 +17,6 @@ html.gsap-active .hero-bottom,
 html.gsap-active .hero-copy,
 html.gsap-active .hero-aside,
 html.gsap-active .hero-art,
-html.gsap-active .ticker,
 html.gsap-active .curved-marquee-viewport,
 html.gsap-active .central-foreground-photo,
 html.gsap-active .service-card,
@@ -37,7 +36,7 @@ html.gsap-active .contact-bottom,
 html.gsap-active .site-footer,
 html.gsap-active .section-heading-row h2,
 html.gsap-active .section-heading-row .section-intro {
-  transition: none !important;
+  transition: none;
   will-change: transform, opacity;
 }
 
@@ -53,7 +52,7 @@ html.gsap-active .section-heading-row .section-intro {
 .curriculum-card,
 .project-card {
   position: relative;
-  overflow: hidden !important;
+  overflow: hidden;
   isolation: isolate;
   background-color: var(--color-background, #F5F4EF);
   transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -154,8 +153,8 @@ html.gsap-active .section-heading-row .section-intro {
   .credential-box:hover h4,
   .curriculum-card:hover h4,
   .project-card:hover .project-card-title {
-    color: #F26A21 !important;
-    text-shadow: 0 0 10px rgba(242, 106, 33, 0.6) !important;
+    color: #F26A21;
+    text-shadow: 0 0 10px rgba(242, 106, 33, 0.6);
   }
 
   /* Body Descriptions: Soft readable warm cream for service/process/credentials */
@@ -163,13 +162,13 @@ html.gsap-active .section-heading-row .section-intro {
   .process-step:hover p,
   .credential-box:hover p,
   .curriculum-card:hover p {
-    color: #E5E4DE !important;
+    color: #E5E4DE;
   }
 
   /* Projects Section: Universal Contract - All text is ALWAYS Orange inside dark box */
   .project-card:hover .project-one-liner {
-    color: #F26A21 !important;
-    text-shadow: 0 0 6px rgba(242, 106, 33, 0.35) !important;
+    color: #F26A21;
+    text-shadow: 0 0 6px rgba(242, 106, 33, 0.35);
   }
 
   /* Numeric Indices & Dynamic Glyphs: Burnt Orange Accent */
@@ -177,7 +176,7 @@ html.gsap-active .section-heading-row .section-intro {
   .process-step:hover > span,
   .service-card:hover .card-arrow,
   .project-card:hover .arrow-glyph {
-    color: #F26A21 !important;
+    color: #F26A21;
   }
 
   .service-card:hover .card-arrow,
@@ -186,15 +185,15 @@ html.gsap-active .section-heading-row .section-intro {
   }
 
   .credential-box:hover .badge {
-    background: rgba(242, 106, 33, 0.16) !important;
-    color: #F26A21 !important;
-    border-color: rgba(242, 106, 33, 0.45) !important;
+    background: rgba(242, 106, 33, 0.16);
+    color: #F26A21;
+    border-color: rgba(242, 106, 33, 0.45);
   }
 
   .project-card:hover .tech-pill-mini {
-    background-color: #242721 !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
-    color: #F5F4EF !important;
+    background-color: #242721;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #F5F4EF;
   }
 }
 
@@ -208,12 +207,12 @@ html.gsap-active .section-heading-row .section-intro {
 .pill-btn,
 .stack-tags b {
   position: relative;
-  overflow: hidden !important;
+  overflow: hidden;
   isolation: isolate;
-  background-color: transparent !important;
-  border: 1px solid rgba(23, 23, 23, 0.26) !important;
-  border-radius: var(--radius-pill, 9999px) !important;
-  color: var(--ink) !important;
+  background-color: transparent;
+  border: 1px solid rgba(23, 23, 23, 0.26);
+  border-radius: var(--radius-pill, 9999px);
+  color: var(--ink);
   transition: border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
               color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.32s ease,
@@ -267,18 +266,18 @@ html.gsap-active .section-heading-row .section-intro {
 .stack-tags b:hover,
 .stack-tags b:focus-visible,
 .stack-tags b:active {
-  border-color: #F26A21 !important;
-  color: #F26A21 !important; /* Text is ALWAYS Orange when box is black */
+  border-color: #F26A21;
+  color: #F26A21; /* Text is ALWAYS Orange when box is black */
   transform: translateY(-2px);
-  box-shadow: 0 0 16px rgba(242, 106, 33, 0.48), 0 4px 14px rgba(0, 0, 0, 0.28) !important;
-  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6) !important;
+  box-shadow: 0 0 16px rgba(242, 106, 33, 0.48), 0 4px 14px rgba(0, 0, 0, 0.28);
+  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
 }
 
 .header-cta:hover span,
 .all-work-link:hover span,
 .pill-btn:hover span {
-  color: #F26A21 !important;
-  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6) !important;
+  color: #F26A21;
+  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
 }
 
 /* ==========================================================================
@@ -286,8 +285,6 @@ html.gsap-active .section-heading-row .section-intro {
    Every subheading, kicker, intro, note, label, metadata across each section
    smoothly fills/turns orange and glows when mouse touches or hovers over it.
    ========================================================================== */
-.section-kicker,
-.section-kicker *,
 .section-intro,
 .section-intro *,
 .curved-marquee-header .section-intro,
@@ -339,8 +336,6 @@ html.gsap-active .section-heading-row .section-intro {
               text-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.section-kicker:hover,
-.section-kicker:hover *,
 .section-intro:hover,
 .section-intro:hover *,
 .curved-marquee-header .section-intro:hover,
@@ -388,7 +383,6 @@ html.gsap-active .section-heading-row .section-intro {
 .contact-bottom p:hover,
 .site-footer span:hover,
 html.gsap-active .section-heading-row .section-intro:hover,
-.section-kicker:active,
 .section-intro:active,
 .eyebrow:active,
 .hero-aside p:active,
@@ -399,8 +393,8 @@ html.gsap-active .section-heading-row .section-intro:hover,
 .process-step p:active,
 .stack-note:active,
 .faq-list summary:active {
-  color: #F26A21 !important;
-  text-shadow: 0 0 12px rgba(242, 106, 33, 0.6), 0 0 24px rgba(242, 106, 33, 0.3) !important;
+  color: #F26A21;
+  text-shadow: 0 0 12px rgba(242, 106, 33, 0.6), 0 0 24px rgba(242, 106, 33, 0.3);
   cursor: default;
 }
 
@@ -469,8 +463,8 @@ html.gsap-active .section-heading-row .section-intro:hover,
   .all-work-link::before,
   .stack-tags b::before,
   .process-flow-fill {
-    transform: none !important;
-    opacity: 1 !important;
-    transition: none !important;
+    transform: none;
+    opacity: 1;
+    transition: none;
   }
 }

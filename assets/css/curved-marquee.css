@@ -110,8 +110,8 @@
   -webkit-transform: translate(-50%, -50%) translateZ(var(--cutout-z));
   transform: translate(-50%, -50%) translateZ(var(--cutout-z));
   z-index: 100;
-  height: clamp(480px, 64vh, 570px);
-  max-height: 90%;
+  height: clamp(600px, 60vh, 800px);
+  max-height: 80%;
   pointer-events: none;
   -webkit-animation: floatGentle 4.5s ease-in-out infinite;
   animation: floatGentle 4.5s ease-in-out infinite;
@@ -125,11 +125,12 @@
   object-fit: contain;
   -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 85%, transparent 100%);
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0));
   will-change: transform;
 }
 
 @keyframes floatGentle {
+
   0%,
   100% {
     transform: translate(-50%, -50%) translateZ(var(--cutout-z, 200px)) translateY(0);
@@ -149,8 +150,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .stage-cutout {
-    -webkit-animation: none !important;
-    animation: none !important;
+    -webkit-animation: none;
+    animation: none;
   }
 }
 
@@ -197,7 +198,7 @@
 .curved-marquee-viewport:hover .marquee-track,
 .curved-marquee-viewport:focus-within .marquee-track,
 .curved-marquee-viewport:active .marquee-track {
-  animation-play-state: running !important;
+  animation-play-state: running;
 }
 
 @keyframes marquee-scroll-rtl {
@@ -247,14 +248,13 @@
 }
 
 /* When box fills with black color: text is ALWAYS orange! When box returns to white: text turns back! */
-.tech-marquee-card:hover,
-.tech-marquee-card:focus-visible,
-.tech-marquee-card:active {
-  background-color: #171717 !important;
-  /* Box fills with black */
-  border-color: #F26A21 !important;
+.curved-marquee-section .tech-marquee-card:hover,
+.curved-marquee-section .tech-marquee-card:focus-visible,
+.curved-marquee-section .tech-marquee-card:active {
+  background-color: #171717;
+  border-color: #F26A21;
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(242, 106, 33, 0.42), 0 8px 24px rgba(0, 0, 0, 0.38) !important;
+  box-shadow: 0 0 20px rgba(242, 106, 33, 0.42), 0 8px 24px rgba(0, 0, 0, 0.38);
 }
 
 .card-logo-wrap {
@@ -289,12 +289,11 @@
   white-space: nowrap;
 }
 
-.tech-marquee-card:hover .tech-card-name,
-.tech-marquee-card:focus-visible .tech-card-name,
-.tech-marquee-card:active .tech-card-name {
-  color: #F26A21 !important;
-  /* Text is ALWAYS Orange when box is black */
-  text-shadow: 0 0 10px rgba(242, 106, 33, 0.65) !important;
+.curved-marquee-section .tech-marquee-card:hover .tech-card-name,
+.curved-marquee-section .tech-marquee-card:focus-visible .tech-card-name,
+.curved-marquee-section .tech-marquee-card:active .tech-card-name {
+  color: #F26A21;
+  text-shadow: 0 0 10px rgba(242, 106, 33, 0.65);
 }
 
 /* ==========================================================================
@@ -343,19 +342,6 @@
     font-size: 10px;
   }
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 }
 
 @media (max-width: 640px) {
@@ -405,20 +391,6 @@
     font-size: 9px;
   }
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
   .marquee-fade-mask {
     width: 70px;
   }
@@ -426,11 +398,11 @@
 
 /* Accessibility: respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none !important;
+  .curved-marquee-section .marquee-track {
+    animation: none;
   }
 
-  .tech-marquee-card {
-    transform: none !important;
+  .curved-marquee-section .tech-marquee-card {
+    transform: none;
   }
 }
