@@ -1648,41 +1648,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // 14. Scroll-synchronized section kicker liquid fill lines
 
-    document.querySelectorAll(".section-kicker").forEach((kicker) => {
-
-      if (!kicker.querySelector(".section-kicker-fill-line")) {
-
-        const line = document.createElement("span");
-
-        line.className = "section-kicker-fill-line";
-
-        kicker.appendChild(line);
-
-        gsap.fromTo(line, { scaleX: 0 }, {
-
-          scaleX: 1,
-
-          ease: "none",
-
-          scrollTrigger: {
-
-            trigger: kicker.closest("section") || kicker,
-
-            start: "top 85%",
-
-            end: "top 40%",
-
-            scrub: 0.8,
-
-          }
-
-        });
-
-      }
-
-    });
 
 
 
@@ -1722,41 +1688,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // 16. Process flow connector track liquid fill
 
-    const processGridEl = document.querySelector(".process-grid");
-
-    if (processGridEl && !processGridEl.querySelector(".process-flow-fill")) {
-
-      processGridEl.classList.add("process-flow-track");
-
-      const flowFill = document.createElement("div");
-
-      flowFill.className = "process-flow-fill";
-
-      processGridEl.prepend(flowFill);
-
-      gsap.fromTo(flowFill, { scaleX: 0 }, {
-
-        scaleX: 1,
-
-        ease: "none",
-
-        scrollTrigger: {
-
-          trigger: processGridEl,
-
-          start: "top 80%",
-
-          end: "top 30%",
-
-          scrub: 0.8,
-
-        }
-
-      });
-
-    }
 
 
 

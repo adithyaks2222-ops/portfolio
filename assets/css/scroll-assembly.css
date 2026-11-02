@@ -42,52 +42,71 @@ html.gsap-active .section-heading-row .section-intro {
 }
 
 /* ==========================================================================
-   SMOOTH DIRECTIONAL LIQUID BOX FILL & REVERSE ANIMATIONS
-   Fluid bottom-to-top rising fill & gentle breathing retreat on reverse
+   SYMBIOTE-LIKE LIQUID BLACK BOX-FILL EFFECT
+   Organic curved liquid meniscus surging upward across cards on hover
    ========================================================================== */
 
-/* Card Containers: Isolate stacking context so fill stays behind text but in front of background */
+/* Card Containers: Isolate stacking context so liquid stays clipped inside */
 .service-card,
 .process-step,
 .credential-box,
+.curriculum-card,
 .project-card {
   position: relative;
-  overflow: hidden;
+  overflow: hidden !important;
   isolation: isolate;
-  background-color: var(--color-background);
-  transition: border-color 0.4s cubic-bezier(0.25, 1, 0.35, 1),
-              box-shadow 0.45s cubic-bezier(0.25, 1, 0.35, 1);
+  background-color: var(--color-background, #F5F4EF);
+  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Liquid Fill Layer: Scales smoothly from bottom to top on entry, drains on exit */
+/* Symbiote Liquid Layer: Organic curved meniscus expanding from bottom */
 .service-card::before,
 .process-step::before,
 .credential-box::before,
+.curriculum-card::before,
 .project-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: #171717;
-  transform-origin: bottom center;
-  transform: scaleY(0);
-  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-  z-index: -1;
+  top: 100%;
+  left: -20%;
+  right: -20%;
+  height: 220%;
+  background-color: #171717;
+  border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+  transform: translateY(0);
+  transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, border-radius;
+  z-index: 0;
   pointer-events: none;
-  border-radius: inherit;
 }
 
-/* On hover / focus-visible: Liquid spreads upwards smoothly */
+/* Ensure inner elements sit cleanly above the liquid fill */
+.service-card > *,
+.process-step > *,
+.credential-box > *,
+.curriculum-card > *,
+.project-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 @media (hover: hover) {
+  /* Fluid liquid surge engulfing card interior */
   .service-card:hover::before,
   .service-card:focus-visible::before,
   .process-step:hover::before,
   .process-step:focus-visible::before,
   .credential-box:hover::before,
   .credential-box:focus-visible::before,
+  .curriculum-card:hover::before,
+  .curriculum-card:focus-visible::before,
   .project-card:hover::before,
   .project-card:focus-visible::before {
-    transform: scaleY(1);
+    transform: translateY(-88%);
+    border-radius: 12% 12% 0 0 / 8% 8% 0 0;
   }
 
   .service-card:hover,
@@ -96,85 +115,114 @@ html.gsap-active .section-heading-row .section-intro {
   .process-step:focus-visible,
   .credential-box:hover,
   .credential-box:focus-visible,
+  .curriculum-card:hover,
+  .curriculum-card:focus-visible,
   .project-card:hover,
   .project-card:focus-visible {
-    border-color: #F26A21;
-    box-shadow: 0 0 20px rgba(242, 106, 33, 0.14), 0 14px 30px rgba(0, 0, 0, 0.28);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
   }
 }
 
-/* Coordinated typography & icon color transitions during liquid fill */
+/* Coordinated High-Contrast Typography & Details Inversion on Dark Fill */
 .service-card h3,
 .process-step h3,
 .credential-box h4,
+.curriculum-card h4,
 .project-card .project-card-title,
 .service-card .card-index,
 .process-step > span,
 .credential-box .badge,
-.service-card .service-icon,
-.process-step .process-icon,
 .service-card .card-arrow,
 .project-card .arrow-glyph,
 .service-card p,
 .process-step p,
 .credential-box p,
+.curriculum-card p,
 .project-card .project-one-liner {
-  transition: color 0.42s cubic-bezier(0.25, 1, 0.35, 1),
-              transform 0.35s ease;
+  transition: color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s ease,
+              border-color 0.38s ease,
+              background-color 0.38s ease;
 }
 
 @media (hover: hover) {
+  /* Headings: Crisp pure white */
   .service-card:hover h3,
   .process-step:hover h3,
   .credential-box:hover h4,
-  .project-card:hover .project-card-title,
-  .service-card:hover .card-index,
-  .process-step:hover > span,
-  .credential-box:hover .badge,
-  .service-card:hover .service-icon,
-  .process-step:hover .process-icon,
-  .service-card:hover .card-arrow,
-  .project-card:hover .arrow-glyph,
+  .curriculum-card:hover h4,
+  .project-card:hover .project-card-title {
+    color: #FFFFFF !important;
+  }
+
+  /* Body Descriptions: Soft readable warm cream */
   .service-card:hover p,
   .process-step:hover p,
   .credential-box:hover p,
+  .curriculum-card:hover p,
   .project-card:hover .project-one-liner {
-    color: #F26A21 !important;
+    color: #E5E4DE !important;
   }
 
-  .service-card:hover .service-icon,
-  .process-step:hover .process-icon {
-    transform: scale(1.05);
+  /* Numeric Indices & Dynamic Glyphs: Burnt Orange Accent */
+  .service-card:hover .card-index,
+  .process-step:hover > span,
+  .service-card:hover .card-arrow,
+  .project-card:hover .arrow-glyph {
+    color: #F26A21 !important;
   }
 
   .service-card:hover .card-arrow,
   .project-card:hover .arrow-glyph {
     transform: translate(3px, -3px);
   }
+
+  .credential-box:hover .badge {
+    background: rgba(242, 106, 33, 0.16) !important;
+    color: #F26A21 !important;
+    border-color: rgba(242, 106, 33, 0.45) !important;
+  }
+
+  .project-card:hover .tech-pill-mini {
+    background-color: #242721 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #F5F4EF !important;
+  }
 }
 
 /* ==========================================================================
-   BUTTONS & TAG PILLS: Left-to-Right Directional Liquid Fill
+   TRANSPARENT BORDER / SHELL PILL INTERACTION
+   Pill interior transparent, subtle border, smooth orange fill sweep on hover
    ========================================================================== */
 .header-cta,
 .all-work-link,
+.pill-btn,
 .stack-tags b {
   position: relative;
-  overflow: hidden;
+  overflow: hidden !important;
   isolation: isolate;
-  transition: border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+  background-color: transparent !important;
+  border: 1px solid rgba(23, 23, 23, 0.28) !important;
+  border-radius: var(--radius-pill, 9999px) !important;
+  transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s ease,
+              transform 0.25s ease;
 }
 
 .header-cta::before,
 .all-work-link::before,
+.pill-btn::before,
 .stack-tags b::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #171717;
+  background-color: #F26A21; /* Signature Brand Orange */
   transform-origin: left center;
   transform: scaleX(0);
-  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   z-index: -1;
   pointer-events: none;
@@ -186,32 +234,58 @@ html.gsap-active .section-heading-row .section-intro {
   .header-cta:focus-visible::before,
   .all-work-link:hover::before,
   .all-work-link:focus-visible::before,
+  .pill-btn:hover::before,
+  .pill-btn:focus-visible::before,
   .stack-tags b:hover::before,
   .stack-tags b:focus-visible::before {
     transform: scaleX(1);
   }
 
   .header-cta:hover,
-  .header-cta:focus-visible {
-    border-color: #171717;
-    color: #FFFFFF;
-    transform: translateY(-2px);
-  }
-
+  .header-cta:focus-visible,
   .all-work-link:hover,
-  .all-work-link:focus-visible {
-    border-color: #171717;
-    color: #FFFFFF;
+  .all-work-link:focus-visible,
+  .pill-btn:hover,
+  .pill-btn:focus-visible {
+    border-color: #F26A21 !important;
+    color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(23, 24, 22, 0.14);
+    box-shadow: 0 4px 18px rgba(242, 106, 33, 0.28);
   }
 
   .stack-tags b:hover,
   .stack-tags b:focus-visible {
-    border-color: #F26A21;
-    color: #F26A21;
+    border-color: #F26A21 !important;
+    color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(242, 106, 33, 0.15);
+    box-shadow: 0 4px 14px rgba(242, 106, 33, 0.22);
+  }
+}
+
+/* ==========================================================================
+   MUTED GREY TEXT HOVER INTERACTION
+   Smooth transition to orange accent on hover without turning whole sections orange
+   ========================================================================== */
+.hero-aside p,
+.hero-copy em,
+.contact-bottom p,
+.section-intro,
+.about-copy p,
+.academic-meta-row p,
+.academic-lead p {
+  transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .hero-aside p:hover,
+  .hero-copy em:hover,
+  .contact-bottom p:hover,
+  .section-intro:hover,
+  .about-copy p:hover,
+  .academic-meta-row p:hover,
+  .academic-lead p:hover {
+    color: #F26A21 !important;
+    cursor: default;
   }
 }
 
@@ -247,54 +321,10 @@ html.gsap-active .section-heading-row .section-intro {
 /* ==========================================================================
    SCROLL-LINKED SYNCHRONIZED FILL ELEMENTS
    ========================================================================== */
-.section-kicker {
-  position: relative;
-}
-
-.section-kicker-fill-line {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  height: 2px;
-  width: 100%;
-  background: var(--color-accent, #F26A21);
-  transform-origin: left center;
-  transform: scaleX(0);
-  pointer-events: none;
-  z-index: 2;
-}
-
 .stack-feature {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-}
-
-.stack-liquid-fill {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(242, 106, 33, 0.16) 0%, rgba(242, 106, 33, 0.04) 50%, transparent 100%);
-  transform-origin: bottom center;
-  transform: scaleY(0);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.process-flow-track {
-  position: relative;
-}
-
-.process-flow-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background: var(--color-accent, #F26A21);
-  transform-origin: left center;
-  transform: scaleX(0);
-  pointer-events: none;
-  z-index: 2;
 }
 
 /* Accessibility: respect prefers-reduced-motion */
@@ -323,8 +353,6 @@ html.gsap-active .section-heading-row .section-intro {
   .header-cta::before,
   .all-work-link::before,
   .stack-tags b::before,
-  .section-kicker-fill-line,
-  .stack-liquid-fill,
   .process-flow-fill {
     transform: none !important;
     opacity: 1 !important;
