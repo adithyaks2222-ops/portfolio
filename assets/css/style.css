@@ -793,8 +793,9 @@ button, input, textarea {
   animation: marquee-left 30s linear infinite;
 }
 
+/* Continuous rotation: never pause on hover */
 .ticker-row:hover .ticker-track {
-  animation-play-state: paused;
+  animation-play-state: running;
 }
 
 /* Logo Marquee Card Pill */

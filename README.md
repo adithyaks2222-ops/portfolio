@@ -31,4 +31,4 @@ Production-quality personal developer portfolio for **Adithya K S**, inspired by
 1. Push this repository to GitHub (`main` branch).
 2. Go to repository **Settings** → **Pages**.
 3. Under **Branch**, select `main` and `/ (root)`.
-4. Click **Save**. Your portfolio will be live at `https://adithyaks2222-ops.github.io/adhi-portfolio/`.
+4. Click **Save**. Your portfolio will be live at `https://adithyaks2222-ops.github.io/portfolio/`.
