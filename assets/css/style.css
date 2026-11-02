@@ -3379,7 +3379,7 @@ html.no-js .reveal {
 .project-card {
   display: flex !important;
   flex-direction: column !important;
-  background-color: var(--paper, #F5F4EF) !important;
+  background-color: var(--paper, #F5F4EF);
   border: 1px solid var(--line, rgba(23, 23, 23, 0.12)) !important;
   border-radius: 16px !important;
   overflow: hidden !important;
@@ -3388,10 +3388,77 @@ html.no-js .reveal {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease !important;
+              border-color 0.35s ease,
+              background-color 0.38s ease !important;
   height: 100%;
   min-height: auto !important;
   max-height: none !important;
+  position: relative !important;
+  isolation: isolate !important;
+}
+
+/* Card Hover & Focus States: Solid Black Background + Vibrant Orange Text */
+.project-card:hover,
+.project-card:focus-visible {
+  background-color: #171717 !important;
+  border-color: #F26A21 !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.38), 0 0 24px rgba(242, 106, 33, 0.28) !important;
+}
+
+.project-card:hover .project-card-title,
+.project-card:hover .project-card-title span,
+.project-card:hover .arrow-glyph {
+  color: #F26A21 !important;
+}
+
+.project-card:hover .arrow-glyph {
+  transform: translate(3px, -3px) !important;
+}
+
+.project-card:hover .project-one-liner,
+.project-card:hover .project-one-liner .gray-word {
+  color: #F26A21 !important;
+  opacity: 0.95;
+}
+
+.project-card:hover .visual-tag {
+  color: #F26A21 !important;
+  border-color: rgba(242, 106, 33, 0.45) !important;
+  background: rgba(23, 23, 23, 0.85) !important;
+}
+
+.project-card:hover .project-status-badge {
+  color: #F26A21 !important;
+  border-color: #F26A21 !important;
+  background: rgba(242, 106, 33, 0.16) !important;
+}
+
+.project-card:hover .tech-pill-mini {
+  background: #171717 !important;
+  border-color: rgba(242, 106, 33, 0.45) !important;
+  color: #F26A21 !important;
+  box-shadow: 0 0 10px rgba(242, 106, 33, 0.35) !important;
+}
+
+.project-card:hover .tech-pill-mini span {
+  color: #F26A21 !important;
+}
+
+.project-card:hover .project-preview-img {
+  transform: scale(1.04) !important;
+}
+
+/* Gray Subheadings & Typography Word Hover Interaction */
+.gray-word {
+  display: inline;
+  transition: color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              text-shadow 0.28s ease;
+}
+
+.gray-word:hover {
+  color: #F26A21 !important;
+  text-shadow: 0 0 10px rgba(242, 106, 33, 0.5);
 }
 
 /* Card Visual Container: Natural Aspect-Ratio so preview illustrations never stretch */

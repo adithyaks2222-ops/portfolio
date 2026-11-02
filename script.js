@@ -970,21 +970,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (projectCards.length > 0) {
 
       // Cluster 1: Cards 1, 2, 3 (CAPX, PhishEye, JARVX)
-
       const cluster1 = gsap.timeline({
-
         scrollTrigger: {
-
           trigger: ".project-list",
-
           start: "top 85%",
-
-          end: "center 15%",
-
-          toggleActions: "play reverse play reverse",
-
+          once: true,
+        },
+        onComplete: () => {
+          gsap.set([projectCards[0], projectCards[1], projectCards[2]], { clearProps: "transform,opacity" });
         }
-
       });
 
 
@@ -1038,19 +1032,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (projectCards.length > 3) {
 
         const cluster2 = gsap.timeline({
-
           scrollTrigger: {
-
             trigger: projectCards[3],
-
             start: "top 85%",
-
-            end: "bottom 15%",
-
-            toggleActions: "play reverse play reverse",
-
+            once: true,
+          },
+          onComplete: () => {
+            gsap.set([projectCards[3], projectCards[4], projectCards[5]], { clearProps: "transform,opacity" });
           }
-
         });
 
 

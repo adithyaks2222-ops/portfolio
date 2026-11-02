@@ -158,13 +158,18 @@ html.gsap-active .section-heading-row .section-intro {
     text-shadow: 0 0 10px rgba(242, 106, 33, 0.6) !important;
   }
 
-  /* Body Descriptions: Soft readable warm cream */
+  /* Body Descriptions: Soft readable warm cream for service/process/credentials */
   .service-card:hover p,
   .process-step:hover p,
   .credential-box:hover p,
-  .curriculum-card:hover p,
-  .project-card:hover .project-one-liner {
+  .curriculum-card:hover p {
     color: #E5E4DE !important;
+  }
+
+  /* Projects Section: Universal Contract - All text is ALWAYS Orange inside dark box */
+  .project-card:hover .project-one-liner {
+    color: #F26A21 !important;
+    text-shadow: 0 0 6px rgba(242, 106, 33, 0.35) !important;
   }
 
   /* Numeric Indices & Dynamic Glyphs: Burnt Orange Accent */
