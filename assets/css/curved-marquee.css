@@ -98,6 +98,93 @@
 }
 
 /* ==========================================================================
+   Center Cutout — FOREGROUND HERO: permanently positioned in front of convex photo rails
+   ========================================================================== */
+.stage-cutout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) translateZ(200px);
+  transform: translate(-50%, -50%) translateZ(200px);
+  z-index: 100;
+  height: clamp(430px, 58vh, 500px);
+  max-height: 85%;
+  pointer-events: none;
+  -webkit-animation: floatGentle 4.5s ease-in-out infinite;
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.stage-cutout img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.45))
+          drop-shadow(0 4px 14px rgba(242, 106, 33, 0.22));
+  will-change: transform;
+}
+
+@-webkit-keyframes floatGentle {
+  0%, 100% {
+    -webkit-transform: translate(-50%, -50%) translateZ(200px) translateY(0);
+    transform: translate(-50%, -50%) translateZ(200px) translateY(0);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) translateZ(200px) translateY(-10px);
+    transform: translate(-50%, -50%) translateZ(200px) translateY(-10px);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    -webkit-transform: translate(-50%, -50%) translateZ(200px) translateY(0);
+    transform: translate(-50%, -50%) translateZ(200px) translateY(0);
+  }
+  50% {
+    -webkit-transform: translate(-50%, -50%) translateZ(200px) translateY(-10px);
+    transform: translate(-50%, -50%) translateZ(200px) translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .stage-cutout {
+    height: clamp(300px, 46vh, 380px);
+    -webkit-transform: translate(-50%, -50%) translateZ(120px);
+    transform: translate(-50%, -50%) translateZ(120px);
+  }
+
+  @-webkit-keyframes floatGentle {
+    0%, 100% {
+      -webkit-transform: translate(-50%, -50%) translateZ(120px) translateY(0);
+      transform: translate(-50%, -50%) translateZ(120px) translateY(0);
+    }
+    50% {
+      -webkit-transform: translate(-50%, -50%) translateZ(120px) translateY(-8px);
+      transform: translate(-50%, -50%) translateZ(120px) translateY(-8px);
+    }
+  }
+
+  @keyframes floatGentle {
+    0%, 100% {
+      -webkit-transform: translate(-50%, -50%) translateZ(120px) translateY(0);
+      transform: translate(-50%, -50%) translateZ(120px) translateY(0);
+    }
+    50% {
+      -webkit-transform: translate(-50%, -50%) translateZ(120px) translateY(-8px);
+      transform: translate(-50%, -50%) translateZ(120px) translateY(-8px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-cutout {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
    Central Foreground Identity Element: Portrait Photo Card
    A vertical card for displaying the portrait photograph in the 3D center
    (No badge, no circular frame, no spinning dashed ring)
