@@ -332,9 +332,86 @@ button, input, textarea {
   color: var(--ink);
 }
 
+/* ==========================================================================
+   SYMBIOTE LIQUID ORANGE FILL FOR HERO "DIGITAL" OUTLINE
+   When mouse enters, an organic curved symbiote meniscus surges upward,
+   filling the letterforms with molten orange and illuminating an ambient glow.
+   When mouse leaves, the symbiote smoothly drains and reverts to clean stroke.
+   ========================================================================== */
 .title-outline {
+  position: relative;
+  display: inline-block;
   color: transparent;
   -webkit-text-stroke: 1.5px var(--ink);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: baseline;
+  transition: -webkit-text-stroke-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.38s ease;
+}
+
+.title-outline::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: #F26A21;
+  -webkit-text-stroke: 1.5px #F26A21;
+  /* Organic curved liquid meniscus: bulging in center like an organic symbiote */
+  -webkit-mask-image: radial-gradient(ellipse 135% 95% at 50% 160%, #000 48%, transparent 62%);
+  mask-image: radial-gradient(ellipse 135% 95% at 50% 160%, #000 48%, transparent 62%);
+  -webkit-mask-size: 100% 260%;
+  mask-size: 100% 260%;
+  -webkit-mask-position: 50% 100%;
+  mask-position: 50% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition: -webkit-mask-position 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+              mask-position 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 2;
+  will-change: -webkit-mask-position, mask-position;
+}
+
+/* Fallback direct background-clip for legacy browsers */
+@supports not ((-webkit-mask-image: none) or (mask-image: none)) {
+  .title-outline {
+    background-image: linear-gradient(to top, #F26A21 0%, #F26A21 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0%;
+    background-position: bottom center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-size 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .title-outline:hover,
+  .title-outline:active {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes symbiotePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 16px rgba(242, 106, 33, 0.52))
+            drop-shadow(0 0 32px rgba(242, 106, 33, 0.28));
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(242, 106, 33, 0.72))
+            drop-shadow(0 0 44px rgba(242, 106, 33, 0.42));
+  }
+}
+
+.title-outline:hover,
+.title-outline:focus-visible,
+.title-outline:active {
+  -webkit-text-stroke-color: #F26A21;
+  animation: symbiotePulse 2.8s ease-in-out infinite;
+}
+
+.title-outline:hover::before,
+.title-outline:focus-visible::before,
+.title-outline:active::before {
+  -webkit-mask-position: 50% 0%;
+  mask-position: 50% 0%;
 }
 
 .period {
