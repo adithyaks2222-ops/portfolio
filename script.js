@@ -1773,58 +1773,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // Scroll spy for in-page anchors if on home or anchor links exist
-
+    // Scroll spy for in-page anchors if on home or anchor links exist
   if (!pageMatched) {
-
     const anchorLinks = Array.from(navLinks).filter((l) => (l.getAttribute("href") || "").startsWith("#"));
+    const navSections = anchorLinks.map((link) => {
+      const id = link.getAttribute("href");
+      return id && id !== "#top" ? document.querySelector(id) : null;
+    }).filter(Boolean);
 
-    const sections = document.querySelectorAll("section[id], div[id]");
-
-
-
-    if (anchorLinks.length > 0 && sections.length > 0) {
-
+    if (anchorLinks.length > 0 && navSections.length > 0) {
       const updateActiveNavLink = () => {
-
         let currentId = "";
+        const scrollPosition = window.scrollY + 250;
 
-        const scrollPosition = window.scrollY + 200;
-
-
-
-        sections.forEach((section) => {
-
-          const top = section.offsetTop;
-
+        navSections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const top = rect.top + window.scrollY;
           const height = section.offsetHeight;
-
           if (scrollPosition >= top && scrollPosition < top + height) {
-
             currentId = section.getAttribute("id");
-
           }
-
         });
-
-
 
         anchorLinks.forEach((link) => {
-
           link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
-
         });
-
       };
 
-
-
       window.addEventListener("scroll", updateActiveNavLink, { passive: true });
-
       updateActiveNavLink();
-
     }
-
   }
 
 

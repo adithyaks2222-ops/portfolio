@@ -72,7 +72,7 @@
   width: 100%;
   overflow: hidden;
   padding: 70px 0 80px;
-  min-height: clamp(480px, 65vh, 620px);
+  min-height: clamp(520px, 5vh, 620px);
   perspective: 1200px;
   perspective-origin: 50% 50%;
   contain: layout style;

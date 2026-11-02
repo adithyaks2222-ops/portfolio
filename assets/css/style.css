@@ -638,7 +638,15 @@ button, input, textarea {
 @media (max-width: 991px) {
   .hero-art.atom-stage,
   .hero-art {
-    display: none;
+    width: 200px;
+    height: 200px;
+    right: 4%;
+    top: 75px;
+    opacity: 0.65;
+  }
+  .atom-orbit {
+    width: 180px;
+    height: 180px;
   }
 }
 
