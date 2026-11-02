@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="capx-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141819" />
+      <stop offset="100%" stop-color="#1A1F21" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#capx-bg)"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" fill="none" stroke="#2B3234" stroke-width="1"/>
+
+  <!-- Top App Window Bar -->
+  <rect x="0" y="0" width="800" height="48" rx="16" fill="#1B2123"/>
+  <rect x="0" y="32" width="800" height="16" fill="#1B2123"/>
+  <line x1="0" y1="48" x2="800" y2="48" stroke="#2B3234" stroke-width="1"/>
+  
+  <circle cx="28" cy="24" r="5" fill="#EF4444"/>
+  <circle cx="44" cy="24" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="24" r="5" fill="#10B981"/>
+
+  <text x="400" y="29" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="12" text-anchor="middle" letter-spacing="1">CAPX // CYBER_ANALYSIS_EXPLORER.EXE</text>
+  <rect x="710" y="14" width="62" height="20" rx="4" fill="#252F31"/>
+  <text x="741" y="28" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="10" text-anchor="middle" font-weight="600">LIVE</text>
+
+  <!-- Left Sidebar -->
+  <rect x="24" y="68" width="180" height="408" rx="8" fill="#181D1F" stroke="#283033" stroke-width="1"/>
+  <text x="40" y="96" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="10" letter-spacing="1.5">TELEMETRY SCOPE</text>
+
+  <g transform="translate(36, 114)">
+    <rect width="156" height="32" rx="6" fill="#263033"/>
+    <text x="12" y="20" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="500">Processes (Active)</text>
+    <circle cx="140" cy="16" r="3" fill="#EA6C11"/>
+  </g>
+  <g transform="translate(36, 154)">
+    <text x="12" y="20" fill="#8B9499" font-family="'Inter', sans-serif" font-size="12">Network Sockets</text>
+  </g>
+  <g transform="translate(36, 190)">
+    <text x="12" y="20" fill="#8B9499" font-family="'Inter', sans-serif" font-size="12">Startup Services</text>
+  </g>
+  <g transform="translate(36, 226)">
+    <text x="12" y="20" fill="#8B9499" font-family="'Inter', sans-serif" font-size="12">Kernel Drivers</text>
+  </g>
+  <g transform="translate(36, 262)">
+    <text x="12" y="20" fill="#8B9499" font-family="'Inter', sans-serif" font-size="12">Threat Heuristics</text>
+  </g>
+
+  <!-- Metric Badges Bottom Left -->
+  <rect x="36" y="380" width="156" height="72" rx="6" fill="#131718" stroke="#252D30" stroke-width="1"/>
+  <text x="48" y="402" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9">MEMORY BUFFER</text>
+  <text x="48" y="426" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="16" font-weight="600">64.8 MB</text>
+  <rect x="48" y="436" width="132" height="4" rx="2" fill="#252D30"/>
+  <rect x="48" y="436" width="56" height="4" rx="2" fill="#EA6C11"/>
+
+  <!-- Main Content Panel -->
+  <rect x="220" y="68" width="556" height="408" rx="8" fill="#181D1F" stroke="#283033" stroke-width="1"/>
+
+  <!-- Header Stat Cards -->
+  <g transform="translate(236, 84)">
+    <rect width="160" height="58" rx="6" fill="#1F2629" stroke="#2C363A" stroke-width="1"/>
+    <text x="14" y="22" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9">INSPECTED PIDS</text>
+    <text x="14" y="46" fill="#FFFFFF" font-family="'Fragment Mono', monospace" font-size="18" font-weight="600">218</text>
+    <text x="146" y="46" fill="#10B981" font-family="'Fragment Mono', monospace" font-size="11" text-anchor="end">STABLE</text>
+  </g>
+
+  <g transform="translate(412, 84)">
+    <rect width="160" height="58" rx="6" fill="#1F2629" stroke="#2C363A" stroke-width="1"/>
+    <text x="14" y="22" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9">SOCKETS OPEN</text>
+    <text x="14" y="46" fill="#FFFFFF" font-family="'Fragment Mono', monospace" font-size="18" font-weight="600">42</text>
+    <text x="146" y="46" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="11" text-anchor="end">4 ELEVATED</text>
+  </g>
+
+  <g transform="translate(588, 84)">
+    <rect width="172" height="58" rx="6" fill="#1F2629" stroke="#2C363A" stroke-width="1"/>
+    <text x="14" y="22" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9">RISK SCORE</text>
+    <text x="14" y="46" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="18" font-weight="600">LOW (14/100)</text>
+  </g>
+
+  <!-- Process List Table -->
+  <g transform="translate(236, 158)">
+    <rect width="524" height="28" fill="#1B2224"/>
+    <text x="12" y="18" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="10">PID</text>
+    <text x="70" y="18" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="10">BINARY NAME</text>
+    <text x="230" y="18" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="10">PORT / PROTOCOL</text>
+    <text x="370" y="18" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="10">HEURISTIC</text>
+    <text x="490" y="18" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="10">STATUS</text>
+
+    <!-- Row 1 -->
+    <line x1="0" y1="32" x2="524" y2="32" stroke="#252F33" stroke-width="1"/>
+    <text x="12" y="52" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="11">0412</text>
+    <text x="70" y="52" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="11" font-weight="500">svchost.exe</text>
+    <text x="230" y="52" fill="#8B9499" font-family="'Fragment Mono', monospace" font-size="11">53 / UDP (DNS)</text>
+    <rect x="370" y="40" width="70" height="18" rx="3" fill="#132B1C"/>
+    <text x="405" y="53" fill="#34D399" font-family="'Fragment Mono', monospace" font-size="9" text-anchor="middle">VERIFIED</text>
+    <text x="490" y="52" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="11">ACTIVE</text>
+
+    <!-- Row 2 -->
+    <line x1="0" y1="68" x2="524" y2="68" stroke="#252F33" stroke-width="1"/>
+    <text x="12" y="88" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="11">1088</text>
+    <text x="70" y="88" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="11" font-weight="500">python_worker.py</text>
+    <text x="230" y="88" fill="#8B9499" font-family="'Fragment Mono', monospace" font-size="11">5000 / TCP (HTTP)</text>
+    <rect x="370" y="76" width="70" height="18" rx="3" fill="#2E2416"/>
+    <text x="405" y="89" fill="#FBBF24" font-family="'Fragment Mono', monospace" font-size="9" text-anchor="middle">LOCAL_DEV</text>
+    <text x="490" y="88" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="11">LISTENING</text>
+
+    <!-- Row 3 -->
+    <line x1="0" y1="104" x2="524" y2="104" stroke="#252F33" stroke-width="1"/>
+    <text x="12" y="124" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="11">2404</text>
+    <text x="70" y="124" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="11" font-weight="500">system_monitor.dll</text>
+    <text x="230" y="124" fill="#8B9499" font-family="'Fragment Mono', monospace" font-size="11">IPC_PIPE</text>
+    <rect x="370" y="112" width="70" height="18" rx="3" fill="#132B1C"/>
+    <text x="405" y="125" fill="#34D399" font-family="'Fragment Mono', monospace" font-size="9" text-anchor="middle">VERIFIED</text>
+    <text x="490" y="124" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="11">ACTIVE</text>
+  </g>
+
+  <!-- Bottom Log Terminal -->
+  <rect x="236" y="356" width="524" height="100" rx="6" fill="#121617" stroke="#222B2E" stroke-width="1"/>
+  <text x="250" y="378" fill="#4B5563" font-family="'Fragment Mono', monospace" font-size="10">[CAPX_KERNEL] Monitoring hook established. Intercepting TCP state changes...</text>
+  <text x="250" y="396" fill="#10B981" font-family="'Fragment Mono', monospace" font-size="10">[OK] Process table synchronized with NT kernel registry (elapsed: 14ms)</text>
+  <text x="250" y="414" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="10">[ALERT] Ephemeral socket handshake detected on port 5000 (Python Flask runtime)</text>
+  <text x="250" y="432" fill="#9CA3AF" font-family="'Fragment Mono', monospace" font-size="10">> CAPX daemon standby. Ready for user quarantine command.</text>
+</svg>

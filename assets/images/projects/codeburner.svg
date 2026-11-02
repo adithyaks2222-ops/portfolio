@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121516" />
+      <stop offset="100%" stop-color="#191D1E" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#cb-bg)"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" fill="none" stroke="#2B3234" stroke-width="1"/>
+
+  <!-- VS Code App Header -->
+  <rect x="0" y="0" width="800" height="44" rx="16" fill="#171C1D"/>
+  <rect x="0" y="28" width="800" height="16" fill="#171C1D"/>
+  <line x1="0" y1="44" x2="800" y2="44" stroke="#252D2F" stroke-width="1"/>
+  
+  <circle cx="24" cy="22" r="5" fill="#EF4444"/>
+  <circle cx="40" cy="22" r="5" fill="#F59E0B"/>
+  <circle cx="56" cy="22" r="5" fill="#10B981"/>
+
+  <text x="400" y="27" fill="#8C9398" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">CodeBurner AI — app.js [Ollama: llama3:8b-instruct]</text>
+
+  <!-- Left: Code Editor (60% width) -->
+  <g transform="translate(24, 60)">
+    <rect width="440" height="416" rx="8" fill="#151A1B" stroke="#242B2D" stroke-width="1"/>
+    
+    <!-- Tab Bar -->
+    <rect x="0" y="0" width="130" height="34" rx="8" fill="#1E2527"/>
+    <text x="16" y="22" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">app.js</text>
+    <circle cx="112" cy="18" r="3" fill="#EA6C11"/>
+
+    <!-- Code Line Numbers & Syntax -->
+    <g transform="translate(14, 52)">
+      <text x="0" y="16" fill="#4B5563" font-family="'Fragment Mono', monospace" font-size="11">1</text>
+      <text x="24" y="16" fill="#93C5FD" font-family="'Fragment Mono', monospace" font-size="11">import</text>
+      <text x="74" y="16" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">{ Ollama } from 'ollama';</text>
+
+      <text x="0" y="40" fill="#4B5563" font-family="'Fragment Mono', monospace" font-size="11">2</text>
+      <text x="24" y="40" fill="#93C5FD" font-family="'Fragment Mono', monospace" font-size="11">export async function</text>
+      <text x="180" y="40" fill="#FBBF24" font-family="'Fragment Mono', monospace" font-size="11">reviewCode</text>
+      <text x="260" y="40" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">(snippet) {</text>
+
+      <text x="0" y="64" fill="#4B5563" font-family="'Fragment Mono', monospace" font-size="11">3</text>
+      <text x="44" y="64" fill="#93C5FD" font-family="'Fragment Mono', monospace" font-size="11">const</text>
+      <text x="86" y="64" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">prompt = getRoastPersona(level);</text>
+
+      <!-- Highlighted Line With Burner Gutter -->
+      <rect x="-14" y="78" width="440" height="26" fill="#381D14" opacity="0.6"/>
+      <rect x="-14" y="78" width="3" height="26" fill="#EA6C11"/>
+      <text x="0" y="96" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="11">4</text>
+      <text x="44" y="96" fill="#93C5FD" font-family="'Fragment Mono', monospace" font-size="11">const</text>
+      <text x="86" y="96" fill="#F87171" font-family="'Fragment Mono', monospace" font-size="11">res = eval(userRawInput);</text>
+      <text x="320" y="96" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="11">/* 🔥 */</text>
+
+      <text x="0" y="128" fill="#4B5563" font-family="'Fragment Mono', monospace" font-size="11">5</text>
+      <text x="44" y="128" fill="#93C5FD" font-family="'Fragment Mono', monospace" font-size="11">return</text>
+      <text x="96" y="128" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">ollama.generate({ model, prompt });</text>
+
+      <text x="0" y="152" fill="#4B5563" font-family="'Fragment Mono', monospace" font-size="11">6</text>
+      <text x="24" y="152" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">}</text>
+
+      <!-- In-line diagnostic widget -->
+      <g transform="translate(10, 180)">
+        <rect width="390" height="150" rx="6" fill="#1C2123" stroke="#EA6C11" stroke-width="1"/>
+        <text x="14" y="24" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="11" font-weight="600">CODEBURNER CRITIQUE // LINE 4</text>
+        <text x="14" y="46" fill="#E5E7EB" font-family="'Inter', sans-serif" font-size="11">"Did someone order a direct Remote Code Execution exploit?"</text>
+        <text x="14" y="66" fill="#9CA3AF" font-family="'Inter', sans-serif" font-size="10.5">Passing unsanitized user raw input into eval() breaches OWASP A03.</text>
+        
+        <rect x="14" y="82" width="118" height="24" rx="4" fill="#EA6C11"/>
+        <text x="73" y="98" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Apply Safe Fix</text>
+
+        <rect x="142" y="82" width="94" height="24" rx="4" fill="#252E30"/>
+        <text x="189" y="98" fill="#9CA3AF" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Explain Logic</text>
+
+        <text x="14" y="132" fill="#6B7280" font-family="'Fragment Mono', monospace" font-size="9.5">Inference: 142ms via Ollama Llama-3 (Local offline)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: CodeBurner AI Sidebar (40% width) -->
+  <g transform="translate(480, 60)">
+    <rect width="296" height="416" rx="8" fill="#161B1C" stroke="#252D2F" stroke-width="1"/>
+
+    <text x="20" y="32" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="14" font-weight="600">CodeBurner Inspector</text>
+    <text x="20" y="50" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="10">VS CODE NATIVE EXTENSION</text>
+
+    <!-- Personality Selector -->
+    <text x="20" y="84" fill="#8B9499" font-family="'Inter', sans-serif" font-size="11">Feedback Persona</text>
+    <rect x="20" y="94" width="256" height="34" rx="6" fill="#202729" stroke="#2D373A" stroke-width="1"/>
+    <text x="34" y="116" fill="#EA6C11" font-family="'Inter', sans-serif" font-size="12" font-weight="500">🔥 Brutal Mentor (Roast Mode)</text>
+
+    <!-- AI Stats -->
+    <rect x="20" y="146" width="256" height="110" rx="6" fill="#121617" stroke="#222B2D" stroke-width="1"/>
+    <text x="34" y="170" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="10">LOCAL ENGINE</text>
+    <text x="34" y="192" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="600">Llama 3 (8B-Instruct)</text>
+    <text x="34" y="212" fill="#34D399" font-family="'Fragment Mono', monospace" font-size="10">STATUS: OLLAMA CONNECTED</text>
+    <text x="34" y="234" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="10">Zero Cloud Dependency / 100% Private</text>
+
+    <!-- Severity Summary -->
+    <g transform="translate(20, 276)">
+      <rect width="256" height="74" rx="6" fill="#202729"/>
+      <text x="16" y="24" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9">ISSUES DETECTED</text>
+      
+      <text x="16" y="52" fill="#EF4444" font-family="'Fragment Mono', monospace" font-size="14" font-weight="600">1 Critical</text>
+      <text x="100" y="52" fill="#FBBF24" font-family="'Fragment Mono', monospace" font-size="14" font-weight="600">2 Warnings</text>
+      <text x="190" y="52" fill="#34D399" font-family="'Fragment Mono', monospace" font-size="14" font-weight="600">4 Tips</text>
+    </g>
+
+    <rect x="20" y="364" width="256" height="34" rx="6" fill="#EA6C11"/>
+    <text x="148" y="386" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="600" text-anchor="middle">Burn Entire File (Review)</text>
+  </g>
+</svg>

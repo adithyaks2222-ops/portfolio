@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pe-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111516" />
+      <stop offset="100%" stop-color="#181D1E" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#pe-bg)"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" fill="none" stroke="#262E30" stroke-width="1"/>
+
+  <!-- Browser Header & Address Bar -->
+  <rect x="0" y="0" width="800" height="56" rx="16" fill="#181E20"/>
+  <rect x="0" y="36" width="800" height="20" fill="#181E20"/>
+  <line x1="0" y1="56" x2="800" y2="56" stroke="#262E30" stroke-width="1"/>
+  
+  <circle cx="28" cy="28" r="5" fill="#EF4444"/>
+  <circle cx="44" cy="28" r="5" fill="#F59E0B"/>
+  <circle cx="60" cy="28" r="5" fill="#10B981"/>
+
+  <!-- Fake Browser Address Bar -->
+  <rect x="100" y="14" width="580" height="30" rx="15" fill="#121617" stroke="#273236" stroke-width="1"/>
+  <text x="120" y="33" fill="#EF4444" font-family="'Fragment Mono', monospace" font-size="11">⚠ https://paypa1-security-verify-login.account-check.xyz/auth</text>
+
+  <!-- Chrome Extension Icon in Browser Bar -->
+  <circle cx="710" cy="29" r="13" fill="#EA6C11"/>
+  <circle cx="710" cy="29" r="6" fill="#FFFFFF"/>
+  <circle cx="710" cy="29" r="2.5" fill="#121617"/>
+
+  <!-- PhishEye Popup Flyout UI -->
+  <g transform="translate(430, 72)">
+    <rect width="330" height="400" rx="12" fill="#151A1B" stroke="#2D383B" stroke-width="1"/>
+    
+    <!-- Extension Top Header -->
+    <rect x="0" y="0" width="330" height="46" rx="12" fill="#1D2426"/>
+    <rect x="0" y="32" width="330" height="14" fill="#1D2426"/>
+    <line x1="0" y1="46" x2="330" y2="46" stroke="#283235" stroke-width="1"/>
+
+    <text x="20" y="28" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="13" font-weight="600">PhishEye Inspector</text>
+    <rect x="256" y="14" width="56" height="18" rx="4" fill="#3D1815"/>
+    <text x="284" y="26" fill="#F87171" font-family="'Fragment Mono', monospace" font-size="9" text-anchor="middle" font-weight="600">v0.4.1</text>
+
+    <!-- Threat Verdict Banner -->
+    <g transform="translate(16, 62)">
+      <rect width="298" height="84" rx="8" fill="#2E1412" stroke="#EF4444" stroke-width="1"/>
+      <text x="20" y="28" fill="#F87171" font-family="'Fragment Mono', monospace" font-size="10" letter-spacing="1">VERDICT: DANGER</text>
+      <text x="20" y="52" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="700">Deceptive Domain Detected</text>
+      <text x="20" y="70" fill="#FCA5A5" font-family="'Inter', sans-serif" font-size="10.5">High probability of credential harvesting (Typosquatting).</text>
+    </g>
+
+    <!-- Detailed Heuristic Breakdown -->
+    <g transform="translate(16, 160)">
+      <text x="4" y="16" fill="#757F85" font-family="'Fragment Mono', monospace" font-size="10">HEURISTIC SCORECARD</text>
+      
+      <!-- Metric 1 -->
+      <rect x="0" y="26" width="298" height="34" rx="6" fill="#1B2224"/>
+      <text x="14" y="48" fill="#E5E7EB" font-family="'Inter', sans-serif" font-size="11">Typosquatting Entropy</text>
+      <text x="284" y="48" fill="#EF4444" font-family="'Fragment Mono', monospace" font-size="11" text-anchor="end" font-weight="600">FAIL (94%)</text>
+
+      <!-- Metric 2 -->
+      <rect x="0" y="66" width="298" height="34" rx="6" fill="#1B2224"/>
+      <text x="14" y="88" fill="#E5E7EB" font-family="'Inter', sans-serif" font-size="11">Domain Age (&lt; 48 hours)</text>
+      <text x="284" y="88" fill="#F59E0B" font-family="'Fragment Mono', monospace" font-size="11" text-anchor="end" font-weight="600">WARNING</text>
+
+      <!-- Metric 3 -->
+      <rect x="0" y="106" width="298" height="34" rx="6" fill="#1B2224"/>
+      <text x="14" y="128" fill="#E5E7EB" font-family="'Inter', sans-serif" font-size="11">Form Target Mismatch</text>
+      <text x="284" y="128" fill="#EF4444" font-family="'Fragment Mono', monospace" font-size="11" text-anchor="end" font-weight="600">DANGER</text>
+
+      <!-- Metric 4 -->
+      <rect x="0" y="146" width="298" height="34" rx="6" fill="#1B2224"/>
+      <text x="14" y="168" fill="#E5E7EB" font-family="'Inter', sans-serif" font-size="11">SSL Certificate Issuer</text>
+      <text x="284" y="168" fill="#9CA3AF" font-family="'Fragment Mono', monospace" font-size="11" text-anchor="end">Let's Encrypt</text>
+    </g>
+
+    <!-- Action Buttons -->
+    <rect x="16" y="350" width="140" height="32" rx="6" fill="#EF4444"/>
+    <text x="86" y="370" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11" font-weight="600" text-anchor="middle">Abort Navigation</text>
+
+    <rect x="168" y="350" width="146" height="32" rx="6" fill="#252D30"/>
+    <text x="241" y="370" fill="#9BA1A6" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Whitelist Host</text>
+  </g>
+
+  <!-- Left Content Behind Modal -->
+  <g transform="translate(48, 100)">
+    <text x="0" y="30" fill="#3A4447" font-family="'Merriweather', serif" font-size="28">Simulated Phishing Vector</text>
+    <rect x="0" y="50" width="340" height="240" rx="8" fill="#151A1B" stroke="#202729" stroke-width="1"/>
+    <text x="24" y="90" fill="#5A6469" font-family="'Inter', sans-serif" font-size="13">Sign In to Your Account</text>
+    <rect x="24" y="108" width="292" height="34" rx="4" fill="#1C2224" stroke="#2C3538" stroke-width="1"/>
+    <rect x="24" y="152" width="292" height="34" rx="4" fill="#1C2224" stroke="#2C3538" stroke-width="1"/>
+    <rect x="24" y="200" width="292" height="36" rx="4" fill="#252F33"/>
+    
+    <text x="0" y="324" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="11">PhishEye Content Script active in DOM</text>
+    <text x="0" y="344" fill="#5F696E" font-family="'Fragment Mono', monospace" font-size="10">Intercepting password input nodes prior to submission.</text>
+  </g>
+</svg>

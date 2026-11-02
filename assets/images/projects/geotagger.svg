@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141819" />
+      <stop offset="100%" stop-color="#1B2022" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#gt-bg)"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="15.5" fill="none" stroke="#293133" stroke-width="1"/>
+
+  <!-- Top App Window Bar -->
+  <rect x="0" y="0" width="800" height="48" rx="16" fill="#192022"/>
+  <rect x="0" y="30" width="800" height="18" fill="#192022"/>
+  <line x1="0" y1="48" x2="800" y2="48" stroke="#293133" stroke-width="1"/>
+  
+  <text x="32" y="30" fill="#F4F3EE" font-family="'Merriweather', serif" font-size="15" font-weight="700">GeoTagger</text>
+  <text x="126" y="30" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="11">/ photo_geospatial_indexer</text>
+
+  <rect x="660" y="12" width="112" height="24" rx="4" fill="#252F31"/>
+  <text x="716" y="28" fill="#EA6C11" font-family="'Fragment Mono', monospace" font-size="10" text-anchor="middle">GPS EXIF SYNC</text>
+
+  <!-- Left: Stylized Map Grid View (60% width) -->
+  <g transform="translate(24, 66)">
+    <rect width="470" height="410" rx="8" fill="#121617" stroke="#242D2F" stroke-width="1"/>
+    
+    <!-- Map Grid Coordinates Lines -->
+    <line x1="0" y1="80" x2="470" y2="80" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="0" y1="160" x2="470" y2="160" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="0" y1="240" x2="470" y2="240" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="0" y1="320" x2="470" y2="320" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <line x1="120" y1="0" x2="120" y2="410" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="240" y1="0" x2="240" y2="410" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="360" y1="0" x2="360" y2="410" stroke="#1B2224" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <!-- Stylized Coastline / Land Contour -->
+    <path d="M 60 410 Q 140 280 200 240 T 320 180 T 420 80 L 470 60 L 470 410 Z" fill="#182022" opacity="0.6"/>
+
+    <!-- Map Pins -->
+    <!-- Pin 1: Kerala Coordinates (9.9312 N, 76.2673 E) -->
+    <g transform="translate(220, 210)">
+      <circle cx="0" cy="0" r="16" fill="#EA6C11" opacity="0.25"/>
+      <circle cx="0" cy="0" r="8" fill="#EA6C11"/>
+      <circle cx="0" cy="0" r="3" fill="#FFFFFF"/>
+      
+      <!-- Tooltip -->
+      <rect x="14" y="-30" width="168" height="42" rx="4" fill="#1C2326" stroke="#EA6C11" stroke-width="1"/>
+      <text x="24" y="-16" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="10.5" font-weight="600">Kochi, Kerala (9.93°N, 76.26°E)</text>
+      <text x="24" y="-2" fill="#34D399" font-family="'Fragment Mono', monospace" font-size="9">EXIF VERIFIED • 24 PHOTOS</text>
+    </g>
+
+    <!-- Pin 2 -->
+    <g transform="translate(340, 140)">
+      <circle cx="0" cy="0" r="12" fill="#38BDF8" opacity="0.25"/>
+      <circle cx="0" cy="0" r="6" fill="#38BDF8"/>
+      <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Pin 3 -->
+    <g transform="translate(130, 290)">
+      <circle cx="0" cy="0" r="12" fill="#10B981" opacity="0.25"/>
+      <circle cx="0" cy="0" r="6" fill="#10B981"/>
+      <circle cx="0" cy="0" r="2" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Map Controls Bar -->
+    <rect x="16" y="360" width="160" height="34" rx="6" fill="#1E2528"/>
+    <text x="30" y="382" fill="#9BA1A6" font-family="'Fragment Mono', monospace" font-size="10">ZOOM: 12x [GOOGLE MAPS]</text>
+  </g>
+
+  <!-- Right: EXIF Metadata & Photo Details (40% width) -->
+  <g transform="translate(512, 66)">
+    <rect width="264" height="410" rx="8" fill="#161B1D" stroke="#252D30" stroke-width="1"/>
+
+    <text x="18" y="28" fill="#F4F3EE" font-family="'Inter', sans-serif" font-size="13" font-weight="600">Photo Inspection</text>
+    <text x="18" y="44" fill="#6B7378" font-family="'Fragment Mono', monospace" font-size="9.5">IMG_20261101_CAMPUS.JPG</text>
+
+    <!-- Thumbnail Preview -->
+    <rect x="18" y="58" width="228" height="120" rx="6" fill="#1E2528" stroke="#2D373B" stroke-width="1"/>
+    <!-- Photo Graphic Placeholder inside thumbnail -->
+    <path d="M 28 160 L 80 110 L 130 145 L 180 95 L 236 150 L 236 170 L 28 170 Z" fill="#283438"/>
+    <circle cx="80" cy="90" r="14" fill="#EA6C11" opacity="0.7"/>
+
+    <!-- EXIF Metadata Table -->
+    <g transform="translate(18, 194)">
+      <text x="0" y="16" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9.5">GPS LATITUDE</text>
+      <text x="0" y="32" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">9° 55' 52.32" N</text>
+
+      <text x="120" y="16" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9.5">GPS LONGITUDE</text>
+      <text x="120" y="32" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">76° 16' 2.28" E</text>
+
+      <line x1="0" y1="46" x2="228" y2="46" stroke="#222B2E" stroke-width="1"/>
+
+      <text x="0" y="66" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9.5">ALTITUDE</text>
+      <text x="0" y="82" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">12.4m Above Sea</text>
+
+      <text x="120" y="66" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9.5">TIMESTAMP</text>
+      <text x="120" y="82" fill="#F4F3EE" font-family="'Fragment Mono', monospace" font-size="11">18:35:52 IST</text>
+
+      <line x1="0" y1="96" x2="228" y2="96" stroke="#222B2E" stroke-width="1"/>
+
+      <text x="0" y="116" fill="#757D82" font-family="'Fragment Mono', monospace" font-size="9.5">ACCURACY RATING</text>
+      <rect x="0" y="126" width="228" height="24" rx="4" fill="#132B1C"/>
+      <text x="114" y="142" fill="#34D399" font-family="'Fragment Mono', monospace" font-size="10" text-anchor="middle" font-weight="600">ACCURACY: ± 2.5 METERS</text>
+    </g>
+
+    <rect x="18" y="360" width="228" height="34" rx="6" fill="#EA6C11"/>
+    <text x="132" y="382" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11" font-weight="600" text-anchor="middle">Verify &amp; Tag Image</text>
+  </g>
+</svg>
