@@ -17,8 +17,8 @@
 }
 
 .curved-marquee-section {
-  padding-top: 100px;
-  padding-bottom: 110px;
+  padding-top: 130px;
+  padding-bottom: 140px;
   background-color: var(--marquee-bg);
   color: var(--marquee-ink);
   position: relative;
@@ -71,7 +71,8 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 50px 0;
+  padding: 70px 0 80px;
+  min-height: clamp(520px, 68vh, 640px);
   perspective: 1200px;
   perspective-origin: 50% 50%;
   contain: layout style;
@@ -107,8 +108,8 @@
   -webkit-transform: translate(-50%, -50%) translateZ(200px);
   transform: translate(-50%, -50%) translateZ(200px);
   z-index: 100;
-  height: clamp(430px, 58vh, 500px);
-  max-height: 85%;
+  height: clamp(480px, 64vh, 570px);
+  max-height: 94%;
   pointer-events: none;
   -webkit-animation: floatGentle 4.5s ease-in-out infinite;
   animation: floatGentle 4.5s ease-in-out infinite;
@@ -120,6 +121,8 @@
   max-width: 100%;
   display: block;
   object-fit: contain;
+  -webkit-mask-image: linear-gradient(to bottom, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 85%, transparent 100%);
   filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.45))
           drop-shadow(0 4px 14px rgba(242, 106, 33, 0.22));
   will-change: transform;
@@ -341,7 +344,7 @@
   transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 26px;
   position: relative;
   z-index: 2;
 }
@@ -482,7 +485,8 @@
   }
 
   .curved-marquee-viewport {
-    padding: 38px 0;
+    padding: 48px 0;
+    min-height: clamp(440px, 58vh, 520px);
   }
 
   .curved-marquee-stage {
@@ -567,7 +571,8 @@
   }
 
   .curved-marquee-viewport {
-    padding: 26px 0;
+    padding: 34px 0;
+    min-height: 380px;
   }
 
   .curved-marquee-stage {

@@ -343,6 +343,8 @@ button, input, textarea {
   display: inline-block;
   color: transparent;
   -webkit-text-stroke: 1.5px var(--ink);
+  letter-spacing: -0.02em;
+  margin-right: 0.14em;
   cursor: pointer;
   user-select: none;
   vertical-align: baseline;
@@ -354,6 +356,7 @@ button, input, textarea {
   content: attr(data-text);
   position: absolute;
   inset: 0;
+  letter-spacing: inherit;
   color: #F26A21;
   -webkit-text-stroke: 1.5px #F26A21;
   /* Organic curved liquid meniscus: bulging in center like an organic symbiote */
@@ -2943,9 +2946,10 @@ html.no-js .reveal {
 }
 
 .btn-detail-primary:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
-  color: #ffffff;
+  background: #171717;
+  border-color: #F26A21;
+  color: #F26A21;
+  box-shadow: 0 0 16px rgba(242, 106, 33, 0.45);
 }
 
 .btn-detail-secondary {
