@@ -18,7 +18,6 @@ html.gsap-active .hero-copy,
 html.gsap-active .hero-aside,
 html.gsap-active .hero-art,
 html.gsap-active .curved-marquee-viewport,
-html.gsap-active .central-foreground-photo,
 html.gsap-active .service-card,
 html.gsap-active .project-card,
 html.gsap-active .stack-feature,
@@ -204,7 +203,6 @@ html.gsap-active .section-heading-row .section-intro {
    ========================================================================== */
 .header-cta,
 .all-work-link,
-.pill-btn,
 .stack-tags b {
   position: relative;
   overflow: hidden;
@@ -223,7 +221,6 @@ html.gsap-active .section-heading-row .section-intro {
 
 .header-cta::before,
 .all-work-link::before,
-.pill-btn::before,
 .stack-tags b::before {
   content: "";
   position: absolute;
@@ -245,9 +242,6 @@ html.gsap-active .section-heading-row .section-intro {
 .all-work-link:hover::before,
 .all-work-link:focus-visible::before,
 .all-work-link:active::before,
-.pill-btn:hover::before,
-.pill-btn:focus-visible::before,
-.pill-btn:active::before,
 .stack-tags b:hover::before,
 .stack-tags b:focus-visible::before,
 .stack-tags b:active::before {
@@ -260,9 +254,6 @@ html.gsap-active .section-heading-row .section-intro {
 .all-work-link:hover,
 .all-work-link:focus-visible,
 .all-work-link:active,
-.pill-btn:hover,
-.pill-btn:focus-visible,
-.pill-btn:active,
 .stack-tags b:hover,
 .stack-tags b:focus-visible,
 .stack-tags b:active {
@@ -275,7 +266,7 @@ html.gsap-active .section-heading-row .section-intro {
 
 .header-cta:hover span,
 .all-work-link:hover span,
-.pill-btn:hover span {
+{
   color: #F26A21;
   text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
 }
@@ -300,7 +291,6 @@ html.gsap-active .section-heading-row .section-intro {
 .process-step h3,
 .process-step p,
 .process-step > span,
-.step-num,
 .credential-box p,
 .credential-box .badge,
 .stack-group h3,
@@ -310,15 +300,8 @@ html.gsap-active .section-heading-row .section-intro {
 .stack-note,
 .project-card h3,
 .project-card p,
-.project-overline,
-.project-meta span,
 .about-statement h2 span,
 .about-copy p,
-.about-facts-item h4,
-.about-facts-item p,
-.about-facts-item span,
-.academic-meta-row p,
-.academic-meta-row span,
 .academic-lead p,
 .curriculum-card h3,
 .curriculum-card p,
@@ -351,7 +334,6 @@ html.gsap-active .section-heading-row .section-intro {
 .process-step h3:hover,
 .process-step p:hover,
 .process-step:hover > span,
-.step-num:hover,
 .credential-box p:hover,
 .credential-box:hover .badge,
 .stack-group h3:hover,
@@ -361,15 +343,8 @@ html.gsap-active .section-heading-row .section-intro {
 .stack-note:hover,
 .project-card h3:hover,
 .project-card p:hover,
-.project-overline:hover,
-.project-meta span:hover,
 .about-statement h2 span:hover,
 .about-copy p:hover,
-.about-facts-item h4:hover,
-.about-facts-item p:hover,
-.about-facts-item span:hover,
-.academic-meta-row p:hover,
-.academic-meta-row span:hover,
 .academic-lead p:hover,
 .curriculum-card h3:hover,
 .curriculum-card p:hover,
@@ -462,7 +437,7 @@ html.gsap-active .section-heading-row .section-intro:hover,
   .header-cta::before,
   .all-work-link::before,
   .stack-tags b::before,
-  .process-flow-fill {
+  {
     transform: none;
     opacity: 1;
     transition: none;
