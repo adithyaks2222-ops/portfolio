@@ -365,8 +365,9 @@ textarea {
 .title-outline {
   position: relative;
   display: inline-block;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--ink);
+  color: #FFFFFF;
+  -webkit-text-stroke: 1.8px var(--ink);
+  paint-order: stroke fill;
   letter-spacing: -0.02em;
   margin-right: 0.14em;
   cursor: pointer;
@@ -381,8 +382,9 @@ textarea {
   position: absolute;
   inset: 0;
   letter-spacing: inherit;
-  color: #bc4b0e;
-  -webkit-text-stroke: 1.5px #a8440f;
+  color: #F26A21;
+  -webkit-text-stroke: 1.8px #F26A21;
+  paint-order: stroke fill;
   /* Organic curved liquid meniscus: bulging in center like an organic symbiote */
   -webkit-mask-image: radial-gradient(ellipse 135% 95% at 50% 160%, #000 48%, transparent 62%);
   mask-image: radial-gradient(ellipse 135% 95% at 50% 160%, #000 48%, transparent 62%);
