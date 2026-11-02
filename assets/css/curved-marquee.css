@@ -199,158 +199,6 @@
 }
 
 /* ==========================================================================
-   Central Foreground Identity Element: Portrait Photo Card
-   A vertical card for displaying the portrait photograph in the 3D center
-   (No badge, no circular frame, no spinning dashed ring)
-   ========================================================================== */
-.central-portrait-card,
-.central-foreground-photo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  pointer-events: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.portrait-card-frame {
-  width: 176px;
-  height: 242px;
-  border-radius: 18px;
-  background: radial-gradient(circle at 50% 32%, rgba(242, 106, 33, 0.16) 0%, #171816 75%);
-  border: 2px solid rgba(242, 106, 33, 0.9);
-  box-shadow: 0 0 0 1px rgba(242, 106, 33, 0.3),
-    0 24px 50px rgba(0, 0, 0, 0.38),
-    0 8px 18px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-.portrait-card-frame:hover {
-  transform: scale(1.025);
-  border-color: #F26A21;
-  box-shadow: 0 0 0 2px rgba(242, 106, 33, 0.45),
-    0 28px 60px rgba(0, 0, 0, 0.45);
-}
-
-.portrait-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.portrait-card-frame:hover .portrait-card-img {
-  transform: scale(1.03);
-}
-
-.portrait-card-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(23, 24, 22, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.portrait-card-badge .badge-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--marquee-accent);
-  box-shadow: 0 0 6px var(--marquee-accent);
-}
-
-.portrait-card-badge .badge-text {
-  font-family: var(--mono, "DM Mono", monospace);
-  font-size: 8.5px;
-  font-weight: 600;
-  color: #F5F4EF;
-  letter-spacing: 0.05em;
-}
-
-.portrait-card-scrim {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 46%;
-  background: linear-gradient(to top, rgba(23, 24, 22, 0.96) 0%, rgba(23, 24, 22, 0.65) 60%, rgba(23, 24, 22, 0) 100%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.portrait-card-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 12px 14px;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  text-align: left;
-}
-
-.portrait-card-name {
-  font-family: var(--display, "Manrope", sans-serif);
-  font-size: 13px;
-  font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-.portrait-card-role {
-  font-family: var(--mono, "DM Mono", monospace);
-  font-size: 8.5px;
-  font-weight: 500;
-  color: var(--marquee-accent);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .portrait-card-frame {
-    width: 140px;
-    height: 195px;
-    border-radius: 14px;
-  }
-
-  .portrait-card-name {
-    font-size: 11.5px;
-  }
-
-  .portrait-card-role {
-    font-size: 7.5px;
-  }
-}
-
-/* Fallback hidden legacy badge classes if referenced anywhere */
-.central-ak-badge,
-.ak-badge-ring,
-.photo-accent-ring {
-  display: none !important;
-}
-
-/* ==========================================================================
    Stage & Moving Marquee Rows
    ========================================================================== */
 .curved-marquee-stage {
@@ -543,38 +391,19 @@
     height: 100px;
   }
 
-  .photo-accent-ring {
-    width: 130px;
-    height: 130px;
-    margin-left: -65px;
-    margin-top: -65px;
-  }
+  
 
   .pedestal-tag {
     font-size: 8px;
   }
 
-  .ak-badge-inner {
-    width: 82px;
-    height: 82px;
-  }
+  
 
-  .ak-monogram {
-    font-size: 22px;
-  }
+  
 
-  .ak-dash {
-    width: 12px;
-    height: 2px;
-    margin-top: 4px;
-  }
+  
 
-  .ak-badge-ring {
-    width: 106px;
-    height: 106px;
-    margin-left: -53px;
-    margin-top: -53px;
-  }
+  
 }
 
 @media (max-width: 640px) {
@@ -630,41 +459,19 @@
     border-width: 2px;
   }
 
-  .photo-accent-ring {
-    width: 108px;
-    height: 108px;
-    margin-left: -54px;
-    margin-top: -54px;
-  }
+  
 
   .photo-pedestal {
     display: none;
   }
 
-  .ak-badge-inner {
-    width: 68px;
-    height: 68px;
-    border-width: 1.5px;
-    box-shadow: 0 0 0 4px rgba(242, 106, 33, 0.12),
-      0 10px 24px rgba(0, 0, 0, 0.25);
-  }
+  
 
-  .ak-monogram {
-    font-size: 18px;
-  }
+  
 
-  .ak-dash {
-    width: 10px;
-    height: 2px;
-    margin-top: 3px;
-  }
+  
 
-  .ak-badge-ring {
-    width: 88px;
-    height: 88px;
-    margin-left: -44px;
-    margin-top: -44px;
-  }
+  
 
   .marquee-fade-mask {
     width: 70px;
@@ -678,9 +485,7 @@
   }
 
   .photo-accent-ring,
-  .ak-badge-ring {
-    animation: none !important;
-  }
+  
 
   .tech-marquee-card {
     transform: none !important;

@@ -145,7 +145,6 @@ function renderProjectShowcase(containerId = "projects-showcase-container", pref
     <a class="project-card reveal" href="${prefix}${escapeHtml(project.detailUrl)}" aria-label="View case study for ${escapeHtml(project.title)}">
       <div class="project-visual">
         <img src="${prefix}${escapeHtml(project.previewImage)}" alt="${escapeHtml(project.title)} preview screenshot" class="project-preview-img" loading="lazy">
-        <span class="visual-tag">${escapeHtml(project.category)}</span>
       </div>
       <div class="project-info">
         <div class="project-info-main">
