@@ -1,0 +1,333 @@
+/* ==========================================================================
+   GSAP SCROLLTRIGGER ASSEMBLY & LIQUID MOTION DESIGN SYSTEM
+   Editorial multi-directional assembly, continuous scroll scrub,
+   directional liquid box fills, and breathing reverse animations
+   ========================================================================== */
+
+/* Prevent accidental horizontal overflow during off-axis card entries */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* When GSAP is active, disable CSS transitions on transform and opacity so they don't fight GSAP scrub */
+html.gsap-active .site-header,
+html.gsap-active .hero-title,
+html.gsap-active .hero-bottom,
+html.gsap-active .hero-copy,
+html.gsap-active .hero-aside,
+html.gsap-active .hero-art,
+html.gsap-active .ticker,
+html.gsap-active .curved-marquee-viewport,
+html.gsap-active .central-foreground-photo,
+html.gsap-active .service-card,
+html.gsap-active .project-card,
+html.gsap-active .stack-feature,
+html.gsap-active .stack-group,
+html.gsap-active .about-statement,
+html.gsap-active .about-copy,
+html.gsap-active .about-facts > div,
+html.gsap-active .process-step,
+html.gsap-active .credential-box,
+html.gsap-active .credentials-row,
+html.gsap-active .faq-layout > div,
+html.gsap-active .faq-list details,
+html.gsap-active .contact-main,
+html.gsap-active .contact-bottom,
+html.gsap-active .site-footer,
+html.gsap-active .section-heading-row h2,
+html.gsap-active .section-heading-row .section-intro {
+  transition: none !important;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   SMOOTH DIRECTIONAL LIQUID BOX FILL & REVERSE ANIMATIONS
+   Fluid bottom-to-top rising fill & gentle breathing retreat on reverse
+   ========================================================================== */
+
+/* Card Containers: Isolate stacking context so fill stays behind text but in front of background */
+.service-card,
+.process-step,
+.credential-box,
+.project-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--color-background);
+  transition: border-color 0.4s cubic-bezier(0.25, 1, 0.35, 1),
+              box-shadow 0.45s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+/* Liquid Fill Layer: Scales smoothly from bottom to top on entry, drains on exit */
+.service-card::before,
+.process-step::before,
+.credential-box::before,
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #171717;
+  transform-origin: bottom center;
+  transform: scaleY(0);
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* On hover / focus-visible: Liquid spreads upwards smoothly */
+@media (hover: hover) {
+  .service-card:hover::before,
+  .service-card:focus-visible::before,
+  .process-step:hover::before,
+  .process-step:focus-visible::before,
+  .credential-box:hover::before,
+  .credential-box:focus-visible::before,
+  .project-card:hover::before,
+  .project-card:focus-visible::before {
+    transform: scaleY(1);
+  }
+
+  .service-card:hover,
+  .service-card:focus-visible,
+  .process-step:hover,
+  .process-step:focus-visible,
+  .credential-box:hover,
+  .credential-box:focus-visible,
+  .project-card:hover,
+  .project-card:focus-visible {
+    border-color: #F26A21;
+    box-shadow: 0 0 20px rgba(242, 106, 33, 0.14), 0 14px 30px rgba(0, 0, 0, 0.28);
+  }
+}
+
+/* Coordinated typography & icon color transitions during liquid fill */
+.service-card h3,
+.process-step h3,
+.credential-box h4,
+.project-card .project-card-title,
+.service-card .card-index,
+.process-step > span,
+.credential-box .badge,
+.service-card .service-icon,
+.process-step .process-icon,
+.service-card .card-arrow,
+.project-card .arrow-glyph,
+.service-card p,
+.process-step p,
+.credential-box p,
+.project-card .project-one-liner {
+  transition: color 0.42s cubic-bezier(0.25, 1, 0.35, 1),
+              transform 0.35s ease;
+}
+
+@media (hover: hover) {
+  .service-card:hover h3,
+  .process-step:hover h3,
+  .credential-box:hover h4,
+  .project-card:hover .project-card-title,
+  .service-card:hover .card-index,
+  .process-step:hover > span,
+  .credential-box:hover .badge,
+  .service-card:hover .service-icon,
+  .process-step:hover .process-icon,
+  .service-card:hover .card-arrow,
+  .project-card:hover .arrow-glyph,
+  .service-card:hover p,
+  .process-step:hover p,
+  .credential-box:hover p,
+  .project-card:hover .project-one-liner {
+    color: #F26A21 !important;
+  }
+
+  .service-card:hover .service-icon,
+  .process-step:hover .process-icon {
+    transform: scale(1.05);
+  }
+
+  .service-card:hover .card-arrow,
+  .project-card:hover .arrow-glyph {
+    transform: translate(3px, -3px);
+  }
+}
+
+/* ==========================================================================
+   BUTTONS & TAG PILLS: Left-to-Right Directional Liquid Fill
+   ========================================================================== */
+.header-cta,
+.all-work-link,
+.stack-tags b {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
+}
+
+.header-cta::before,
+.all-work-link::before,
+.stack-tags b::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #171717;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+@media (hover: hover) {
+  .header-cta:hover::before,
+  .header-cta:focus-visible::before,
+  .all-work-link:hover::before,
+  .all-work-link:focus-visible::before,
+  .stack-tags b:hover::before,
+  .stack-tags b:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .header-cta:hover,
+  .header-cta:focus-visible {
+    border-color: #171717;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+
+  .all-work-link:hover,
+  .all-work-link:focus-visible {
+    border-color: #171717;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(23, 24, 22, 0.14);
+  }
+
+  .stack-tags b:hover,
+  .stack-tags b:focus-visible {
+    border-color: #F26A21;
+    color: #F26A21;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(242, 106, 33, 0.15);
+  }
+}
+
+.header-cta span,
+.all-work-link span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.header-cta:hover span,
+.all-work-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+.text-link span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.text-link:hover span {
+  transform: translateY(3px);
+}
+
+.contact-email span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.contact-email:hover span {
+  transform: translate(4px, -4px);
+}
+
+/* ==========================================================================
+   SCROLL-LINKED SYNCHRONIZED FILL ELEMENTS
+   ========================================================================== */
+.section-kicker {
+  position: relative;
+}
+
+.section-kicker-fill-line {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 100%;
+  background: var(--color-accent, #F26A21);
+  transform-origin: left center;
+  transform: scaleX(0);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.stack-feature {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.stack-liquid-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(242, 106, 33, 0.16) 0%, rgba(242, 106, 33, 0.04) 50%, transparent 100%);
+  transform-origin: bottom center;
+  transform: scaleY(0);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.process-flow-track {
+  position: relative;
+}
+
+.process-flow-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--color-accent, #F26A21);
+  transform-origin: left center;
+  transform: scaleX(0);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .hero-title,
+  .hero-bottom,
+  .hero-art,
+  .service-card,
+  .project-card,
+  .stack-feature,
+  .stack-group,
+  .about-statement,
+  .about-copy,
+  .about-facts > div,
+  .process-step,
+  .credential-box,
+  .faq-list details,
+  .contact-main,
+  .contact-bottom,
+  .site-footer,
+  .service-card::before,
+  .process-step::before,
+  .credential-box::before,
+  .project-card::before,
+  .header-cta::before,
+  .all-work-link::before,
+  .stack-tags b::before,
+  .section-kicker-fill-line,
+  .stack-liquid-fill,
+  .process-flow-fill {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Radial Floor Pedestal Shadow -->
+    <radialGradient id="floor-shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#171816" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#171816" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#171816" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- Aura Lighting -->
+    <radialGradient id="backlight" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#B9F36B" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#171816" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Silhouette Gradient -->
+    <linearGradient id="body-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#222521"/>
+      <stop offset="100%" stop-color="#171816"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Stage Backlight -->
+  <ellipse cx="250" cy="380" rx="220" ry="260" fill="url(#backlight)"/>
+
+  <!-- Floor Contact Shadow -->
+  <ellipse cx="250" cy="650" rx="190" ry="28" fill="url(#floor-shadow)"/>
+
+  <!-- Seated Minimalist Studio Chair Outline -->
+  <!-- Chair Backrest -->
+  <path d="M 180 280 C 180 240, 320 240, 320 280 L 315 440 C 315 450, 185 450, 185 440 Z" fill="#1C1F1B" stroke="#2D322B" stroke-width="2"/>
+  <!-- Chair Seat -->
+  <path d="M 160 450 C 160 440, 340 440, 340 450 L 330 500 C 330 510, 170 510, 170 500 Z" fill="#242823" stroke="#333830" stroke-width="2"/>
+  <!-- Chair Hydraulic Stem & Base Legs -->
+  <rect x="244" y="505" width="12" height="95" rx="3" fill="#3A4037"/>
+  <path d="M 250 595 L 140 645" stroke="#3A4037" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 250 595 L 360 645" stroke="#3A4037" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 250 595 L 250 648" stroke="#3A4037" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="140" cy="645" r="5" fill="#171816"/>
+  <circle cx="360" cy="645" r="5" fill="#171816"/>
+  <circle cx="250" cy="648" r="5" fill="#171816"/>
+
+  <!-- Architectural Silhouette: Natural Seated Posture -->
+  <!-- Legs -->
+  <!-- Left Thigh & Leg -->
+  <path d="M 185 460 C 185 460, 150 490, 145 560 L 140 625 L 175 635 L 185 570 C 185 520, 210 475, 210 475 Z" fill="url(#body-grad)" stroke="#2C322A" stroke-width="1.5"/>
+  <!-- Right Thigh & Leg (Relaxed Crossed / Forward) -->
+  <path d="M 315 460 C 315 460, 350 490, 355 560 L 360 625 L 325 635 L 315 570 C 315 520, 290 475, 290 475 Z" fill="url(#body-grad)" stroke="#2C322A" stroke-width="1.5"/>
+
+  <!-- Torso & Shoulders -->
+  <path d="M 175 320 C 175 270, 215 250, 250 250 C 285 250, 325 270, 325 320 L 320 460 C 320 470, 180 470, 180 460 Z" fill="url(#body-grad)" stroke="#2C322A" stroke-width="1.5"/>
+
+  <!-- Arms Resting -->
+  <path d="M 180 320 C 170 360, 160 410, 185 450 L 210 440 C 190 410, 195 360, 200 325 Z" fill="url(#body-grad)" stroke="#2C322A" stroke-width="1.5"/>
+  <path d="M 320 320 C 330 360, 340 410, 315 450 L 290 440 C 310 410, 305 360, 300 325 Z" fill="url(#body-grad)" stroke="#2C322A" stroke-width="1.5"/>
+
+  <!-- Neck & Head Contour (Neutral Proportions) -->
+  <rect x="238" y="225" width="24" height="30" rx="8" fill="url(#body-grad)"/>
+  <ellipse cx="250" cy="180" rx="42" ry="52" fill="url(#body-grad)" stroke="#2C322A" stroke-width="1.5"/>
+
+  <!-- Modern Tech Accent Collar -->
+  <path d="M 230 252 L 250 270 L 270 252" stroke="#B9F36B" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Editorial Placeholder Guide Framing -->
+  <g transform="translate(100, 70)">
+    <rect width="300" height="74" rx="8" fill="#171816" fill-opacity="0.9" stroke="#B9F36B" stroke-width="1.2"/>
+    <text x="150" y="24" fill="#B9F36B" font-family="'DM Mono', monospace" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle">ADITHYA K S · PORTRAIT</text>
+    <text x="150" y="44" fill="#F4F3EF" font-family="'DM Sans', sans-serif" font-size="12" text-anchor="middle">Seated Photograph Stage</text>
+    <text x="150" y="62" fill="#8A8C82" font-family="'DM Mono', monospace" font-size="9" text-anchor="middle">assets/images/portrait-seated.png</text>
+  </g>
+
+  <!-- Interactive Target Ring Indicator -->
+  <circle cx="250" cy="180" r="62" stroke="#B9F36B" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+</svg>

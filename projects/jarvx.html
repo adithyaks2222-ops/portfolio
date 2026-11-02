@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description" content="JARVX — Python Command-Line Network Scanner by Adithya K S.">
+  <title>JARVX — Network Scanner CLI | Adithya K S</title>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="project-detail-body">
+  <div class="page-shell">
+    <!-- Header -->
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Adithya home">AKS<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#perspective-experience">Perspective</a>
+        <a href="../index.html#what-i-do">What I Do</a>
+        <a href="../index.html#stack">Stack</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <a class="header-cta" href="mailto:adithyaks2222@gmail.com">Let’s talk <span>↗</span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
+    </header>
+
+    <!-- Breadcrumb & Back Bar -->
+    <div class="back-nav-bar">
+      <a href="../index.html#work" class="back-nav-link">
+        <span>←</span> Back to All Projects
+      </a>
+      <span class="project-status-badge prototype">Status: Prototype</span>
+    </div>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="project-detail-hero section-pad">
+        <div class="detail-eyebrow">
+          <span class="status-dot"></span>
+          <span class="eyebrow">03 / NETWORKING &amp; CLI UTILITY</span>
+        </div>
+
+        <h1 class="detail-title">JARVX</h1>
+        <p class="detail-lead">
+          A Python command-line network scanning utility built for multi-threaded port discovery, CIDR validation, raw socket inspection, and automated vulnerability exposure scoring.
+        </p>
+
+        <!-- Meta Grid -->
+        <div class="detail-meta-grid">
+          <div class="meta-item">
+            <span>DISCIPLINE</span>
+            <strong>Networking / CLI Tooling</strong>
+          </div>
+          <div class="meta-item">
+            <span>DEVELOPMENT STATUS</span>
+            <strong>Prototype</strong>
+          </div>
+          <div class="meta-item">
+            <span>PRIMARY STACK</span>
+            <strong>Python, Socket Programming, PyInstaller</strong>
+          </div>
+          <div class="meta-item">
+            <span>REPOSITORY</span>
+            <strong>github.com/adithyaks2222-ops</strong>
+          </div>
+        </div>
+
+        <!-- Main Screenshot Banner -->
+        <div class="detail-hero-banner">
+          <img src="../assets/images/projects/jarvx.svg" alt="JARVX CLI Network Scanner Terminal Interface" loading="eager">
+        </div>
+      </section>
+
+      <!-- Content Layout -->
+      <div class="container section-pad detail-content-wrap">
+        <!-- Sidebar Navigation -->
+        <aside class="detail-sidebar" aria-label="Project sections navigation">
+          <span class="tiny-label">CASE STUDY CONTENTS</span>
+          <ul class="sidebar-nav-list">
+            <li><a href="#overview">01. Overview</a></li>
+            <li><a href="#features">02. Features</a></li>
+            <li><a href="#tech-stack">03. Tech Stack</a></li>
+            <li><a href="#screenshots">04. Screenshots</a></li>
+            <li><a href="#links">05. Source &amp; Links</a></li>
+          </ul>
+        </aside>
+
+        <!-- Main Body -->
+        <div class="detail-main-content">
+          <!-- Overview -->
+          <section id="overview" class="detail-section-block">
+            <h2 class="detail-section-heading">Project Overview</h2>
+            <p class="detail-paragraph">
+              Understanding network topology and open port exposures is fundamental to defensive cybersecurity. While heavyweight enterprise scanners provide extensive feature sets, they often introduce complex dependencies and steep learning curves for rapid local network audits.
+            </p>
+            <p class="detail-paragraph">
+              <strong>JARVX</strong> is designed as a focused, lightweight command-line utility. Built using raw Python socket programming, it validates IPv4 CIDR blocks, initiates threaded connection sweeps across common and extended port ranges, measures connection latency, and outputs structured risk assessments.
+            </p>
+          </section>
+
+          <!-- Implemented & Planned Features -->
+          <section id="features" class="detail-section-block">
+            <h2 class="detail-section-heading">Implemented &amp; Planned Features</h2>
+            <div class="detail-feature-grid">
+              <div class="detail-feature-card">
+                <div class="feature-badge-row">
+                  <span class="card-index">01</span>
+                  <span class="feature-status-tag implemented">IMPLEMENTED</span>
+                </div>
+                <h4>CIDR Notation &amp; IP Validation</h4>
+                <p>Calculates host ranges dynamically from subnet masks and validates target inputs against invalid loopbacks and reserved spaces.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feature-badge-row">
+                  <span class="card-index">02</span>
+                  <span class="feature-status-tag implemented">IMPLEMENTED</span>
+                </div>
+                <h4>Dual Scanning Modes (Quick / Deep)</h4>
+                <p>Offers targeted scans across the top 100 high-risk service ports or deep sweeps across all 65,535 TCP socket endpoints.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feature-badge-row">
+                  <span class="card-index">03</span>
+                  <span class="feature-status-tag implemented">IMPLEMENTED</span>
+                </div>
+                <h4>Multi-Threaded Socket Engine</h4>
+                <p>Concurrent thread dispatch pool achieving sub-5-second sweeps across standard /24 subnets.</p>
+              </div>
+
+              <div class="detail-feature-card">
+                <div class="feature-badge-row">
+                  <span class="card-index">04</span>
+                  <span class="feature-status-tag planned">PLANNED ROADMAP</span>
+                </div>
+                <h4>Automated Service Banner Grabbing</h4>
+                <p>Passive protocol handshake interrogation to capture web server, SSH, and database version banners.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Technology Stack -->
+          <section id="tech-stack" class="detail-section-block">
+            <h2 class="detail-section-heading">Technology Stack &amp; Tools</h2>
+            <div class="detail-stack-grid">
+              <div class="detail-stack-item">
+                <img src="../assets/images/icons/python.svg" alt="Python logo">
+                <div>
+                  <strong>Python 3</strong>
+                  <span>Core Execution Engine &amp; CLI Parser</span>
+                </div>
+              </div>
+              <div class="detail-stack-item">
+                <img src="../assets/images/icons/cisco.svg" alt="Socket API logo">
+                <div>
+                  <strong>Socket API (AF_INET)</strong>
+                  <span>Low-Level Raw TCP/IP Socket Connections</span>
+                </div>
+              </div>
+              <div class="detail-stack-item">
+                <img src="../assets/images/icons/linux.svg" alt="PyInstaller logo">
+                <div>
+                  <strong>PyInstaller</strong>
+                  <span>Standalone Executable Packaging</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Screenshot Gallery -->
+          <section id="screenshots" class="detail-section-block">
+            <h2 class="detail-section-heading">CLI Execution &amp; Output Visuals</h2>
+            <div class="detail-gallery-grid">
+              <div class="gallery-item">
+                <img src="../assets/images/projects/jarvx.svg" alt="JARVX CLI Execution Screen with Port Matrix" loading="lazy">
+                <div class="gallery-caption">FIGURE 3.0 — JARVX Terminal Run: Subnet Scan Matrix, Latency Metrics, and Risk Breakdown.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Project Links -->
+          <section id="links" class="detail-section-block">
+            <h2 class="detail-section-heading">Project Links &amp; Source</h2>
+            <p class="detail-paragraph">Inspect CLI arguments, socket timeouts, and script documentation in the official repository.</p>
+            <div class="detail-actions-bar">
+              <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noreferrer" class="btn-detail-primary">
+                <span>View on GitHub ↗</span>
+              </a>
+              <a href="../index.html#work" class="btn-detail-secondary">
+                <span>All Projects ←</span>
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Pagination Navigation -->
+      <nav class="detail-pagination-nav" aria-label="Project pagination">
+        <a href="phisheye.html" class="pagination-btn">
+          <span class="pagination-label">← PREVIOUS PROJECT</span>
+          <span class="pagination-title">PhishEye</span>
+        </a>
+        <a href="codeburner.html" class="pagination-btn" style="text-align: right;">
+          <span class="pagination-label">NEXT PROJECT →</span>
+          <span class="pagination-title">CodeBurner</span>
+        </a>
+      </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <a class="brand" href="../index.html">AKS<span>.</span></a>
+      <span>DESIGNED &amp; BUILT WITH INTENTION</span>
+      <span>© 2026 ADITHYA K S</span>
+      <a href="../index.html#top">BACK TO TOP ↑</a>
+    </footer>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

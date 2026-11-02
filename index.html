@@ -1,1208 +1,1472 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Stan Lee - Creator Portfolio" />
-  <title>Stan Lee — Portfolio</title>
-
-  <!-- Favicon & Fonts -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23ad96ff'>S.</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- 0. TOAST NOTIFICATION -->
-  <div class="toast" id="toast" role="status" aria-live="polite">Email copied ✓</div>
-
-  <!-- 1. NAVIGATION BAR -->
-  <header class="floating-nav" id="nav" aria-label="Main navigation">
-    <a class="brand" href="#home">Stan<span>.</span></a>
-
-    <nav class="desktop-nav" aria-label="Site sections">
-      <a class="nav-link active" href="#home">Home</a>
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#projects">Projects</a>
-      <a class="nav-link" href="#skills">Skills</a>
-      <a class="nav-link" href="#experience">Experience</a>
-      <a class="nav-link" href="#contact">Contact</a>
-    </nav>
-
-    <div class="nav-actions">
-
-      <a class="talk" href="#contact">Let's talk ↗</a>
-      <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- 2. HERO SECTION -->
-    <section class="hero" id="home" aria-label="Hero Introduction">
-      
-      <!-- Bio -->
-      <div class="hero-left">
-        <p class="eyebrow">Hello, true believers, I'm</p>
-        <h1>Stan Lee<br><em>Creator</em></h1>
-        <p class="desc">I architect sprawling universes and craft high-impact mythological characters that blend human flaws with spectacular superpowers.</p>
-      </div>
-
-      <!-- Center Carousel -->
-      <div class="carousel" id="carousel" role="region" aria-label="Photo carousel" tabindex="0">
-        <div class="aura" aria-hidden="true"></div>
-        <div class="orbit o1" aria-hidden="true"></div>
-        <div class="orbit o2" aria-hidden="true"></div>
-
-        <div class="slides">
-          <article class="slide"><img src="src/img1-removebg-preview.png" alt="Photo 1" loading="eager" draggable="false" /></article>
-          <article class="slide"><img src="src/img2-removebg-preview.png" alt="Photo 2" loading="lazy" draggable="false" /></article>
-          <article class="slide"><img src="src/img3-removebg-preview.png" alt="Photo 3" loading="lazy" draggable="false" /></article>
-          <article class="slide"><img src="src/img4-removebg-preview.png" alt="Photo 4" loading="lazy" draggable="false" /></article>
-          <article class="slide"><img src="src/img5-removebg-preview.png" alt="Photo 5" loading="lazy" draggable="false" /></article>
-        </div>
-
-        <div class="dots" role="tablist" aria-label="Select photo">
-          <button class="dot active" data-i="0"></button>
-          <button class="dot" data-i="1"></button>
-          <button class="dot" data-i="2"></button>
-          <button class="dot" data-i="3"></button>
-          <button class="dot" data-i="4"></button>
-        </div>
-      </div>
-
-      <!-- Right Column -->
-      <div class="hero-right">
-        <p class="eyebrow">Creative Vision</p>
-        <h2><span>Writer</span><br>&amp;&nbsp;Editor</h2>
-        <p class="vision">Bridging the gap between everyday human struggles, extraordinary abilities, and dynamic visual storytelling.</p>
-        <a class="explore" href="#projects">Explore the Universe ↗</a>
-        <button class="copy-btn" id="copy-btn">Copy Email ▣</button>
-      </div>
-    </section>
-   
-    <!-- 3. ABOUT SECTION (Sticky Stacking Cards) -->
-    <section class="section" id="about" aria-label="About">
-      <div class="split" style="align-items: start;">
-        
-        <!-- Left Side: Sticky Text -->
-        <div class="about-text-sticky">
-          <p class="eyebrow">A little about me</p>
-          <h2>Building with <span>imagination</span>,<br>designing with heart.</h2>
-          <div class="body-text">
-            <p>I enjoy working where epic storytelling, visual art, and profound human connection overlap.</p>
-            <p>I like turning complicated societal themes into heroic journeys that feel exciting, relatable, and timeless. Excelsior!</p>
-            <a class="btn" href="#contact">Let's build a universe ↗</a>
-          </div>
-        </div>
-
-        <!-- Right Side: Scrolling Deck of Cards -->
-        <div class="about-cards-container">
-          <div class="scroll-card sc-1">
-            <span class="card-num">01</span>
-            <h3>Character Creation</h3>
-            <p>Architecting iconic, flawed heroes using relatable struggles, secret identities, and spectacular powers.</p>
-          </div>
-          
-          <div class="scroll-card sc-2">
-            <span class="card-num">02</span>
-            <h3>World-Building</h3>
-            <p>Crafting interconnected universes where every story, city, and character serves a larger narrative tapestry.</p>
-          </div>
-          
-          <div class="scroll-card sc-3">
-            <span class="card-num">03</span>
-            <h3>The Marvel Method</h3>
-            <p>Merging collaborative plotting with dynamic comic art to bring static pages and ink to life.</p>
-=======
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description"
+    content="Adithya K S — Multidisciplinary developer & Integrated MCA student building practical digital products across software, security, AI and the web.">
+  <title>Adithya K S — Developer &amp; Builder</title>
 
-  <title>Adithya K S — Multidisciplinary Developer &amp; Tech Enthusiast</title>
-  <meta name="description" content="Personal portfolio of Adithya K S — Integrated MCA student exploring software development, cybersecurity, and artificial intelligence through practical projects.">
-  <meta name="author" content="Adithya K S">
-  <meta name="theme-color" content="#FAF9F5">
-
-  <!-- Open Graph / Meta -->
-  <meta property="og:title" content="Adithya K S — Multidisciplinary Developer">
-  <meta property="og:description" content="Building ideas into functional technology. Student developer exploring systems, security, and AI.">
-  <meta property="og:type" content="website">
-
-  <!-- Google Typography: Merriweather + Inter + Fragment Mono -->
+  <!-- Typography: Manrope + DM Sans + DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-  <!-- ======================================================================
-       01. SITE HEADER & NAVIGATION
-       ====================================================================== -->
-  <header class="site-header" role="banner">
-    <div class="container">
-      <nav class="nav-wrapper" aria-label="Main Navigation">
-        <!-- Brand Wordmark -->
-        <a href="#top" class="brand" aria-label="Adithya K S Home">
-          <span class="brand-name">Adithya K S</span>
-          <span class="brand-badge">IMCA '29</span>
-        </a>
-
-        <!-- Desktop Navigation Links -->
-        <div class="desktop-nav">
-          <ul class="nav-links">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#technologies" class="nav-link">Stack</a></li>
-            <li><a href="#expertise" class="nav-link">Expertise</a></li>
-            <li><a href="#experience" class="nav-link">Leadership</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
-
-        <!-- Action / Status Pill -->
-        <div class="header-actions">
-          <div class="status-pill" title="Status: Open to learning, student projects &amp; collaborations">
-            <span class="status-indicator-dot" aria-hidden="true"></span>
-            <span>Available to Build</span>
-          </div>
-
-          <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        </div>
+  <div class="page-shell">
+    <!-- ======================================================================
+         01. SITE HEADER & NAVIGATION
+         ====================================================================== -->
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Adithya home">AKS<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#perspective-experience">Perspective</a>
+        <a href="#what-i-do">What I Do</a>
+        <a href="#stack">Stack</a>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <div class="nav-liquid-pill" aria-hidden="true"></div>
       </nav>
-    </div>
+      <a class="header-cta" href="mailto:adithyaks2222@gmail.com">Let’s talk <span>↗</span></a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
+    </header>
 
-    <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-      <ul class="mobile-nav-links">
-        <li><a href="#about" class="mobile-nav-link">01 / About</a></li>
-        <li><a href="#projects" class="mobile-nav-link">02 / Selected Projects</a></li>
-        <li><a href="#technologies" class="mobile-nav-link">03 / Tech Stack</a></li>
-        <li><a href="#expertise" class="mobile-nav-link">04 / Expertise</a></li>
-        <li><a href="#experience" class="mobile-nav-link">05 / Education &amp; Leadership</a></li>
-        <li><a href="#contact" class="mobile-nav-link">06 / Contact</a></li>
-      </ul>
-    </div>
-  </header>
+    <main id="top">
+      <!-- ======================================================================
+           02. HERO SECTION
+           ====================================================================== -->
+      <section class="hero section-pad">
+        <div class="eyebrow reveal">
+          <span class="status-dot"></span> IMCA STUDENT · DEVELOPER · BUILDER
+          <span class="eyebrow-year">2026 / 27</span>
+        </div>
 
-  <main id="top">
-    <!-- ======================================================================
-         02. HERO SECTION
-         ====================================================================== -->
-    <section class="hero-section" aria-labelledby="hero-heading">
-      <div class="container">
-        <!-- Editorial Metadata Bar -->
-        <div class="hero-meta-bar reveal-item">
-          <div class="hero-meta-item">
-            <span>LOCATION:</span>
-            <strong>Kerala, India [9.93° N, 76.26° E]</strong>
-          </div>
-          <div class="hero-meta-item">
-            <span>DISCIPLINE:</span>
-            <strong>Multidisciplinary Developer</strong>
-          </div>
-          <div class="hero-meta-item">
-            <span>ACADEMIC:</span>
-            <strong>IMCA @ De Paul Institute ('29)</strong>
+        <h1 class="hero-title reveal">
+          I build<br><span class="title-outline">digital</span> things<span class="period">.</span>
+        </h1>
+
+        <div class="hero-bottom reveal">
+          <p class="hero-copy">
+            A curious developer exploring the space between <em>software, security and useful ideas.</em> I turn
+            problems into practical tools, one build at a time.
+          </p>
+          <div class="hero-aside">
+            <span class="tiny-label">CURRENTLY EXPLORING</span>
+            <p>Cybersecurity / AI / Full-stack development · Kerala, India</p>
+            <a href="#work" class="text-link">Explore selected work <span>↓</span></a>
           </div>
         </div>
 
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="hero-tagline reveal-item">
-              <span>●</span> Personal Portfolio &amp; Engineering Log
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit-core">AK<span>_</span></div>
+          <span class="art-label art-label-one">BUILD / TEST / LEARN</span>
+          <span class="art-label art-label-two">EST. 2024 — ALWAYS IN PROGRESS</span>
+          <span class="art-cross">✳</span>
+        </div>
+      </section>
+
+            <!-- ======================================================================
+           03. 3D CURVED INFINITE LOGO MARQUEE (THREE-ROW 3D CURVATURE)
+           ====================================================================== -->
+      <section class="curved-marquee-section section-pad" id="perspective-experience" aria-labelledby="marquee-heading">
+        <div class="section-kicker reveal">
+          01 / 3D CURVED ECOSYSTEM <span>INFINITE TECHNOLOGY MATRIX</span>
+        </div>
+
+        <div class="curved-marquee-header reveal">
+          <h2 id="marquee-heading">Technology in motion<span class="period">.</span></h2>
+          <p class="section-intro">A continuously moving 3D stream of languages, frameworks and security tools curving across space around the central portrait photo.</p>
+        </div>
+
+        <!-- 3D Curved Marquee Viewport -->
+        <div class="curved-marquee-viewport" aria-label="3D Curved Infinite Technology Marquee">
+
+          <!-- Edge Gradient Masks -->
+          <div class="marquee-fade-mask mask-left" aria-hidden="true"></div>
+          <div class="marquee-fade-mask mask-right" aria-hidden="true"></div>
+
+          <!-- Central Portrait Photo Card in Foreground (No Badge) -->
+          <div class="central-portrait-card" aria-label="Adithya K S Portrait Photograph">
+            <div class="portrait-card-frame">
+              <div class="portrait-card-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span class="badge-text">AKS</span>
+              </div>
+              <img src="assets/images/adithya.jpg" alt="Adithya K S — Portrait Photograph" class="portrait-card-img" id="marquee-portrait-img">
+              <div class="portrait-card-scrim" aria-hidden="true"></div>
+              <div class="portrait-card-caption">
+                <span class="portrait-card-name">Adithya K S</span>
+                <span class="portrait-card-role">IMCA '29 · DEVELOPER</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3D Perspective Stage -->
+          <div class="curved-marquee-stage">
+          <!-- Row (45s) -->
+          <div class="marquee-row row-1">
+            <div class="marquee-track">
+              <div class="marquee-group">
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/python.svg" alt="Python logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Python</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/javascript.svg" alt="JavaScript logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">JavaScript</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/java.svg" alt="Java logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Java</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/cplusplus.svg" alt="C++ logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">C++</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/csharp.svg" alt="C# logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">C#</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/c.svg" alt="C logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">C</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/ruby.svg" alt="Ruby logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Ruby</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/sql.svg" alt="SQL logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">SQL</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/html5.svg" alt="HTML5 logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">HTML5</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/css3.svg" alt="CSS3 logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">CSS3</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/git.svg" alt="Git logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Git</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/github.svg" alt="GitHub logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">GitHub</span>
+              </div>
+              </div>
+              <div class="marquee-group" aria-hidden="true">
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/python.svg" alt="Python logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Python</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/javascript.svg" alt="JavaScript logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">JavaScript</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/java.svg" alt="Java logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Java</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/cplusplus.svg" alt="C++ logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">C++</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/csharp.svg" alt="C# logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">C#</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/c.svg" alt="C logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">C</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/ruby.svg" alt="Ruby logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Ruby</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/sql.svg" alt="SQL logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">SQL</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/html5.svg" alt="HTML5 logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">HTML5</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/css3.svg" alt="CSS3 logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">CSS3</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/git.svg" alt="Git logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Git</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/github.svg" alt="GitHub logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">GitHub</span>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row (60s) -->
+          <div class="marquee-row row-2">
+            <div class="marquee-track">
+              <div class="marquee-group">
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/nodejs.svg" alt="Node.js logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Node.js</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/flask.svg" alt="Flask logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Flask</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/mongodb.svg" alt="MongoDB logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">MongoDB</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/mysql.svg" alt="MySQL logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">MySQL</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/plsql.svg" alt="PL/SQL logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">PL/SQL</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/vscode.svg" alt="VS Code logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">VS Code</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/dotnet.svg" alt=".NET logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">.NET</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/ollama.svg" alt="Ollama logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Ollama</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/chrome.svg" alt="Chrome API logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Chrome API</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/python.svg" alt="Python logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Python</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/javascript.svg" alt="JavaScript logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">JavaScript</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/git.svg" alt="Git logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Git</span>
+              </div>
+              </div>
+              <div class="marquee-group" aria-hidden="true">
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/nodejs.svg" alt="Node.js logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Node.js</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/flask.svg" alt="Flask logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Flask</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/mongodb.svg" alt="MongoDB logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">MongoDB</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/mysql.svg" alt="MySQL logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">MySQL</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/plsql.svg" alt="PL/SQL logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">PL/SQL</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/vscode.svg" alt="VS Code logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">VS Code</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/dotnet.svg" alt=".NET logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">.NET</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/ollama.svg" alt="Ollama logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Ollama</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/chrome.svg" alt="Chrome API logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Chrome API</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/python.svg" alt="Python logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Python</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/javascript.svg" alt="JavaScript logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">JavaScript</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/git.svg" alt="Git logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Git</span>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row (50s) -->
+          <div class="marquee-row row-3">
+            <div class="marquee-track">
+              <div class="marquee-group">
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/linux.svg" alt="Linux logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Linux</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/kalilinux.svg" alt="Kali Linux logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Kali Linux</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/wireshark.svg" alt="Wireshark logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Wireshark</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/cisco.svg" alt="Networking logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Networking</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/nmap.svg" alt="Nmap logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Nmap</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/vmware.svg" alt="VMware logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">VMware</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/antigravity.svg" alt="Antigravity logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Antigravity</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/figma.svg" alt="Figma logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Figma</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/photoshop.svg" alt="Photoshop logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Photoshop</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/wireshark.svg" alt="Wireshark logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Wireshark</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/linux.svg" alt="Linux logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Linux</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/cisco.svg" alt="TCP / IP logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">TCP / IP</span>
+              </div>
+              </div>
+              <div class="marquee-group" aria-hidden="true">
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/linux.svg" alt="Linux logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Linux</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/kalilinux.svg" alt="Kali Linux logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Kali Linux</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/wireshark.svg" alt="Wireshark logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Wireshark</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/cisco.svg" alt="Networking logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Networking</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/nmap.svg" alt="Nmap logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Nmap</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/vmware.svg" alt="VMware logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">VMware</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/antigravity.svg" alt="Antigravity logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Antigravity</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/figma.svg" alt="Figma logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Figma</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/photoshop.svg" alt="Photoshop logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Photoshop</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/wireshark.svg" alt="Wireshark logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Wireshark</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/linux.svg" alt="Linux logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">Linux</span>
+              </div>
+              <div class="tech-marquee-card">
+                <div class="card-logo-wrap">
+                  <img src="assets/images/icons/cisco.svg" alt="TCP / IP logo" class="tech-logo-img">
+                </div>
+                <span class="tech-card-name">TCP / IP</span>
+              </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           04. AUTHENTIC THREE-ROW TECHNOLOGY LOGO MARQUEE (PART 1)
+           ====================================================================== -->
+      <section class="ticker-system" aria-label="Technology and engineering ecosystem">
+        <!-- ROW 01: PROGRAMMING LANGUAGES (Left Movement) -->
+        <div class="ticker-row" aria-label="Row 1: Programming Languages">
+          <div class="ticker-track track-row-1">
+            <!-- First Set -->
+            <span class="marquee-row-header-pill">ROW 01 · LANGUAGES</span>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/python.svg" alt="Python logo"></div>
+              <span class="marquee-tech-name">Python</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/java.svg" alt="Java logo"></div>
+              <span class="marquee-tech-name">Java</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/javascript.svg" alt="JavaScript logo"></div>
+              <span class="marquee-tech-name">JavaScript</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/c.svg" alt="C language logo"></div>
+              <span class="marquee-tech-name">C</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/cplusplus.svg" alt="C++ logo"></div>
+              <span class="marquee-tech-name">C++</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/csharp.svg" alt="C# logo"></div>
+              <span class="marquee-tech-name">C#</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/ruby.svg" alt="Ruby logo"></div>
+              <span class="marquee-tech-name">Ruby</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/html5.svg" alt="HTML5 logo"></div>
+              <span class="marquee-tech-name">HTML5</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/css3.svg" alt="CSS3 logo"></div>
+              <span class="marquee-tech-name">CSS3</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/sql.svg" alt="SQL logo"></div>
+              <span class="marquee-tech-name">SQL</span>
             </div>
 
-            <h1 id="hero-heading" class="hero-title reveal-item">
-              Building ideas into <span class="accent-word">functional</span> technology.
-            </h1>
+            <!-- Seamless Duplicate Loop Set -->
+            <span class="marquee-row-header-pill" aria-hidden="true">ROW 01 · LANGUAGES</span>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/python.svg" alt="Python logo"></div>
+              <span class="marquee-tech-name">Python</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/java.svg" alt="Java logo"></div>
+              <span class="marquee-tech-name">Java</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/javascript.svg" alt="JavaScript logo"></div>
+              <span class="marquee-tech-name">JavaScript</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/c.svg" alt="C language logo"></div>
+              <span class="marquee-tech-name">C</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/cplusplus.svg" alt="C++ logo"></div>
+              <span class="marquee-tech-name">C++</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/csharp.svg" alt="C# logo"></div>
+              <span class="marquee-tech-name">C#</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/ruby.svg" alt="Ruby logo"></div>
+              <span class="marquee-tech-name">Ruby</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/html5.svg" alt="HTML5 logo"></div>
+              <span class="marquee-tech-name">HTML5</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/css3.svg" alt="CSS3 logo"></div>
+              <span class="marquee-tech-name">CSS3</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/sql.svg" alt="SQL logo"></div>
+              <span class="marquee-tech-name">SQL</span>
+            </div>
+          </div>
+        </div>
 
-            <p class="hero-lead reveal-item">
-              I'm <strong>Adithya K S</strong>, an Integrated MCA student exploring software development, cybersecurity and artificial intelligence through practical projects and continuous learning.
+        <!-- ROW 02: FRAMEWORKS AND DEVELOPMENT (Right Movement) -->
+        <div class="ticker-row" aria-label="Row 2: Frameworks and Development">
+          <div class="ticker-track track-row-2">
+            <!-- First Set -->
+            <span class="marquee-row-header-pill">ROW 02 · FRAMEWORKS &amp; DEV</span>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/flask.svg" alt="Flask logo"></div>
+              <span class="marquee-tech-name">Flask</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/nodejs.svg" alt="Node.js logo"></div>
+              <span class="marquee-tech-name">Node.js</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/dotnet.svg" alt=".NET logo"></div>
+              <span class="marquee-tech-name">.NET</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/mysql.svg" alt="MySQL logo"></div>
+              <span class="marquee-tech-name">MySQL</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/mongodb.svg" alt="MongoDB logo"></div>
+              <span class="marquee-tech-name">MongoDB</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/git.svg" alt="Git logo"></div>
+              <span class="marquee-tech-name">Git</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/github.svg" alt="GitHub logo"></div>
+              <span class="marquee-tech-name">GitHub</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/ollama.svg" alt="Ollama logo"></div>
+              <span class="marquee-tech-name">Ollama</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/vscode.svg" alt="VS Code logo"></div>
+              <span class="marquee-tech-name">VS Code</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/plsql.svg" alt="PL/SQL logo"></div>
+              <span class="marquee-tech-name">PL/SQL</span>
+            </div>
+
+            <!-- Seamless Duplicate Loop Set -->
+            <span class="marquee-row-header-pill" aria-hidden="true">ROW 02 · FRAMEWORKS &amp; DEV</span>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/flask.svg" alt="Flask logo"></div>
+              <span class="marquee-tech-name">Flask</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/nodejs.svg" alt="Node.js logo"></div>
+              <span class="marquee-tech-name">Node.js</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/dotnet.svg" alt=".NET logo"></div>
+              <span class="marquee-tech-name">.NET</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/mysql.svg" alt="MySQL logo"></div>
+              <span class="marquee-tech-name">MySQL</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/mongodb.svg" alt="MongoDB logo"></div>
+              <span class="marquee-tech-name">MongoDB</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/git.svg" alt="Git logo"></div>
+              <span class="marquee-tech-name">Git</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/github.svg" alt="GitHub logo"></div>
+              <span class="marquee-tech-name">GitHub</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/ollama.svg" alt="Ollama logo"></div>
+              <span class="marquee-tech-name">Ollama</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/vscode.svg" alt="VS Code logo"></div>
+              <span class="marquee-tech-name">VS Code</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/plsql.svg" alt="PL/SQL logo"></div>
+              <span class="marquee-tech-name">PL/SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 03: TECHNOLOGY AND ENGINEERING TOOLS (Left Movement) -->
+        <div class="ticker-row" aria-label="Row 3: Technology and Tools">
+          <div class="ticker-track track-row-3">
+            <!-- First Set -->
+            <span class="marquee-row-header-pill">ROW 03 · TOOLS &amp; SYSTEMS</span>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/cisco.svg" alt="Cisco Networking logo"></div>
+              <span class="marquee-tech-name">Cisco Networking</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/wireshark.svg" alt="Wireshark logo"></div>
+              <span class="marquee-tech-name">Wireshark</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/nmap.svg" alt="Nmap logo"></div>
+              <span class="marquee-tech-name">Nmap</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/kalilinux.svg" alt="Kali Linux logo"></div>
+              <span class="marquee-tech-name">Kali Linux</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/vmware.svg" alt="VMware logo"></div>
+              <span class="marquee-tech-name">VMware</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/linux.svg" alt="Linux logo"></div>
+              <span class="marquee-tech-name">Linux</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/figma.svg" alt="Figma logo"></div>
+              <span class="marquee-tech-name">Figma</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/photoshop.svg" alt="Adobe Photoshop logo">
+              </div>
+              <span class="marquee-tech-name">Adobe Photoshop</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/antigravity.svg" alt="Antigravity logo">
+              </div>
+              <span class="marquee-tech-name">Antigravity</span>
+            </div>
+            <div class="marquee-logo-card">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/chrome.svg" alt="Chrome Extensions logo">
+              </div>
+              <span class="marquee-tech-name">Chrome Extensions</span>
+            </div>
+
+            <!-- Seamless Duplicate Loop Set -->
+            <span class="marquee-row-header-pill" aria-hidden="true">ROW 03 · TOOLS &amp; SYSTEMS</span>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/cisco.svg" alt="Cisco Networking logo"></div>
+              <span class="marquee-tech-name">Cisco Networking</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/wireshark.svg" alt="Wireshark logo"></div>
+              <span class="marquee-tech-name">Wireshark</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/nmap.svg" alt="Nmap logo"></div>
+              <span class="marquee-tech-name">Nmap</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/kalilinux.svg" alt="Kali Linux logo"></div>
+              <span class="marquee-tech-name">Kali Linux</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/vmware.svg" alt="VMware logo"></div>
+              <span class="marquee-tech-name">VMware</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/linux.svg" alt="Linux logo"></div>
+              <span class="marquee-tech-name">Linux</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/figma.svg" alt="Figma logo"></div>
+              <span class="marquee-tech-name">Figma</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/photoshop.svg" alt="Adobe Photoshop logo">
+              </div>
+              <span class="marquee-tech-name">Adobe Photoshop</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/antigravity.svg" alt="Antigravity logo">
+              </div>
+              <span class="marquee-tech-name">Antigravity</span>
+            </div>
+            <div class="marquee-logo-card" aria-hidden="true">
+              <div class="marquee-icon-wrap"><img src="assets/images/icons/chrome.svg" alt="Chrome Extensions logo">
+              </div>
+              <span class="marquee-tech-name">Chrome Extensions</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           05. WHAT I DO
+           ====================================================================== -->
+      <section class="section-pad services" id="what-i-do">
+        <div class="section-kicker reveal">02 / WHAT I DO</div>
+        <div class="section-heading-row reveal">
+          <h2>Ideas are good.<br><span>Making them work is better.</span></h2>
+          <p class="section-intro">I enjoy working across different layers of technology, from writing code to
+            understanding how systems behave.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span class="card-index">01</span>
+            <div class="service-icon">⌘</div>
+            <h3>Software Development</h3>
+            <p>Building small, focused applications and tools that solve real problems with clear functionality.</p>
+            <span class="card-arrow">↗</span>
+          </article>
+          <article class="service-card reveal">
+            <span class="card-index">02</span>
+            <div class="service-icon">⌁</div>
+            <h3>Security Exploration</h3>
+            <p>Learning networking and defensive security through hands-on labs, scanners and practical experiments.</p>
+            <span class="card-arrow">↗</span>
+          </article>
+          <article class="service-card reveal">
+            <span class="card-index">03</span>
+            <div class="service-icon">◫</div>
+            <h3>Web Experiences</h3>
+            <p>Creating responsive websites and interfaces with an emphasis on structure, usability and detail.</p>
+            <span class="card-arrow">↗</span>
+          </article>
+          <article class="service-card reveal">
+            <span class="card-index">04</span>
+            <div class="service-icon">✳</div>
+            <h3>Learning by Building</h3>
+            <p>Exploring AI, automation and new technologies by turning concepts into working prototypes.</p>
+            <span class="card-arrow">↗</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           06. MAIN MODULAR PROJECT SHOWCASE (PART 1 & PART 5)
+           Populated via central projects.js with independent detail pages
+           ====================================================================== -->
+      <section class="section-pad work-section" id="work">
+        <div class="section-kicker reveal">
+          03 / SELECTED WORK <span>MODULAR PROJECT SHOWCASE · 2024—26</span>
+        </div>
+        <div class="section-heading-row reveal">
+          <h2>Things I’ve<br><span>put into motion.</span></h2>
+          <p class="section-intro">A scalable project directory. Each project card opens into its own dedicated
+            technical case study.</p>
+        </div>
+
+        <!-- Dynamic Container Populated via projects.js -->
+        <div class="project-list" id="projects-showcase-container">
+          <!-- 01: CAPX -->
+          <a class="project-card reveal" href="projects/capx.html" aria-label="View case study for CAPX">
+            <div class="project-visual">
+              <img src="assets/images/projects/capx.svg" alt="CAPX preview screenshot" class="project-preview-img"
+                loading="lazy">
+              <span class="visual-tag">DEFENSIVE SECURITY / SYSTEM ANALYSIS</span>
+            </div>
+            <div class="project-info">
+              <div class="project-info-main">
+                <div class="project-title-row">
+                  <h3 class="project-card-title">CAPX <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+                  <span class="project-status-badge in-dev">In Development</span>
+                </div>
+                <p class="project-one-liner">A Windows system analysis and security inspection application.</p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="tech-pill-mini"><img src="assets/images/icons/python.svg" alt=""
+                    class="tech-icon-mini"><span>Python</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/flask.svg" alt=""
+                    class="tech-icon-mini"><span>Flask</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/javascript.svg" alt=""
+                    class="tech-icon-mini"><span>JavaScript</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/html5.svg" alt=""
+                    class="tech-icon-mini"><span>HTML5</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/css3.svg" alt=""
+                    class="tech-icon-mini"><span>CSS3</span></span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 02: PhishEye -->
+          <a class="project-card reveal" href="projects/phisheye.html" aria-label="View case study for PhishEye">
+            <div class="project-visual">
+              <img src="assets/images/projects/phisheye.svg" alt="PhishEye preview screenshot"
+                class="project-preview-img" loading="lazy">
+              <span class="visual-tag">BROWSER SECURITY / HEURISTICS</span>
+            </div>
+            <div class="project-info">
+              <div class="project-info-main">
+                <div class="project-title-row">
+                  <h3 class="project-card-title">PhishEye <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+                  <span class="project-status-badge in-dev">Development</span>
+                </div>
+                <p class="project-one-liner">A Chrome extension that analyses URLs and website content for potential
+                  phishing indicators.</p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="tech-pill-mini"><img src="assets/images/icons/javascript.svg" alt=""
+                    class="tech-icon-mini"><span>JavaScript</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/chrome.svg" alt=""
+                    class="tech-icon-mini"><span>Chrome API</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/html5.svg" alt=""
+                    class="tech-icon-mini"><span>HTML5</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/css3.svg" alt=""
+                    class="tech-icon-mini"><span>CSS3</span></span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 03: JARVX -->
+          <a class="project-card reveal" href="projects/jarvx.html" aria-label="View case study for JARVX">
+            <div class="project-visual">
+              <img src="assets/images/projects/jarvx.svg" alt="JARVX preview screenshot" class="project-preview-img"
+                loading="lazy">
+              <span class="visual-tag">NETWORKING / CLI UTILITY</span>
+            </div>
+            <div class="project-info">
+              <div class="project-info-main">
+                <div class="project-title-row">
+                  <h3 class="project-card-title">JARVX <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+                  <span class="project-status-badge prototype">Prototype</span>
+                </div>
+                <p class="project-one-liner">A Python command-line network scanning utility.</p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="tech-pill-mini"><img src="assets/images/icons/python.svg" alt=""
+                    class="tech-icon-mini"><span>Python</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/cisco.svg" alt=""
+                    class="tech-icon-mini"><span>Sockets</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/linux.svg" alt=""
+                    class="tech-icon-mini"><span>PyInstaller</span></span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 04: CodeBurner -->
+          <a class="project-card reveal" href="projects/codeburner.html" aria-label="View case study for CodeBurner">
+            <div class="project-visual">
+              <img src="assets/images/projects/codeburner.svg" alt="CodeBurner preview screenshot"
+                class="project-preview-img" loading="lazy">
+              <span class="visual-tag">DEVELOPER EXPERIENCE / AI</span>
+            </div>
+            <div class="project-info">
+              <div class="project-info-main">
+                <div class="project-title-row">
+                  <h3 class="project-card-title">CodeBurner <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+                  <span class="project-status-badge mvp">MVP Completed</span>
+                </div>
+                <p class="project-one-liner">An AI-assisted code review and feedback extension for Visual Studio Code.
+                </p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="tech-pill-mini"><img src="assets/images/icons/javascript.svg" alt=""
+                    class="tech-icon-mini"><span>JavaScript</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/vscode.svg" alt=""
+                    class="tech-icon-mini"><span>VS Code API</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/ollama.svg" alt=""
+                    class="tech-icon-mini"><span>Ollama</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/python.svg" alt=""
+                    class="tech-icon-mini"><span>Llama 3</span></span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 05: StarkForge -->
+          <a class="project-card reveal" href="projects/starkforge.html" aria-label="View case study for StarkForge">
+            <div class="project-visual">
+              <img src="assets/images/projects/starkforge.svg" alt="StarkForge preview screenshot"
+                class="project-preview-img" loading="lazy">
+              <span class="visual-tag">EDTECH / INTERACTIVE LEARNING</span>
+            </div>
+            <div class="project-info">
+              <div class="project-info-main">
+                <div class="project-title-row">
+                  <h3 class="project-card-title">StarkForge <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+                  <span class="project-status-badge in-dev">Actively Developing</span>
+                </div>
+                <p class="project-one-liner">An interactive educational technology platform for computer science and
+                  logic simulation.</p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="tech-pill-mini"><img src="assets/images/icons/html5.svg" alt=""
+                    class="tech-icon-mini"><span>HTML5</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/css3.svg" alt=""
+                    class="tech-icon-mini"><span>CSS3</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/javascript.svg" alt=""
+                    class="tech-icon-mini"><span>JavaScript</span></span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 06: GeoTagger -->
+          <a class="project-card reveal" href="projects/geotagger.html" aria-label="View case study for GeoTagger">
+            <div class="project-visual">
+              <img src="assets/images/projects/geotagger.svg" alt="GeoTagger preview screenshot"
+                class="project-preview-img" loading="lazy">
+              <span class="visual-tag">PRODUCTIVITY / GEOLOCATION</span>
+            </div>
+            <div class="project-info">
+              <div class="project-info-main">
+                <div class="project-title-row">
+                  <h3 class="project-card-title">GeoTagger <span class="arrow-glyph" aria-hidden="true">↗</span></h3>
+                  <span class="project-status-badge prototype">Project Prototype</span>
+                </div>
+                <p class="project-one-liner">A location-based photo organization and verification tool.</p>
+              </div>
+              <div class="project-tech-pills">
+                <span class="tech-pill-mini"><img src="assets/images/icons/html5.svg" alt=""
+                    class="tech-icon-mini"><span>HTML5</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/css3.svg" alt=""
+                    class="tech-icon-mini"><span>CSS3</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/javascript.svg" alt=""
+                    class="tech-icon-mini"><span>JavaScript</span></span>
+                <span class="tech-pill-mini"><img src="assets/images/icons/chrome.svg" alt=""
+                    class="tech-icon-mini"><span>Google Maps</span></span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <a class="all-work-link reveal" href="https://github.com/adithyaks2222-ops" target="_blank" rel="noreferrer">
+          Explore All Repositories on GitHub <span>↗</span>
+        </a>
+      </section>
+
+      <!-- ======================================================================
+           07. STACK & TOOLS
+           ====================================================================== -->
+      <section class="section-pad stack-section" id="stack">
+        <div class="section-kicker reveal">04 / TOOLS &amp; TECHNOLOGIES</div>
+        <div class="section-heading-row reveal">
+          <h2>A growing<br><span>technical toolkit.</span></h2>
+          <p class="section-intro">I’m still learning, testing and improving. These are the technologies I’ve explored
+            through coursework and personal projects.</p>
+        </div>
+
+        <div class="stack-layout">
+          <div class="stack-feature reveal">
+            <span class="stack-feature-label">HOW I APPROACH TECHNOLOGY</span>
+            <div class="stack-symbol">[<span>_</span>]</div>
+            <h3>Understand it.<br>Build with it.<br><em>Improve it.</em></h3>
+            <p>Less collecting tools. More understanding what they can actually do.</p>
+          </div>
+
+          <div class="stack-groups">
+            <div class="stack-group reveal">
+              <span>01 / PROGRAMMING LANGUAGES</span>
+              <div class="stack-tags">
+                <b>Python</b><b>Java</b><b>JavaScript</b><b>C</b><b>C++</b><b>C#</b><b>Ruby</b><b>SQL</b>
+              </div>
+            </div>
+
+            <div class="stack-group reveal">
+              <span>02 / WEB &amp; BACKEND</span>
+              <div class="stack-tags">
+                <b>HTML5</b><b>CSS3</b><b>Flask</b><b>Node.js</b><b>.NET Framework</b>
+              </div>
+            </div>
+
+            <div class="stack-group reveal">
+              <span>03 / DATABASES</span>
+              <div class="stack-tags">
+                <b>MySQL</b><b>MongoDB</b><b>SQL</b><b>PL/SQL</b><b>NoSQL</b>
+              </div>
+            </div>
+
+            <div class="stack-group reveal">
+              <span>04 / SYSTEMS, NETWORKING &amp; SECURITY</span>
+              <div class="stack-tags">
+                <b>Networking Fundamentals</b><b>TCP/IP</b><b>UDP</b><b>OSI Model</b><b>Wireshark</b><b>Nmap</b><b>Kali
+                  Linux</b><b>Linux</b>
+              </div>
+            </div>
+
+            <div class="stack-group reveal">
+              <span>05 / TOOLS &amp; ENVIRONMENTS</span>
+              <div class="stack-tags">
+                <b>Git</b><b>GitHub</b><b>VS Code</b><b>VMware</b><b>Antigravity</b><b>Ollama</b><b>Figma</b>
+              </div>
+            </div>
+
+            <p class="stack-note">Skill levels vary by technology. I prefer showing what I’ve built over claiming
+              expertise I haven’t earned.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           08. ABOUT ME & ACADEMICS
+           ====================================================================== -->
+      <section class="section-pad about-section" id="about">
+        <div class="section-kicker reveal">05 / A LITTLE ABOUT ME</div>
+        <div class="about-layout">
+          <div class="about-statement reveal">
+            <h2>Not here to<br>know everything.<br><span>Here to keep<br>figuring it out.</span></h2>
+            <div class="about-mark">AKS / 2026</div>
+          </div>
+
+          <div class="about-copy reveal">
+            <p class="about-lead">I’m Adithya, an Integrated MCA student who likes understanding how technology works
+              beneath the surface.</p>
+
+            <p>
+              I am an Integrated MCA student interested in understanding how technology works and how it can solve
+              real-world problems. My learning journey spans programming, software development, networking,
+              cybersecurity and artificial intelligence.
             </p>
 
-            <div class="hero-actions reveal-item">
-              <a href="#projects" class="btn btn-primary">
-                <span>View Projects</span>
-                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-
-              <a href="#contact" class="btn btn-secondary">
-                <span>Get in Touch</span>
-              </a>
-            </div>
->>>>>>> 4e53a02 (feat: complete Nuance-inspired personal portfolio for Adithya K S)
-          </div>
-        </div>
-      </div>
-    </section>
-
-<<<<<<< HEAD
-    <!-- 4. PROJECTS SECTION -->
-    <section class="section" id="projects" aria-label="Projects">
-      <div class="title-row">
-        <div>
-          <p class="eyebrow">Projects</p>
-          <h2>Things I've <span>built.</span></h2>
-        </div>
-      </div>
-      
-      <div class="projects-grid">
-        <!-- Project 1 (Large Card) -->
-        <article class="card large">
-          <div class="art">
-            <span class="art-num">01</span>
-            <img src="src/prj1.jpg" alt="Spider-Man" />
-          </div>
-          <div class="meta">
-            <div>
-              <small>Comic Series</small>
-              <h3>Spider-Man</h3>
-            </div>
-            <a href="https://www.marvel.com/characters/spider-man-peter-parker-ultimate-earth-6160">↗</a>
-          </div>
-        </article>
-        
-        <!-- Project 2 -->
-        <article class="card">
-          <div class="art">
-             <span class="art-num">02</span>
-            <img src="src/prj2.jpg" alt="The X-Men" />
-          </div>
-          <div class="meta">
-            <div>
-              <small>Super Team</small>
-              <h3>The X-Men</h3>
-            </div>
-            <a href="https://www.marvel.com/tv-shows/animation/x-men-97/1">↗</a>
-          </div>
-        </article>
-        
-        <!-- Project 3 -->
-        <article class="card">
-          <div class="art">
-            <span class="art-num">03</span>
-            <img src="src/prj3.jpg" alt="The Avengers" />
-          </div>
-          <div class="meta">
-            <div>
-              <small>Universe Builder</small>
-              <h3>The Avengers</h3>
-            </div>
-            <a href="https://www.marvel.com/comics/issue/17490/avengers-1998-1">↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 5. SKILLS SECTION -->
-    <section class="section" id="skills" aria-label="Skills">
-      <div class="split">
-        <div>
-          <p class="eyebrow">My toolkit</p>
-          <h2>Tools for turning <span>ideas into reality.</span></h2>
-        </div>
-        <div class="skills-list">
-          <div class="skill-row"><b>01</b><strong>Storytelling / Scriptwriting / Plotting</strong><small>Narrative</small></div>
-          <div class="skill-row"><b>02</b><strong>World-Building / Character Design</strong><small>Creative</small></div>
-          <div class="skill-row"><b>03</b><strong>Editorial / The Marvel Method</strong><small>Management</small></div>
-          <div class="skill-row"><b>04</b><strong>Cameos / Public Speaking / Excelsior</strong><small>Brand</small></div>
-=======
-    <!-- ======================================================================
-         03. ABOUT SECTION
-         ====================================================================== -->
-    <section id="about" class="section" aria-labelledby="about-title">
-      <div class="container">
-        <header class="section-header reveal-item">
-          <div class="section-index">01 / Philosophy &amp; Foundation</div>
-          <h2 id="about-title" class="section-title">Curious by nature. Driven by technology.</h2>
-          <p class="section-subtitle">A multidisciplinary mindset focused on breaking down complex digital mechanisms into understandable, well-built software.</p>
-        </header>
-
-        <div class="about-grid">
-          <!-- Main Narrative Bento Card -->
-          <article class="bento-card bento-card-main reveal-item">
-            <div>
-              <div class="bento-label">The Core Mindset</div>
-              <h3 class="bento-heading">Practical experimentation over passive theory.</h3>
-              <p class="bento-text">
-                I am an Integrated MCA student interested in understanding how technology works and how it can solve real-world problems.
-              </p>
-              <p class="bento-text">
-                My learning journey spans programming, software development, networking, cybersecurity and artificial intelligence.
-              </p>
-              <p class="bento-text">
-                Rather than limiting myself to theoretical learning, I explore ideas by building practical applications, experimenting with technologies and developing independent projects.
-              </p>
-            </div>
-
-            <div class="badge-cloud">
-              <span class="tech-pill">Software Architecture</span>
-              <span class="tech-pill">Network Defense</span>
-              <span class="tech-pill">Local AI Tooling</span>
-              <span class="tech-pill">System Analysis</span>
-            </div>
-          </article>
-
-          <!-- Sidebar Academic Bento Card -->
-          <article class="bento-card bento-card-sidebar reveal-item">
-            <div>
-              <div class="bento-label">Academic Roadmap</div>
-              <h3 class="bento-heading">Integrated MCA</h3>
-              <p class="bento-text">
-                Enrolled in the 5-year integrated Master of Computer Applications program at <strong>De Paul Institute of Science and Technology</strong>.
-              </p>
-              <ul class="bento-list">
-                <li class="bento-list-item">
-                  <span class="bento-list-icon">→</span>
-                  <span><strong>Graduation:</strong> Expected 2029</span>
-                </li>
-                <li class="bento-list-item">
-                  <span class="bento-list-icon">→</span>
-                  <span><strong>Campus:</strong> Angamaly, Kerala</span>
-                </li>
-                <li class="bento-list-item">
-                  <span class="bento-list-icon">→</span>
-                  <span><strong>Focus:</strong> Core CS &amp; Systems</span>
-                </li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Secondary Bento Card 1 -->
-          <article class="bento-card bento-card-half reveal-item">
-            <div class="bento-label">Engineering Discipline</div>
-            <h3 class="bento-heading">Honest progression &amp; rigor.</h3>
-            <p class="bento-text">
-              I am actively expanding my capabilities every day. Instead of superficial buzzwords, I prioritize clean architectural fundamentals: understanding memory, socket communication, heuristic detection, and modular clean code.
-            </p>
-          </article>
-
-          <!-- Secondary Bento Card 2 -->
-          <article class="bento-card bento-card-half reveal-item">
-            <div class="bento-label">Collaborative Spirit</div>
-            <h3 class="bento-heading">Leading with responsibility.</h3>
-            <p class="bento-text">
-              Elected <strong>President of the Rotaract Club</strong> (De Paul Institute, 2026–27). Fostering collaborative environments, managing community projects, and communicating technical ideas across diverse teams.
-            </p>
-          </article>
->>>>>>> 4e53a02 (feat: complete Nuance-inspired personal portfolio for Adithya K S)
-        </div>
-      </div>
-    </section>
-
-<<<<<<< HEAD
-    <!-- 6. MERRY-GO-ROUND GALLERY -->
-    <section class="section" id="gallery" aria-label="Work Gallery">
-      <div class="title-row">
-        <div>
-          <p class="eyebrow">Visuals</p>
-          <h2>My Work in <span>Motion.</span></h2>
-        </div>
-      </div>
-      
-      <!-- 3D Stage -->
-      <div class="mgr-stage">
-        <div class="mgr-spinner" id="mgr-spinner">
-          <div class="mgr-item"><img src="src/silver.webp" alt="Work 1" /></div>
-          <div class="mgr-item"><img src="src/captain.jpg" alt="Work 2" /></div>
-          <div class="mgr-item"><img src="src/fantastic.jpg" alt="Work 3" /></div>
-          <div class="mgr-item"><img src="src/hulk.jpg" alt="Work 4" /></div>
-          <div class="mgr-item"><img src="src/spiddy.jpg" alt="Work 5" /></div>
-          <div class="mgr-item"><img src="src/xmen.webp" alt="Work 6" /></div>
-          <div class="mgr-item"><img src="src/thor.webp" alt="Work 7" /></div>
-          <div class="mgr-item"><img src="src/spidy.webp" alt="Work 8" /></div>
-          <div class="mgr-item"><img src="src/avengers.jpg" alt="Work 9" /></div>
-          <div class="mgr-item"><img src="src/doom.webp" alt="Work 10" /></div>
-          <div class="mgr-item"><img src="src/drst.jpg" alt="Work 11" /></div>
-          <div class="mgr-item"><img src="src/thor.jpeg" alt="Work 12" /></div>
-          <div class="mgr-item"><img src="src/ghost.webp" alt="Work 13" /></div>
-          <div class="mgr-item"><img src="src/hullk.jpg" alt="Work 14" /></div>
-          <div class="mgr-item"><img src="src/loki.jpg" alt="Work 15" /></div>
-=======
-    <!-- ======================================================================
-         04. SELECTED PROJECTS SECTION
-         ====================================================================== -->
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <div class="container">
-        <header class="section-header reveal-item">
-          <div class="section-index">02 / Selected Works</div>
-          <h2 id="projects-title" class="section-title">Practical applications &amp; engineering prototypes.</h2>
-          <p class="section-subtitle">Real implementations exploring defensive cybersecurity, networking utilities, developer tooling, and educational software.</p>
-        </header>
-
-        <div class="projects-list">
-          <!-- Project 01: CAPX -->
-          <article class="project-card reveal-item" aria-labelledby="project-capx-title">
-            <div class="project-preview">
-              <img src="assets/images/projects/capx.svg" alt="CAPX Windows Cyber Analysis Explorer interface mockup" class="project-preview-img" loading="lazy">
-            </div>
-            <div class="project-details">
-              <div class="project-header-meta">
-                <span class="project-index">01 / DEFENSIVE SECURITY</span>
-                <span class="status-tag in-dev">In Development</span>
-              </div>
-              <h3 id="project-capx-title" class="project-title">CAPX</h3>
-              <div class="project-tagline">Cyber Analysis &amp; Protection eXplorer</div>
-              <p class="project-description">
-                A developing cybersecurity-focused Windows analysis application designed to inspect system processes, network socket activity, startup behavior, and potential security exposures in real time.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Flask</span>
-                <span class="tech-badge">HTML/CSS</span>
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">Windows API</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                  <span>GitHub Repository</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 02: JARVX -->
-          <article class="project-card reveal-item" aria-labelledby="project-jarvx-title">
-            <div class="project-preview">
-              <img src="assets/images/projects/jarvx.svg" alt="JARVX CLI Network Scanner terminal mockup" class="project-preview-img" loading="lazy">
-            </div>
-            <div class="project-details">
-              <div class="project-header-meta">
-                <span class="project-index">02 / NETWORK SCANNING</span>
-                <span class="status-tag prototype">Prototype</span>
-              </div>
-              <h3 id="project-jarvx-title" class="project-title">JARVX</h3>
-              <div class="project-tagline">Python-based CLI Network Scanner</div>
-              <p class="project-description">
-                A lightweight command-line network utility engineered for common port discovery, CIDR validation, raw socket inspection, latency measurement, and automated risk scoring across quick and deep scanning modes.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">Socket Programming</span>
-                <span class="tech-badge">PyInstaller</span>
-                <span class="tech-badge">TCP/IP</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                  <span>GitHub Repository</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 03: CodeBurner -->
-          <article class="project-card reveal-item" aria-labelledby="project-codeburner-title">
-            <div class="project-preview">
-              <img src="assets/images/projects/codeburner.svg" alt="CodeBurner VS Code Extension interface mockup" class="project-preview-img" loading="lazy">
-            </div>
-            <div class="project-details">
-              <div class="project-header-meta">
-                <span class="project-index">03 / AI DEVELOPER TOOLING</span>
-                <span class="status-tag mvp">MVP Completed</span>
-              </div>
-              <h3 id="project-codeburner-title" class="project-title">CodeBurner</h3>
-              <div class="project-tagline">AI-Assisted Code Review &amp; Critique Extension</div>
-              <p class="project-description">
-                A Visual Studio Code extension providing automated code critique, security linting, and developer feedback with customizable review personalities, powered 100% locally through Ollama and Llama 3 models without sending source code to third-party clouds.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">VS Code API</span>
-                <span class="tech-badge">Ollama</span>
-                <span class="tech-badge">Llama 3</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                  <span>GitHub Repository</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 04: StarkForge -->
-          <article class="project-card reveal-item" aria-labelledby="project-starkforge-title">
-            <div class="project-preview">
-              <img src="assets/images/projects/starkforge.svg" alt="StarkForge Interactive Educational Platform mockup" class="project-preview-img" loading="lazy">
-            </div>
-            <div class="project-details">
-              <div class="project-header-meta">
-                <span class="project-index">04 / EDUCATIONAL TECHNOLOGY</span>
-                <span class="status-tag in-dev">Actively Developing</span>
-              </div>
-              <h3 id="project-starkforge-title" class="project-title">StarkForge</h3>
-              <div class="project-tagline">Interactive Technical Learning Engine</div>
-              <p class="project-description">
-                An interactive educational technology platform designed to deliver structured computer science concepts, networking protocol visualizers, interactive labs, and practical programming challenges.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">DOM Visualizations</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                  <span>GitHub Repository</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 05: PhishEye -->
-          <article class="project-card reveal-item" aria-labelledby="project-phisheye-title">
-            <div class="project-preview">
-              <img src="assets/images/projects/phisheye.svg" alt="PhishEye Chrome Extension safety analysis mockup" class="project-preview-img" loading="lazy">
-            </div>
-            <div class="project-details">
-              <div class="project-header-meta">
-                <span class="project-index">05 / BROWSER SECURITY</span>
-                <span class="status-tag in-dev">Development</span>
-              </div>
-              <h3 id="project-phisheye-title" class="project-title">PhishEye</h3>
-              <div class="project-tagline">Heuristic Phishing Detection Extension</div>
-              <p class="project-description">
-                A Chromium browser extension analyzing visited web pages for deceptive URLs, typosquatting entropy, certificate issuer integrity, and suspicious credential input forms to deliver instantaneous SAFE, WARNING, or DANGER classifications.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">Chrome Extension API</span>
-                <span class="tech-badge">HTML/CSS</span>
-                <span class="tech-badge">Heuristics</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                  <span>GitHub Repository</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 06: GeoTagger -->
-          <article class="project-card reveal-item" aria-labelledby="project-geotagger-title">
-            <div class="project-preview">
-              <img src="assets/images/projects/geotagger.svg" alt="GeoTagger geospatial photo manager mockup" class="project-preview-img" loading="lazy">
-            </div>
-            <div class="project-details">
-              <div class="project-header-meta">
-                <span class="project-index">06 / GEOSPATIAL WEB APP</span>
-                <span class="status-tag prototype">Project Prototype</span>
-              </div>
-              <h3 id="project-geotagger-title" class="project-title">GeoTagger</h3>
-              <div class="project-tagline">Location-Based Photo Management Tool</div>
-              <p class="project-description">
-                A location-centric media tool developed to organize, verify, and visualize geotagged photographs through embedded EXIF coordinate parsing and interactive Google Maps pin integration.
-              </p>
-              <div class="project-tech-stack">
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">Google Maps API</span>
-                <span class="tech-badge">EXIF Parser</span>
-              </div>
-              <div class="project-actions">
-                <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                  <span>GitHub Repository</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-              </div>
-            </div>
-          </article>
->>>>>>> 4e53a02 (feat: complete Nuance-inspired personal portfolio for Adithya K S)
-        </div>
-      </div>
-    </section>
-
-<<<<<<< HEAD
-    <!-- 7. EXPERIENCE SECTION -->
-    <section class="section" id="experience" aria-label="Experience">
-      <div class="exp-grid">
-        <div class="exp-card">
-          <span>1941 — 2018</span>
-          <h3>Editor-in-Chief & Publisher</h3>
-          <p>Guiding the creative direction of a sprawling universe and defining the modern comic book industry at Marvel Comics.</p>
-        </div>
-        <div class="exp-card">
-          <span>1939 — 1941</span>
-          <h3>Assistant & Writer</h3>
-          <p>Developing early concepts, writing text fillers, and laying the groundwork for a storytelling revolution at Timely Comics.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. FAQ ACCORDION SECTION -->
-    <section class="section" id="faq" aria-label="Frequently Asked Questions">
-      <div class="title-row">
-        <div>
-          <p class="eyebrow">Questions</p>
-          <h2>Common <span>Inquiries.</span></h2>
-        </div>
-      </div>
-
-      <div class="faq-container">
-        <!-- Item 1 -->
-        <div class="faq-item">
-          <button class="faq-header" aria-expanded="false">
-            <h3>What is your typical process?</h3>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="faq-content-wrapper">
-            <div class="faq-content">
-              <p>I use "The Marvel Method." I write a brief synopsis, give it to the artist to draw the pacing and action, and then I add the dialogue, sound effects, and captions afterward.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="faq-item">
-          <button class="faq-header" aria-expanded="false">
-            <h3>Why do your heroes have so many problems?</h3>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="faq-content-wrapper">
-            <div class="faq-content">
-              <p>If a character is perfect, they're boring. A hero who struggles to pay rent, gets sick, or deals with prejudice is someone the reader can actually relate to.</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Item 3 -->
-        <div class="faq-item">
-          <button class="faq-header" aria-expanded="false">
-            <h3>Are all your stories connected?</h3>
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </button>
-          <div class="faq-content-wrapper">
-            <div class="faq-content">
-              <p>Interconnectivity is a priority. I incorporate crossovers, shared cities (like placing everyone in real-world New York), and overlapping consequences to ensure the universe feels alive and cohesive.</p>
-=======
-    <!-- ======================================================================
-         05. TECHNOLOGY MARQUEE SECTION (3 DISTINCT CONTINUOUS ROWS)
-         ====================================================================== -->
-    <section id="technologies" class="marquee-section" aria-labelledby="marquee-title">
-      <div class="container">
-        <header class="section-header reveal-item" style="margin-bottom: 1.5rem;">
-          <div class="section-index">03 / Continuous Exploration</div>
-          <h2 id="marquee-title" class="section-title">Technology stack &amp; tooling ecosystem.</h2>
-          <p class="section-subtitle">Three independent scrolling streams categorizing languages, frameworks, and engineering tools actively practiced.</p>
-        </header>
-      </div>
-
-      <div class="marquee-container-outer">
-        <!-- ROW 01: PROGRAMMING LANGUAGES (Left Scroll) -->
-        <div class="marquee-row-wrapper" aria-label="Row 1: Programming Languages">
-          <div class="marquee-row-label">
-            <span class="marquee-label-text">ROW 01 — PROGRAMMING LANGUAGES</span>
-            <span class="marquee-label-text" style="color: var(--text-muted); font-size: 0.7rem;">← DIRECTION: LEFT</span>
-          </div>
-          <div class="marquee-stream">
-            <div class="marquee-track marquee-track-left">
-              <!-- Set 1 -->
-              <span class="marquee-item"><span class="marquee-item-index">01</span> Python</span>
-              <span class="marquee-item"><span class="marquee-item-index">02</span> Java</span>
-              <span class="marquee-item"><span class="marquee-item-index">03</span> JavaScript</span>
-              <span class="marquee-item"><span class="marquee-item-index">04</span> C</span>
-              <span class="marquee-item"><span class="marquee-item-index">05</span> C++</span>
-              <span class="marquee-item"><span class="marquee-item-index">06</span> C#</span>
-              <span class="marquee-item"><span class="marquee-item-index">07</span> Ruby</span>
-              <span class="marquee-item"><span class="marquee-item-index">08</span> HTML5</span>
-              <span class="marquee-item"><span class="marquee-item-index">09</span> CSS3</span>
-              <span class="marquee-item"><span class="marquee-item-index">10</span> SQL</span>
-              <!-- Duplicate Set for Seamless Continuous Loop -->
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">01</span> Python</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">02</span> Java</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">03</span> JavaScript</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">04</span> C</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">05</span> C++</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">06</span> C#</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">07</span> Ruby</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">08</span> HTML5</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">09</span> CSS3</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">10</span> SQL</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 02: FRAMEWORKS & DEVELOPMENT (Right Scroll) -->
-        <div class="marquee-row-wrapper" aria-label="Row 2: Frameworks and Development">
-          <div class="marquee-row-label">
-            <span class="marquee-label-text">ROW 02 — FRAMEWORKS &amp; DEVELOPMENT</span>
-            <span class="marquee-label-text" style="color: var(--text-muted); font-size: 0.7rem;">DIRECTION: RIGHT →</span>
-          </div>
-          <div class="marquee-stream">
-            <div class="marquee-track marquee-track-right">
-              <!-- Set 1 -->
-              <span class="marquee-item"><span class="marquee-item-index">01</span> Flask</span>
-              <span class="marquee-item"><span class="marquee-item-index">02</span> .NET Framework</span>
-              <span class="marquee-item"><span class="marquee-item-index">03</span> Node.js</span>
-              <span class="marquee-item"><span class="marquee-item-index">04</span> MySQL</span>
-              <span class="marquee-item"><span class="marquee-item-index">05</span> MongoDB</span>
-              <span class="marquee-item"><span class="marquee-item-index">06</span> PL/SQL</span>
-              <span class="marquee-item"><span class="marquee-item-index">07</span> Git</span>
-              <span class="marquee-item"><span class="marquee-item-index">08</span> GitHub</span>
-              <span class="marquee-item"><span class="marquee-item-index">09</span> VS Code</span>
-              <span class="marquee-item"><span class="marquee-item-index">10</span> Ollama</span>
-              <!-- Duplicate Set for Seamless Continuous Loop -->
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">01</span> Flask</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">02</span> .NET Framework</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">03</span> Node.js</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">04</span> MySQL</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">05</span> MongoDB</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">06</span> PL/SQL</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">07</span> Git</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">08</span> GitHub</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">09</span> VS Code</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">10</span> Ollama</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROW 03: TECHNOLOGY & TOOLS (Left Scroll) -->
-        <div class="marquee-row-wrapper" aria-label="Row 3: Technology and Tools">
-          <div class="marquee-row-label">
-            <span class="marquee-label-text">ROW 03 — TECHNOLOGY &amp; TOOLS</span>
-            <span class="marquee-label-text" style="color: var(--text-muted); font-size: 0.7rem;">← DIRECTION: LEFT</span>
-          </div>
-          <div class="marquee-stream">
-            <div class="marquee-track marquee-track-left-alt">
-              <!-- Set 1 -->
-              <span class="marquee-item"><span class="marquee-item-index">01</span> Cisco Networking</span>
-              <span class="marquee-item"><span class="marquee-item-index">02</span> Wireshark</span>
-              <span class="marquee-item"><span class="marquee-item-index">03</span> Nmap</span>
-              <span class="marquee-item"><span class="marquee-item-index">04</span> Kali Linux</span>
-              <span class="marquee-item"><span class="marquee-item-index">05</span> VMware</span>
-              <span class="marquee-item"><span class="marquee-item-index">06</span> Linux</span>
-              <span class="marquee-item"><span class="marquee-item-index">07</span> Figma</span>
-              <span class="marquee-item"><span class="marquee-item-index">08</span> Adobe Photoshop</span>
-              <span class="marquee-item"><span class="marquee-item-index">09</span> Antigravity</span>
-              <span class="marquee-item"><span class="marquee-item-index">10</span> Chrome Extensions</span>
-              <!-- Duplicate Set for Seamless Continuous Loop -->
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">01</span> Cisco Networking</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">02</span> Wireshark</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">03</span> Nmap</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">04</span> Kali Linux</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">05</span> VMware</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">06</span> Linux</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">07</span> Figma</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">08</span> Adobe Photoshop</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">09</span> Antigravity</span>
-              <span class="marquee-item" aria-hidden="true"><span class="marquee-item-index">10</span> Chrome Extensions</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="marquee-disclaimer">
-        <span>* Tools and ecosystems explored through coursework, independent laboratories, and practical projects.</span>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         06. TECHNICAL EXPERTISE SECTION
-         ====================================================================== -->
-    <section id="expertise" class="section" aria-labelledby="expertise-title">
-      <div class="container">
-        <header class="section-header reveal-item">
-          <div class="section-index">04 / Competencies</div>
-          <h2 id="expertise-title" class="section-title">Structured technical domains.</h2>
-          <p class="section-subtitle">Disciplined knowledge areas organized by applied domain rather than arbitrary percentage metrics.</p>
-        </header>
-
-        <div class="expertise-grid">
-          <!-- Programming -->
-          <div class="expertise-card reveal-item">
-            <div class="expertise-category-header">
-              <h3 class="expertise-category-title">Programming</h3>
-              <div class="expertise-category-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </div>
-            </div>
-            <p class="bento-text">Foundational and multi-paradigm programming for scripts, systems, and algorithms.</p>
-            <div class="expertise-skills-list">
-              <span class="expertise-pill">Python</span>
-              <span class="expertise-pill">Java</span>
-              <span class="expertise-pill">JavaScript</span>
-              <span class="expertise-pill">C</span>
-              <span class="expertise-pill">C++</span>
-              <span class="expertise-pill">C#</span>
-              <span class="expertise-pill">Ruby</span>
-            </div>
-          </div>
-
-          <!-- Web Development -->
-          <div class="expertise-card reveal-item">
-            <div class="expertise-category-header">
-              <h3 class="expertise-category-title">Web Development</h3>
-              <div class="expertise-category-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              </div>
-            </div>
-            <p class="bento-text">Accessible semantic markup, responsive layouts, and backend API routing.</p>
-            <div class="expertise-skills-list">
-              <span class="expertise-pill">HTML5</span>
-              <span class="expertise-pill">CSS3</span>
-              <span class="expertise-pill">JavaScript (ES6+)</span>
-              <span class="expertise-pill">Flask</span>
-              <span class="expertise-pill">Node.js</span>
-            </div>
-          </div>
-
-          <!-- Databases -->
-          <div class="expertise-card reveal-item">
-            <div class="expertise-category-header">
-              <h3 class="expertise-category-title">Databases</h3>
-              <div class="expertise-category-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-              </div>
-            </div>
-            <p class="bento-text">Data modeling, relational schema design, procedural queries, and document stores.</p>
-            <div class="expertise-skills-list">
-              <span class="expertise-pill">MySQL</span>
-              <span class="expertise-pill">MongoDB</span>
-              <span class="expertise-pill">SQL</span>
-              <span class="expertise-pill">PL/SQL</span>
-              <span class="expertise-pill">NoSQL</span>
-            </div>
-          </div>
-
-          <!-- Networking -->
-          <div class="expertise-card reveal-item">
-            <div class="expertise-category-header">
-              <h3 class="expertise-category-title">Networking</h3>
-              <div class="expertise-category-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-              </div>
-            </div>
-            <p class="bento-text">Network layers, packet flow, socket states, and protocol inspection.</p>
-            <div class="expertise-skills-list">
-              <span class="expertise-pill">TCP/IP</span>
-              <span class="expertise-pill">UDP</span>
-              <span class="expertise-pill">OSI Model</span>
-              <span class="expertise-pill">IP Addressing</span>
-              <span class="expertise-pill">MAC Addressing</span>
-              <span class="expertise-pill">Networking Basics</span>
-            </div>
-          </div>
-
-          <!-- Cybersecurity -->
-          <div class="expertise-card reveal-item">
-            <div class="expertise-category-header">
-              <h3 class="expertise-category-title">Cybersecurity</h3>
-              <div class="expertise-category-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-            </div>
-            <p class="bento-text">Defensive security exploration, vulnerability vectors, and traffic inspection.</p>
-            <div class="expertise-skills-list">
-              <span class="expertise-pill">Network Scanning</span>
-              <span class="expertise-pill">Nmap</span>
-              <span class="expertise-pill">Wireshark</span>
-              <span class="expertise-pill">Kali Linux</span>
-              <span class="expertise-pill">Security Analysis</span>
-            </div>
-          </div>
-
-          <!-- Tools & Platforms -->
-          <div class="expertise-card reveal-item">
-            <div class="expertise-category-header">
-              <h3 class="expertise-category-title">Tools &amp; Environments</h3>
-              <div class="expertise-category-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-              </div>
-            </div>
-            <p class="bento-text">Version control workflows, local AI inference, virtualization, and development suites.</p>
-            <div class="expertise-skills-list">
-              <span class="expertise-pill">Git</span>
-              <span class="expertise-pill">GitHub</span>
-              <span class="expertise-pill">VS Code</span>
-              <span class="expertise-pill">VMware</span>
-              <span class="expertise-pill">Antigravity</span>
-              <span class="expertise-pill">Ollama</span>
->>>>>>> 4e53a02 (feat: complete Nuance-inspired personal portfolio for Adithya K S)
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-<<<<<<< HEAD
-    <!-- 9. CONTACT SECTION -->
-    <section class="section contact" id="contact" aria-label="Contact">
-      <div class="contact-card">
-        <div>
-          <h2>Have a universe to build?<br><span>Let's make it real.</span></h2>
-        </div>
-        <div>
-          <p>Open to collaborations, interesting projects, and conversations.</p>
-          <a class="email-link" href="mailto:stanlee@marvel.com">stanlee@marvel.com ↗</a>
-=======
-    <!-- ======================================================================
-         07. EDUCATION & LEADERSHIP TIMELINE
-         ====================================================================== -->
-    <section id="experience" class="section" aria-labelledby="experience-title">
-      <div class="container">
-        <header class="section-header reveal-item">
-          <div class="section-index">05 / Milestones</div>
-          <h2 id="experience-title" class="section-title">Education &amp; organizational leadership.</h2>
-          <p class="section-subtitle">Formal computer applications education paired with active community leadership.</p>
-        </header>
-
-        <div class="timeline-grid">
-          <!-- Column 1: Academic Education -->
-          <div class="timeline-column reveal-item">
-            <div class="timeline-column-header">
-              <span aria-hidden="true">■</span>
-              <span>ACADEMIC PURSUIT</span>
-            </div>
-
-            <article class="timeline-card">
-              <div class="timeline-card-header">
-                <div>
-                  <h3 class="timeline-degree">Integrated Master of Computer Applications (IMCA)</h3>
-                  <div class="timeline-institution">De Paul Institute of Science and Technology</div>
-                </div>
-                <span class="timeline-year">2024 — 2029</span>
-              </div>
-              <p class="timeline-details">
-                Five-year comprehensive program bridging core computational theory, algorithms, software engineering, databases, system architecture, and modern computer applications.
-              </p>
-              <div class="badge-cloud">
-                <span class="tech-pill">IMCA Degree</span>
-                <span class="tech-pill">Expected 2029</span>
-                <span class="tech-pill">Kerala, India</span>
-              </div>
-            </article>
-          </div>
-
-          <!-- Column 2: Leadership -->
-          <div class="timeline-column reveal-item">
-            <div class="timeline-column-header">
-              <span aria-hidden="true">■</span>
-              <span>ORGANIZATIONAL LEADERSHIP</span>
-            </div>
-
-            <article class="timeline-card">
-              <div class="timeline-card-header">
-                <div>
-                  <h3 class="timeline-degree">President</h3>
-                  <div class="timeline-institution">Rotaract Club of De Paul Institute of Science and Technology</div>
-                </div>
-                <span class="timeline-year">Rotary Year 2026–27</span>
-              </div>
-              <p class="timeline-details">
-                Elected to direct collegiate community initiatives, lead youth service activities, manage cross-functional student teams, coordinate institutional events, and champion technical outreach programs.
-              </p>
-              <div class="badge-cloud">
-                <span class="tech-pill">Club President</span>
-                <span class="tech-pill">Youth Leadership</span>
-                <span class="tech-pill">Team Coordination</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         08. CERTIFICATIONS & CONTINUOUS LEARNING
-         ====================================================================== -->
-    <section class="section" aria-labelledby="certs-title">
-      <div class="container">
-        <header class="section-header reveal-item">
-          <div class="section-index">06 / Continuous Growth</div>
-          <h2 id="certs-title" class="section-title">Verified credentials &amp; active coursework.</h2>
-          <p class="section-subtitle">Earned credentials through recognized platforms alongside ongoing self-directed study.</p>
-        </header>
-
-        <div class="certs-grid">
-          <!-- Cert 1 -->
-          <div class="cert-card reveal-item">
-            <div class="cert-issuer-badge">IBM SkillsBuild Credential</div>
-            <h3 class="cert-title">Prompt Engineering</h3>
-            <p class="bento-text">Instruction engineering, zero/few-shot prompting paradigms, context window structuring, and model alignment strategies.</p>
-            <div class="cert-status">Verified Credential</div>
-          </div>
-
-          <!-- Cert 2 -->
-          <div class="cert-card reveal-item">
-            <div class="cert-issuer-badge">IBM SkillsBuild</div>
-            <h3 class="cert-title">Technical Skill Badges</h3>
-            <p class="bento-text">Foundational cybersecurity modules, technology problem-solving practices, and computational fundamentals.</p>
-            <div class="cert-status">Verified Badges</div>
-          </div>
-
-          <!-- Cert 3 -->
-          <div class="cert-card reveal-item">
-            <div class="cert-issuer-badge">Cisco Networking Academy</div>
-            <h3 class="cert-title">Cisco Networking Basics</h3>
-            <p class="bento-text">Network topology, subnets, packet routing, ethernet standards, and TCP/IP protocol stack fundamentals.</p>
-            <div class="cert-status">Verified Course</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         09. CONTACT SECTION
-         ====================================================================== -->
-    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-      <div class="container">
-        <header class="section-header reveal-item">
-          <div class="section-index">07 / Open Channels</div>
-          <h2 id="contact-heading" class="section-title">Have an idea worth building?</h2>
-          <p class="section-subtitle">I'm open to discussing software projects, learning opportunities, and collaborative technology initiatives.</p>
-        </header>
-
-        <div class="contact-layout">
-          <!-- Direct Channels -->
-          <div class="contact-info reveal-item">
-            <p class="bento-text">
-              Feel free to connect directly through professional profiles or send a direct inquiry. I value thoughtful conversations about software engineering, cybersecurity, and open-source tooling.
+            <p>
+              Rather than limiting myself to theoretical learning, I explore ideas by building practical applications,
+              experimenting with technologies and developing independent projects.
             </p>
 
-            <div class="contact-channel-list">
-              <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
-                <div>
-                  <div class="channel-label">Source Repositories</div>
-                  <div class="channel-value">GitHub / adithyaks2222-ops</div>
-                </div>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
+            <p>
+              Outside the code, I serve as President of the Rotaract Club of De Paul Institute of Science and Technology
+              for the 2026–27 year. It’s another kind of building: people, teams and meaningful community initiatives.
+            </p>
 
-              <a href="https://www.linkedin.com/in/adithya-k-s-03a20i06/" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
-                <div>
-                  <div class="channel-label">Professional Profile</div>
-                  <div class="channel-value">LinkedIn / Adithya K S</div>
-                </div>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
+            <div class="about-facts">
+              <div>
+                <span>01</span>
+                <b>Based in</b>
+                <p>Kerala, India</p>
+              </div>
+              <div>
+                <span>02</span>
+                <b>Studying</b>
+                <p>Integrated MCA · De Paul Institute · 2029</p>
+              </div>
+              <div>
+                <span>03</span>
+                <b>Current focus</b>
+                <p>Software development + security foundations</p>
+              </div>
+              <div>
+                <span>04</span>
+                <b>Leadership</b>
+                <p>Rotaract President (2026–27)</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="contact-channel-card">
-                <div>
-                  <div class="channel-label">Geographic Location</div>
-                  <div class="channel-value">Kerala, India</div>
-                </div>
-                <span style="color: var(--accent-primary); font-family: var(--font-mono); font-size: 0.8rem;">IST (UTC+5:30)</span>
+        <!-- Academic Pathway & Curriculum Foundations -->
+        <div class="about-academic-wrap">
+          <div class="academic-subhead-row">
+            <div>
+              <div class="section-kicker" style="margin-bottom: 8px;">05.1 / FORMAL EDUCATION &amp; PATHWAY</div>
+              <h3>Academic Journey &amp; <span>Foundations.</span></h3>
+            </div>
+            <p class="academic-lead-text">
+              A comprehensive five-year integrated computer science curriculum combining theoretical rigor in
+              algorithms, networking, and database systems with hands-on systems programming and lab research.
+            </p>
+          </div>
+
+          <!-- Degree Hero Card -->
+          <div class="degree-hero-card">
+            <div class="degree-card-top">
+              <span class="degree-timeline-badge">2024 — 2029 · 5-YEAR INTEGRATED PROGRAM</span>
+              <span class="degree-status-pill">Active Degree Candidate · Year 2</span>
+            </div>
+            <h4 class="degree-title">Integrated Master of Computer Applications (IMCA)</h4>
+            <p class="degree-institution">
+              <strong>De Paul Institute of Science &amp; Technology (DiST)</strong> · Angamaly, Kerala · Affiliated with
+              Mahatma Gandhi University (MGU)
+            </p>
+            <div class="degree-meta-strip">
+              <div class="degree-meta-col">
+                <span>DEGREE TRACK</span>
+                <strong>Dual Undergrad + Postgrad Master's</strong>
+              </div>
+              <div class="degree-meta-col">
+                <span>CAMPUS LEADERSHIP</span>
+                <strong>President, Rotaract Club of DIST (2026–27)</strong>
+              </div>
+              <div class="degree-meta-col">
+                <span>PRIMARY SPECIALIZATION</span>
+                <strong>Systems, Security &amp; Web Architectures</strong>
+              </div>
+              <div class="degree-meta-col">
+                <span>LAB METHODOLOGY</span>
+                <strong>Continuous Code Verification &amp; Prototyping</strong>
               </div>
             </div>
           </div>
 
-          <!-- Contact Form -->
-          <div class="contact-form-container reveal-item">
-            <form id="contact-form" class="contact-form" novalidate>
-              <div class="form-group">
-                <label for="form-name" class="form-label">Your Name</label>
-                <input type="text" id="form-name" class="form-input" placeholder="e.g. Alex Mercer" required>
+          <!-- Curriculum Focus Pillars -->
+          <div class="curriculum-grid">
+            <div class="curriculum-card">
+              <span class="curriculum-card-num">PILLAR 01</span>
+              <h4>Data Structures &amp; Algorithms</h4>
+              <p>Linear and non-linear memory structures, search/sort optimization, binary trees, graph algorithms, and
+                asymptotic runtime analysis.</p>
+              <div class="curriculum-tags">
+                <span>Trees &amp; Graphs</span>
+                <span>O(n) Analysis</span>
+                <span>Sorting</span>
+                <span>Dynamic Memory</span>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="form-email" class="form-label">Email Address</label>
-                <input type="email" id="form-email" class="form-input" placeholder="name@domain.com" required>
+            <div class="curriculum-card">
+              <span class="curriculum-card-num">PILLAR 02</span>
+              <h4>Object-Oriented Architecture</h4>
+              <p>Modular systems programming, object modeling, inheritance contracts, polymorphism, and design patterns
+                across compiled runtimes.</p>
+              <div class="curriculum-tags">
+                <span>Java</span>
+                <span>C++</span>
+                <span>C#</span>
+                <span>OOP Patterns</span>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="form-subject" class="form-label">Subject / Topic</label>
-                <input type="text" id="form-subject" class="form-input" placeholder="Collaboration, feedback, or inquiry">
+            <div class="curriculum-card">
+              <span class="curriculum-card-num">PILLAR 03</span>
+              <h4>Computer Networks &amp; Protocols</h4>
+              <p>Seven-layer OSI and TCP/IP stack models, packet telemetry, CIDR subnetting, DNS resolution, and raw
+                socket communications.</p>
+              <div class="curriculum-tags">
+                <span>TCP/IP Stack</span>
+                <span>Subnetting</span>
+                <span>Sockets</span>
+                <span>Packet Analysis</span>
               </div>
+            </div>
 
-              <div class="form-group">
-                <label for="form-message" class="form-label">Message</label>
-                <textarea id="form-message" class="form-textarea" placeholder="Tell me about what you are working on or how we can collaborate..." required></textarea>
+            <div class="curriculum-card">
+              <span class="curriculum-card-num">PILLAR 04</span>
+              <h4>Database Management &amp; SQL</h4>
+              <p>Relational database architecture, third normal form schema decomposition, complex joins, indexing, and
+                PL/SQL stored routines.</p>
+              <div class="curriculum-tags">
+                <span>PostgreSQL</span>
+                <span>MySQL</span>
+                <span>PL/SQL</span>
+                <span>Normalization</span>
               </div>
+            </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%;">
-                <span>Send Message</span>
-                <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-              </button>
+            <div class="curriculum-card">
+              <span class="curriculum-card-num">PILLAR 05</span>
+              <h4>Operating Systems &amp; Concurrency</h4>
+              <p>Kernel-level process scheduling, thread synchronization, memory virtualization, deadlocks, and POSIX
+                Linux environments.</p>
+              <div class="curriculum-tags">
+                <span>Process Models</span>
+                <span>POSIX</span>
+                <span>Concurrency</span>
+                <span>Linux CLI</span>
+              </div>
+            </div>
 
-              <div id="form-feedback" class="form-feedback" role="alert" aria-live="polite"></div>
-            </form>
+            <div class="curriculum-card">
+              <span class="curriculum-card-num">PILLAR 06</span>
+              <h4>Defensive Security &amp; Web Systems</h4>
+              <p>Secure client-server communication, OWASP threat mitigation, authentication flows, web telemetry
+                inspection, and resilient DOM interfaces.</p>
+              <div class="curriculum-tags">
+                <span>OWASP Top 10</span>
+                <span>Secure Coding</span>
+                <span>Web Architecture</span>
+                <span>Inspection</span>
+              </div>
+            </div>
           </div>
->>>>>>> 4e53a02 (feat: complete Nuance-inspired personal portfolio for Adithya K S)
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-<<<<<<< HEAD
-  <footer>
-    <span>© 2018 Stan Lee Legacy.</span>
-    <span>Designed &amp; built with intent.</span>
-    <a href="#home" aria-label="Back to top">Back to top ↑</a>
-  </footer>
+      <!-- ======================================================================
+           09. BUILDING PROCESS
+           ====================================================================== -->
+      <section class="section-pad process-section" id="process">
+        <div class="section-kicker reveal">06 / MY BUILDING PROCESS</div>
+        <div class="section-heading-row reveal">
+          <h2>From a rough idea<br><span>to a working build.</span></h2>
+          <p class="section-intro">A simple loop I follow for personal projects. It keeps the work grounded and the
+            learning intentional.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step reveal">
+            <span>01</span>
+            <div class="process-icon">⌕</div>
+            <h3>Understand</h3>
+            <p>Find the actual problem and understand how the system functions.</p>
+          </div>
+          <div class="process-step reveal">
+            <span>02</span>
+            <div class="process-icon">⌘</div>
+            <h3>Break it down</h3>
+            <p>Define the smallest useful prototype to build and test assumptions.</p>
+          </div>
+          <div class="process-step reveal">
+            <span>03</span>
+            <div class="process-icon">⌁</div>
+            <h3>Build &amp; test</h3>
+            <p>Write, test, debug and learn directly from the working result.</p>
+          </div>
+          <div class="process-step reveal">
+            <span>04</span>
+            <div class="process-icon">↗</div>
+            <h3>Improve</h3>
+            <p>Refine what works, refactor code, and document what didn’t.</p>
+          </div>
+        </div>
 
+        <!-- Verified Learning Row -->
+        <div class="credentials-row reveal">
+          <div class="credential-box">
+            <span class="badge">VERIFIED CREDENTIAL</span>
+            <h4>IBM SkillsBuild — Prompt Engineering</h4>
+            <p>Foundations of model prompts, context structuring, instruction framing, and AI interaction paradigms.</p>
+          </div>
+          <div class="credential-box">
+            <span class="badge">VERIFIED COURSEWORK</span>
+            <h4>Cisco Networking Academy — Networking Basics</h4>
+            <p>TCP/IP stack, packet routing, subnets, switches, and core networking architectural principles.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           10. FAQ ACCORDION
+           ====================================================================== -->
+      <section class="section-pad faq-section" id="faq">
+        <div class="section-kicker">07 / FAQ</div>
+        <div class="faq-layout">
+          <div>
+            <h2>Frequently<br><span>asked.</span></h2>
+            <p class="section-intro">Clear context on my academic timeline, engineering capabilities, technical stack, and collaboration availability.</p>
+          </div>
+          <div class="faq-list">
+            <details open>
+              <summary>Are you open to software engineering internships or collaborative roles?<span class="faq-icon">+</span></summary>
+              <p>Yes, absolutely. I am actively seeking software engineering internships, co-op positions, and collaborative technical builds where I can contribute to system utilities, web platforms, and defensive security tooling. Both on-site in India and remote global collaborations are welcome.</p>
+            </details>
+            <details>
+              <summary>What is your academic timeline and university background?<span class="faq-icon">+</span></summary>
+              <p>I am currently pursuing a 5-year Integrated Master of Computer Applications (IMCA, 2024–2029) at De Paul Institute of Science &amp; Technology (DiST) in Angamaly, Kerala, affiliated with Mahatma Gandhi University. This degree pathway integrates core computer science foundations—algorithms, network protocols, operating systems, and database engineering—with practical software architecture.</p>
+            </details>
+            <details>
+              <summary>What kind of projects do you develop most frequently?<span class="faq-icon">+</span></summary>
+              <p>I focus on practical, utility-driven digital products across defensive cybersecurity (such as system telemetry explorers and phishing scanners), developer productivity browser extensions, network diagnostic CLI tools, and high-performance interactive web interfaces. Explore my detailed case studies in the <a href="pages/work.html">Selected Work</a> directory.</p>
+            </details>
+            <details>
+              <summary>What is your primary technology stack?<span class="faq-icon">+</span></summary>
+              <p>My core workflow spans Python, JavaScript/TypeScript, Flask, SQL/PL-SQL, C/C++, HTML5/CSS3, and GSAP. For systems and security experimentation, I work inside Linux environments utilizing Nmap, Wireshark, VMware, and Git version control for verifiable, reproducible builds.</p>
+            </details>
+            <details>
+              <summary>How do your Rotaract leadership responsibilities influence your technical work?<span class="faq-icon">+</span></summary>
+              <p>Serving as President of the Rotaract Club of DIST (2026–27) has deeply strengthened my team coordination, project management, and cross-functional communication skills. Directing community initiatives and collegiate technology workshops has reinforced my dedication to thorough documentation, clear user interfaces, and dependable delivery.</p>
+            </details>
+            <details>
+              <summary>Where can I inspect your active repositories and source code?<span class="faq-icon">+</span></summary>
+              <p>All active public repositories and project codebases are maintained on GitHub at <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noreferrer">github.com/adithyaks2222-ops</a>. Every project in this portfolio also features an in-depth architecture case study detailing implementation mechanics and technical trade-offs.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           11. CONTACT SECTION
+           ====================================================================== -->
+      <section class="contact-section section-pad" id="contact">
+        <div class="section-kicker reveal">08 / GET IN TOUCH</div>
+        <div class="contact-main reveal">
+          <p class="contact-overline">HAVE AN IDEA, OPPORTUNITY OR JUST WANT TO CONNECT?</p>
+          <h2>Let’s make<br><span>something useful.</span></h2>
+          <a class="contact-email" href="mailto:adithyaks2222@gmail.com">adithyaks2222@gmail.com <span>↗</span></a>
+        </div>
+        <div class="contact-bottom reveal">
+          <p>Good conversations can turn into<br>interesting things. My inbox is open.</p>
+          <div class="social-links">
+            <a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/adithya-k-s-03a20i06/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ======================================================================
+         12. FOOTER
+         ====================================================================== -->
+    <footer class="site-footer">
+      <a class="brand" href="#top">AKS<span>.</span></a>
+      <span>DESIGNED &amp; BUILT WITH INTENTION</span>
+      <span>© <span id="year-stamp">2026</span> ADITHYA K S</span>
+      <a href="#top">BACK TO TOP ↑</a>
+    </footer>
+  </div>
+
+  <!-- Central Projects Metadata & Client Engine Scripts -->
+  <script src="projects.js"></script>
   <script src="script.js"></script>
-=======
-  <!-- ======================================================================
-       10. FOOTER
-       ====================================================================== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand-wrap">
-          <div class="footer-brand">Adithya K S</div>
-          <div class="footer-desc">Multidisciplinary Developer | Technology Enthusiast</div>
-        </div>
-
-        <ul class="footer-links">
-          <li><a href="https://github.com/adithyaks2222-ops" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/adithya-k-s-03a20i06/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-          <li><a href="#about" class="footer-link">About</a></li>
-          <li><a href="#projects" class="footer-link">Projects</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-copy">
-          &copy; <span id="current-year">2026</span> Adithya K S. Designed &amp; built with editorial precision.
-        </div>
-
-        <button id="back-to-top" class="back-to-top" aria-label="Back to top of page">
-          <span>Back to top</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Script -->
-  <script src="assets/js/main.js"></script>
->>>>>>> 4e53a02 (feat: complete Nuance-inspired personal portfolio for Adithya K S)
 </body>
+
 </html>
