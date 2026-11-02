@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isSubpage = window.location.pathname.includes("/pages/");
 
-    criticalImg.src = isSubpage ? "../assets/images/adithya.jpg" : "assets/images/adithya.jpg";
+    criticalImg.src = isSubpage ? "../assets/images/adithya.png" : "assets/images/adithya.png";
 
     if (criticalImg.complete) {
 
