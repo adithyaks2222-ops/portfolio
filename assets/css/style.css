@@ -599,9 +599,7 @@ button, input, textarea {
   left: 5%;
   right: 5%;
   height: 240px;
-  background: 
-    linear-gradient(to top, rgba(242, 106, 33, 0.05), transparent),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px);
+  background: linear-gradient(to top, rgba(242, 106, 33, 0.05), transparent), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 60px);
   transform: rotateX(65deg);
   transform-origin: bottom center;
   pointer-events: none;
