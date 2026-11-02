@@ -154,7 +154,8 @@ html.gsap-active .section-heading-row .section-intro {
   .credential-box:hover h4,
   .curriculum-card:hover h4,
   .project-card:hover .project-card-title {
-    color: #FFFFFF !important;
+    color: #F26A21 !important;
+    text-shadow: 0 0 10px rgba(242, 106, 33, 0.6) !important;
   }
 
   /* Body Descriptions: Soft readable warm cream */

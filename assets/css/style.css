@@ -3347,11 +3347,16 @@ html.no-js .reveal {
 }
 
 /* ==========================================================================
-   SPACIOUS PROJECT SECTION STYLES
+   BREATHING & EDITORIAL BENTO GRID PROJECT SECTION
+   Asymmetrical hierarchy: Alternating featured (7-col) and companion (5-col) cards.
+   No stretching: Aspect-ratio preservation, natural card flow, generous breathing space.
    ========================================================================== */
 .work-section {
-  padding-top: 120px;
-  padding-bottom: 130px;
+  padding-top: 130px;
+  padding-bottom: 140px;
+  background-color: var(--paper-card, #f0eee6);
+  border-top: 1px solid var(--line, rgba(23, 23, 23, 0.12));
+  border-bottom: 1px solid var(--line, rgba(23, 23, 23, 0.12));
 }
 
 .work-section .section-heading-row {
@@ -3360,69 +3365,286 @@ html.no-js .reveal {
 
 .project-list {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  grid-template-rows: repeat(4, 325px);
-  gap: 36px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px 32px;
   width: 100%;
+  align-items: stretch;
 }
 
-.project-card.card-featured,
-.project-card:nth-child(1),
+/* Base Card Structure */
+.project-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: var(--paper, #F5F4EF) !important;
+  border: 1px solid var(--line, rgba(23, 23, 23, 0.12)) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+  height: 100%;
+  min-height: auto !important;
+  max-height: none !important;
+}
+
+/* Card Visual Container: Natural Aspect-Ratio so preview illustrations never stretch */
+.project-visual {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  background: linear-gradient(145deg, #1d1e1c 0%, #151614 100%) !important;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.project-preview-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.visual-tag {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: rgba(245, 244, 239, 0.75);
+  background: rgba(23, 24, 22, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-family: var(--mono, "DM Mono", monospace);
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+/* Card Information & Content: Generous breathing space */
+.project-info {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  padding: 28px 30px 30px !important;
+  background: transparent !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
+}
+
+.project-info-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.project-card-title {
+  font-family: var(--display, "Manrope", sans-serif);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.035em;
+  color: var(--ink, #171717);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.arrow-glyph {
+  font-size: 16px;
+  color: var(--muted, #777777);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-status-badge {
+  font-family: var(--mono, "DM Mono", monospace);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.project-status-badge.in-dev {
+  background: rgba(242, 106, 33, 0.12);
+  color: #F26A21;
+  border: 1px solid rgba(242, 106, 33, 0.28);
+}
+
+.project-status-badge.prototype {
+  background: rgba(122, 168, 62, 0.12);
+  color: #7AA83E;
+  border: 1px solid rgba(122, 168, 62, 0.28);
+}
+
+.project-status-badge.mvp {
+  background: rgba(60, 130, 246, 0.12);
+  color: #3C82F6;
+  border: 1px solid rgba(60, 130, 246, 0.28);
+}
+
+.project-one-liner {
+  font-family: var(--sans, -apple-system, sans-serif);
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: #65675f;
+  margin: 0 0 20px 0;
+  max-width: 96%;
+  transition: color 0.3s ease;
+}
+
+.project-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(23, 23, 23, 0.08);
+}
+
+.tech-pill-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background-color: rgba(23, 23, 23, 0.05);
+  border: 1px solid rgba(23, 23, 23, 0.1);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink, #171717);
+  transition: all 0.28s ease;
+}
+
+.tech-pill-mini .tech-icon-mini {
+  width: 14px;
+  height: 14px;
+  display: block;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   BENTO GRID ASYMMETRICAL COLUMN SPANS:
+   Row 1: Card 1 (7 cols - Featured) + Card 2 (5 cols - Companion)
+   Row 2: Card 3 (5 cols - Compact)  + Card 4 (7 cols - Featured)
+   Row 3: Card 5 (7 cols - Featured) + Card 6 (5 cols - Companion)
+   ========================================================================== */
+.project-card:nth-child(1) {
+  grid-column: span 7;
+}
+
+.project-card:nth-child(2) {
+  grid-column: span 5;
+}
+
+.project-card:nth-child(3) {
+  grid-column: span 5;
+}
+
 .project-card:nth-child(4) {
-  min-height: 686px;
+  grid-column: span 7;
 }
 
-.project-card.card-featured .project-visual,
-.project-card:nth-child(1) .project-visual,
-.project-card:nth-child(4) .project-visual {
-  height: 385px;
-  width: 100%;
+.project-card:nth-child(5) {
+  grid-column: span 7;
 }
 
-.project-card.card-featured .project-info,
-.project-card:nth-child(1) .project-info,
-.project-card:nth-child(4) .project-info {
-  padding: 28px 32px 30px;
-  gap: 16px;
-}
-
-.project-card.card-featured .project-card-title,
-.project-card:nth-child(1) .project-card-title,
-.project-card:nth-child(4) .project-card-title {
-  font-size: 23px;
-}
-
-.project-card.card-regular,
-.project-card:nth-child(2),
-.project-card:nth-child(3),
-.project-card:nth-child(5),
 .project-card:nth-child(6) {
-  height: 325px;
-  max-height: 325px;
+  grid-column: span 5;
 }
 
-.project-card.card-regular .project-visual,
+/* Featured (7-col) Cards get wider visual aspect ratio and richer padding */
+.project-card:nth-child(1) .project-visual,
+.project-card:nth-child(4) .project-visual,
+.project-card:nth-child(5) .project-visual {
+  aspect-ratio: 16 / 9.2 !important;
+}
+
+.project-card:nth-child(1) .project-info,
+.project-card:nth-child(4) .project-info,
+.project-card:nth-child(5) .project-info {
+  padding: 32px 36px 34px !important;
+}
+
+.project-card:nth-child(1) .project-card-title,
+.project-card:nth-child(4) .project-card-title,
+.project-card:nth-child(5) .project-card-title {
+  font-size: 25px;
+}
+
+.project-card:nth-child(1) .project-one-liner,
+.project-card:nth-child(4) .project-one-liner,
+.project-card:nth-child(5) .project-one-liner {
+  font-size: 15.5px;
+}
+
+/* Companion (5-col) Cards get balanced proportions */
 .project-card:nth-child(2) .project-visual,
 .project-card:nth-child(3) .project-visual,
-.project-card:nth-child(5) .project-visual,
 .project-card:nth-child(6) .project-visual {
-  height: 168px;
-  width: 100%;
+  aspect-ratio: 16 / 10 !important;
 }
 
-.project-card.card-regular .project-info,
 .project-card:nth-child(2) .project-info,
 .project-card:nth-child(3) .project-info,
-.project-card:nth-child(5) .project-info,
 .project-card:nth-child(6) .project-info {
-  padding: 20px 24px 22px;
-  gap: 12px;
+  padding: 26px 28px 28px !important;
 }
 
-.project-card.card-regular .project-card-title,
 .project-card:nth-child(2) .project-card-title,
 .project-card:nth-child(3) .project-card-title,
-.project-card:nth-child(5) .project-card-title,
 .project-card:nth-child(6) .project-card-title {
-  font-size: 19.5px;
+  font-size: 21.5px;
+}
+
+/* Centered Button to View All Work */
+.all-work-link {
+  margin-top: 54px;
+  display: inline-flex;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .project-card:nth-child(n) {
+    grid-column: span 1 !important;
+  }
+
+  .project-card:nth-child(n) .project-visual {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  .project-card:nth-child(n) .project-info {
+    padding: 24px 26px 26px !important;
+  }
+
+  .project-card:nth-child(n) .project-card-title {
+    font-size: 22px;
+  }
 }
