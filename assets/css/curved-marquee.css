@@ -404,7 +404,7 @@
   width: 150px;
   height: 120px;
   border-radius: 14px;
-  background: var(--marquee-card-bg);
+  background: var(--marquee-card-bg); /* Default White Box */
   border: 1px solid var(--marquee-card-border);
   display: flex;
   flex-direction: column;
@@ -415,15 +415,23 @@
   transform-style: preserve-3d;
   will-change: transform;
   box-shadow: 0 4px 14px rgba(23, 24, 22, 0.04);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.32s ease,
+              transform 0.22s ease;
   flex-shrink: 0;
   cursor: default;
   user-select: none;
 }
 
-.tech-marquee-card:hover {
-  border-color: var(--marquee-accent);
-  box-shadow: 0 10px 26px rgba(242, 106, 33, 0.16);
+/* When box fills with black color: text is ALWAYS orange! When box returns to white: text turns back! */
+.tech-marquee-card:hover,
+.tech-marquee-card:focus-visible,
+.tech-marquee-card:active {
+  background-color: #171717 !important; /* Box fills with black */
+  border-color: #F26A21 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(242, 106, 33, 0.42), 0 8px 24px rgba(0, 0, 0, 0.38) !important;
 }
 
 .card-logo-wrap {
@@ -450,15 +458,18 @@
   font-family: var(--mono, "DM Mono", monospace);
   font-size: 11px;
   font-weight: 600;
-  color: var(--marquee-ink);
+  color: var(--marquee-ink); /* Reverts to dark ink when box is white */
   letter-spacing: 0.02em;
   text-align: center;
-  transition: color 0.25s ease;
+  transition: color 0.32s cubic-bezier(0.22, 1, 0.36, 1), text-shadow 0.32s ease;
   white-space: nowrap;
 }
 
-.tech-marquee-card:hover .tech-card-name {
-  color: var(--marquee-accent);
+.tech-marquee-card:hover .tech-card-name,
+.tech-marquee-card:focus-visible .tech-card-name,
+.tech-marquee-card:active .tech-card-name {
+  color: #F26A21 !important; /* Text is ALWAYS Orange when box is black */
+  text-shadow: 0 0 10px rgba(242, 106, 33, 0.65) !important;
 }
 
 /* ==========================================================================

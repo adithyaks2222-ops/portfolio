@@ -193,196 +193,209 @@ html.gsap-active .section-heading-row .section-intro {
 }
 
 /* ==========================================================================
-   TRANSPARENT BORDER / SHELL PILL INTERACTION (HEADER CTA & BUTTONS)
-   Pill interior transparent, subtle border, smooth orange fill sweep, button glow
+   INTERACTIVE BUTTONS & PILL BOXES:
+   When box fills with BLACK (#171717), text is ALWAYS ORANGE (#F26A21) with glow!
+   When mouse leaves (box is white/transparent/paper), text smoothly turns back.
    ========================================================================== */
 .header-cta,
 .all-work-link,
-.pill-btn {
-  position: relative;
-  overflow: hidden !important;
-  isolation: isolate;
-  background-color: transparent !important;
-  border: 1px solid rgba(23, 23, 23, 0.28) !important;
-  border-radius: var(--radius-pill, 9999px) !important;
-  transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-              color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.4s ease,
-              transform 0.25s ease;
-}
-
-.header-cta::before,
-.all-work-link::before,
-.pill-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: #F26A21; /* Signature Brand Orange */
-  transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-  z-index: -1;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-@media (hover: hover) {
-  .header-cta:hover::before,
-  .header-cta:focus-visible::before,
-  .all-work-link:hover::before,
-  .all-work-link:focus-visible::before,
-  .pill-btn:hover::before,
-  .pill-btn:focus-visible::before {
-    transform: scaleX(1);
-  }
-
-  .header-cta:hover,
-  .header-cta:focus-visible,
-  .all-work-link:hover,
-  .all-work-link:focus-visible,
-  .pill-btn:hover,
-  .pill-btn:focus-visible {
-    border-color: #F26A21 !important;
-    color: #FFFFFF !important;
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(242, 106, 33, 0.48), 0 4px 18px rgba(0, 0, 0, 0.25) !important;
-  }
-}
-
-/* ==========================================================================
-   STACK TECH TAGS (PILL BOXES AS IN USER IMAGE):
-   On hover: Fill black instead of orange, text turns orange, button hovers and glows!
-   ========================================================================== */
+.pill-btn,
 .stack-tags b {
   position: relative;
   overflow: hidden !important;
   isolation: isolate;
   background-color: transparent !important;
-  border: 1px solid rgba(23, 23, 23, 0.24) !important;
+  border: 1px solid rgba(23, 23, 23, 0.26) !important;
   border-radius: var(--radius-pill, 9999px) !important;
+  color: var(--ink) !important;
   transition: border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
               color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.32s ease,
               text-shadow 0.32s ease,
               transform 0.22s ease;
-  cursor: default;
+  cursor: pointer;
 }
 
+.header-cta::before,
+.all-work-link::before,
+.pill-btn::before,
 .stack-tags b::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #171717; /* Solid Black / Obsidian Fill */
+  background-color: #171717; /* Solid Black Box Fill */
   transform-origin: center center;
   transform: scale(0);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   z-index: -1;
   pointer-events: none;
   border-radius: inherit;
 }
 
-@media (hover: hover) {
-  .stack-tags b:hover::before,
-  .stack-tags b:focus-visible::before {
-    transform: scale(1);
-  }
+/* Hover, Focus & Touch Active States: Box fills black, text turns always orange + glow */
+.header-cta:hover::before,
+.header-cta:focus-visible::before,
+.header-cta:active::before,
+.all-work-link:hover::before,
+.all-work-link:focus-visible::before,
+.all-work-link:active::before,
+.pill-btn:hover::before,
+.pill-btn:focus-visible::before,
+.pill-btn:active::before,
+.stack-tags b:hover::before,
+.stack-tags b:focus-visible::before,
+.stack-tags b:active::before {
+  transform: scale(1);
+}
 
-  .stack-tags b:hover,
-  .stack-tags b:focus-visible {
-    border-color: #F26A21 !important;
-    color: #F26A21 !important; /* Text turns Orange */
-    transform: translateY(-2px);
-    box-shadow: 0 0 16px rgba(242, 106, 33, 0.48), 0 4px 12px rgba(0, 0, 0, 0.28) !important; /* Button Glow */
-    text-shadow: 0 0 8px rgba(242, 106, 33, 0.6) !important; /* Text Glow */
-  }
+.header-cta:hover,
+.header-cta:focus-visible,
+.header-cta:active,
+.all-work-link:hover,
+.all-work-link:focus-visible,
+.all-work-link:active,
+.pill-btn:hover,
+.pill-btn:focus-visible,
+.pill-btn:active,
+.stack-tags b:hover,
+.stack-tags b:focus-visible,
+.stack-tags b:active {
+  border-color: #F26A21 !important;
+  color: #F26A21 !important; /* Text is ALWAYS Orange when box is black */
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(242, 106, 33, 0.48), 0 4px 14px rgba(0, 0, 0, 0.28) !important;
+  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6) !important;
+}
+
+.header-cta:hover span,
+.all-work-link:hover span,
+.pill-btn:hover span {
+  color: #F26A21 !important;
+  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6) !important;
 }
 
 /* ==========================================================================
-   MUTED GREY TEXT HOVER & GLOW INTERACTION
-   All grey text elements, subheadings, kickers, notes, and metadata
-   smoothly turn orange and radiate an ambient glow on hover/touch
+   ALL SUBHEADINGS & GRAY-LIKE TEXT: TOUCH & HOVER ORANGE GLOW
+   Every subheading, kicker, intro, note, label, metadata across each section
+   smoothly fills/turns orange and glows when mouse touches or hovers over it.
    ========================================================================== */
 .section-kicker,
-.section-kicker span,
-.eyebrow,
-.eyebrow span,
-.eyebrow-year,
+.section-kicker *,
 .section-intro,
+.section-intro *,
+.curved-marquee-header .section-intro,
+.eyebrow,
+.eyebrow *,
+.eyebrow-year,
 .hero-aside p,
 .tiny-label,
 .hero-copy em,
+.service-card h3,
 .service-card p,
 .card-index,
+.process-step h3,
 .process-step p,
 .process-step > span,
 .step-num,
 .credential-box p,
+.credential-box .badge,
+.stack-group h3,
+.stack-group span,
 .stack-feature p,
 .stack-feature-label,
-.stack-group span,
 .stack-note,
+.project-card h3,
+.project-card p,
+.project-overline,
+.project-meta span,
 .about-statement h2 span,
 .about-copy p,
+.about-facts-item h4,
 .about-facts-item p,
 .about-facts-item span,
 .academic-meta-row p,
 .academic-meta-row span,
 .academic-lead p,
+.curriculum-card h3,
 .curriculum-card p,
 .curriculum-card-num,
 .degree-timeline-badge,
 .degree-status-pill,
 .faq-list summary,
+.faq-list summary *,
 .faq-list details p,
 .contact-overline,
 .contact-bottom p,
-.site-footer span {
+.site-footer span,
+html.gsap-active .section-heading-row .section-intro {
   transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
               text-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (hover: hover) {
-  .section-kicker:hover,
-  .section-kicker:hover span,
-  .eyebrow:hover,
-  .eyebrow:hover span,
-  .eyebrow-year:hover,
-  .section-intro:hover,
-  .hero-aside p:hover,
-  .tiny-label:hover,
-  .hero-copy em:hover,
-  .service-card p:hover,
-  .card-index:hover,
-  .process-step p:hover,
-  .process-step > span:hover,
-  .step-num:hover,
-  .credential-box p:hover,
-  .stack-feature p:hover,
-  .stack-feature-label:hover,
-  .stack-group span:hover,
-  .stack-note:hover,
-  .about-statement h2 span:hover,
-  .about-copy p:hover,
-  .about-facts-item p:hover,
-  .about-facts-item span:hover,
-  .academic-meta-row p:hover,
-  .academic-meta-row span:hover,
-  .academic-lead p:hover,
-  .curriculum-card p:hover,
-  .curriculum-card-num:hover,
-  .degree-timeline-badge:hover,
-  .degree-status-pill:hover,
-  .faq-list summary:hover,
-  .faq-list details p:hover,
-  .contact-overline:hover,
-  .contact-bottom p:hover,
-  .site-footer span:hover {
-    color: #F26A21 !important;
-    text-shadow: 0 0 12px rgba(242, 106, 33, 0.6), 0 0 24px rgba(242, 106, 33, 0.3) !important;
-    cursor: default;
-  }
+.section-kicker:hover,
+.section-kicker:hover *,
+.section-intro:hover,
+.section-intro:hover *,
+.curved-marquee-header .section-intro:hover,
+.eyebrow:hover,
+.eyebrow:hover *,
+.eyebrow-year:hover,
+.hero-aside p:hover,
+.tiny-label:hover,
+.hero-copy em:hover,
+.service-card h3:hover,
+.service-card p:hover,
+.card-index:hover,
+.process-step h3:hover,
+.process-step p:hover,
+.process-step:hover > span,
+.step-num:hover,
+.credential-box p:hover,
+.credential-box:hover .badge,
+.stack-group h3:hover,
+.stack-group span:hover,
+.stack-feature p:hover,
+.stack-feature-label:hover,
+.stack-note:hover,
+.project-card h3:hover,
+.project-card p:hover,
+.project-overline:hover,
+.project-meta span:hover,
+.about-statement h2 span:hover,
+.about-copy p:hover,
+.about-facts-item h4:hover,
+.about-facts-item p:hover,
+.about-facts-item span:hover,
+.academic-meta-row p:hover,
+.academic-meta-row span:hover,
+.academic-lead p:hover,
+.curriculum-card h3:hover,
+.curriculum-card p:hover,
+.curriculum-card-num:hover,
+.degree-timeline-badge:hover,
+.degree-status-pill:hover,
+.faq-list summary:hover,
+.faq-list summary:hover *,
+.faq-list details p:hover,
+.contact-overline:hover,
+.contact-bottom p:hover,
+.site-footer span:hover,
+html.gsap-active .section-heading-row .section-intro:hover,
+.section-kicker:active,
+.section-intro:active,
+.eyebrow:active,
+.hero-aside p:active,
+.tiny-label:active,
+.service-card h3:active,
+.service-card p:active,
+.process-step h3:active,
+.process-step p:active,
+.stack-note:active,
+.faq-list summary:active {
+  color: #F26A21 !important;
+  text-shadow: 0 0 12px rgba(242, 106, 33, 0.6), 0 0 24px rgba(242, 106, 33, 0.3) !important;
+  cursor: default;
 }
 
 .header-cta span,

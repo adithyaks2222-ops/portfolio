@@ -1568,9 +1568,10 @@ button, input, textarea {
 }
 
 .all-work-link:hover {
-  background: var(--ink);
-  color: var(--paper);
-  border-color: var(--ink);
+  background: #171717;
+  color: #F26A21 !important;
+  border-color: #F26A21;
+  box-shadow: 0 0 16px rgba(242, 106, 33, 0.45);
 }
 
 .all-work-link span {
@@ -3264,7 +3265,7 @@ html.no-js .reveal {
   .main-nav a:hover,
   .main-nav a.is-hovered {
     background-color: #171717;
-    color: #FFFFFF !important;
+    color: #F26A21 !important;
   }
 }
 
