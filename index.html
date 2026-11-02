@@ -20,6 +20,27 @@
 </head>
 
 <body>
+  <!-- ======================================================================
+       00. SYSTEM PRELOADER & ASSET ORCHESTRATOR
+       Synchronized 4-milestone preloader: DOM -> Fonts -> Assets -> Ready
+       ====================================================================== -->
+  <div class="site-preloader" id="site-preloader" role="status" aria-live="polite" aria-label="Loading portfolio experience">
+    <div class="preloader-inner">
+      <div class="preloader-brand">
+        <span class="preloader-letter">A</span>
+        <span class="preloader-letter">K</span>
+        <span class="preloader-letter">S</span>
+        <span class="preloader-dot">.</span>
+      </div>
+      <div class="preloader-track">
+        <div class="preloader-bar" id="preloader-progress-bar"></div>
+      </div>
+      <div class="preloader-meta">
+        <span class="preloader-status" id="preloader-status-text">INITIALIZING SYSTEM</span>
+        <span class="preloader-percent" id="preloader-percentage">0%</span>
+      </div>
+    </div>
+  </div>
   <div class="page-shell">
     <!-- ======================================================================
          01. SITE HEADER & NAVIGATION

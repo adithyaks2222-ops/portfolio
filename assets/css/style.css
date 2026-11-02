@@ -67,6 +67,142 @@
   --trans-normal: 0.4s var(--ease);
 }
 
+/* ==========================================================================
+   00. SYSTEM PRELOADER & ASSET ORCHESTRATOR
+   Clean editorial curtain loading screen with staggered letter pulses,
+   slender progress track, and smooth cubic-bezier curtain reveal.
+   ========================================================================== */
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background-color: var(--paper, #F5F4EF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: wait;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1),
+              opacity 0.45s ease 0.3s;
+  will-change: transform, opacity;
+}
+
+.site-preloader.is-loaded {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.preloader-brand {
+  font-family: var(--display, "Manrope", sans-serif);
+  font-size: clamp(42px, 7vw, 68px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--ink, #171717);
+  display: inline-flex;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.preloader-letter {
+  display: inline-block;
+  animation: preloaderPulse 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.preloader-letter:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.preloader-letter:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.preloader-letter:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.preloader-dot {
+  color: var(--accent, #F26A21);
+  animation: preloaderGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes preloaderPulse {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes preloaderGlow {
+  0% {
+    text-shadow: 0 0 4px rgba(242, 106, 33, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 16px rgba(242, 106, 33, 0.75);
+  }
+}
+
+.preloader-track {
+  width: 220px;
+  height: 2px;
+  background-color: rgba(23, 23, 23, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.preloader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  background-color: var(--accent, #F26A21);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(242, 106, 33, 0.55);
+  will-change: width;
+}
+
+.preloader-meta {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono, "DM Mono", monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777970;
+}
+
+.preloader-percent {
+  font-weight: 500;
+  color: var(--ink, #171717);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-preloader {
+    display: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    01. RESET & FOUNDATIONS
    -------------------------------------------------------------------------- */

@@ -159,27 +159,20 @@ document.addEventListener("DOMContentLoaded", () => {
       // Graceful exit transition
 
       setTimeout(() => {
-
         preloader.classList.add("is-loaded");
-
         document.body.style.overflow = "";
 
-
-
         if (typeof ScrollTrigger !== "undefined") {
-
           ScrollTrigger.refresh();
-
         }
-
-
 
         if (typeof onComplete === "function") {
-
           onComplete();
-
         }
 
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 800);
       }, 350);
 
     }
