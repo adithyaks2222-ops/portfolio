@@ -73,21 +73,36 @@
 
 
 
+/* Remove the vertical scrollbar slider on the right-hand side while preserving full scrolling */
 html {
   scroll-behavior: smooth;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body {
   margin: 0;
+  padding-top: 80px;
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--sans, "DM Sans", sans-serif);
   line-height: 1.6;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar slider track and thumb for Chrome, Safari, Edge, Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 ::selection {
