@@ -8,6 +8,8 @@
 
 :root {
   /* Surfaces & Ink (Warm Neutral Editorial Palette) */
+  --charcoal: #242424;
+  /* Visual background, card fill, button fill & liquid charcoal */
   --paper: #F5F4EF;
   /* Warm off-white editorial paper tone */
   --paper-card: #EAE9E3;
@@ -412,7 +414,7 @@ textarea {
 }
 
 .main-nav a:focus-visible {
-  background-color: #171717;
+  background-color: #242424;
   color: #F26A21;
   outline: 2px solid #F26A21;
   outline-offset: 2px;
@@ -448,7 +450,7 @@ textarea {
   left: 0;
   width: 14px;
   height: 14px;
-  background-color: #171717;
+  background-color: #242424;
   border: 1px solid rgba(242, 106, 33, 0.4);
   border-radius: 50%;
   pointer-events: none;
@@ -475,7 +477,7 @@ textarea {
   .main-nav a:hover,
   .main-nav a.is-hovered,
   .main-nav a:focus-visible {
-    background-color: #171717;
+    background-color: #242424;
     color: #F26A21;
   }
 }
@@ -508,7 +510,7 @@ textarea {
 
 .header-cta:hover,
 .header-cta:focus-visible {
-  background-color: #171717;
+  background-color: #242424;
   color: #F26A21;
   border-color: #F26A21;
   box-shadow: 0 0 16px rgba(242, 106, 33, 0.45), 0 4px 14px rgba(0, 0, 0, 0.25);
@@ -535,7 +537,7 @@ textarea {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--ink);
+  background: #242424;
   margin: 3.5px 0;
   border-radius: 2px;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
@@ -626,7 +628,7 @@ textarea {
   position: relative;
   display: inline-block;
   color: #FFFFFF;
-  -webkit-text-stroke: 1.8px var(--ink);
+  -webkit-text-stroke: 1.8px #242424;
   paint-order: stroke fill;
   letter-spacing: -0.02em;
   margin-right: 0.14em;
@@ -831,7 +833,7 @@ textarea {
 }
 
 .electron-2 {
-  background-color: var(--ink);
+  background-color: #242424;
   box-shadow: 0 0 6px rgba(23, 24, 22, 0.35);
 }
 
@@ -912,7 +914,7 @@ textarea {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: var(--ink);
+  background: #242424;
   color: var(--paper);
   display: grid;
   place-items: center;
@@ -1058,7 +1060,7 @@ textarea {
 }
 
 .all-work-link:hover {
-  background: #171717;
+  background: #242424;
   color: #F26A21;
   border-color: #F26A21;
   box-shadow: 0 0 16px rgba(242, 106, 33, 0.45);
@@ -1078,7 +1080,7 @@ textarea {
 }
 
 .stack-feature {
-  background: var(--ink);
+  background: #242424;
   color: var(--paper);
   padding: 40px;
   min-height: 390px;
@@ -1161,8 +1163,8 @@ textarea {
 }
 
 .stack-tags b:hover {
-  background-color: var(--ink);
-  color: var(--accent);
+  background-color: #242424;
+  color: #F26A21;
   border-color: var(--accent);
   box-shadow: 0 0 16px rgba(242, 106, 33, 0.45);
 }
@@ -1422,7 +1424,7 @@ textarea {
    13. CONTACT SECTION
    -------------------------------------------------------------------------- */
 .contact-section {
-  background: var(--ink);
+  background: #242424;
   color: var(--paper);
   padding-top: 95px;
   padding-bottom: 75px;
@@ -1667,7 +1669,7 @@ html.gsap-active .reveal {
   .main-nav.open a:hover,
   .main-nav.open a:active,
   .main-nav.open a.is-hovered {
-    background-color: #171717;
+    background-color: #242424;
     color: #F26A21;
   }
 
@@ -1981,7 +1983,7 @@ html.gsap-active .reveal {
   overflow: hidden;
   border: 1px solid var(--line);
   box-shadow: 0 20px 45px rgba(23, 24, 22, 0.06);
-  background: #171816;
+  background: #242424;
 }
 
 .detail-hero-banner img {
@@ -2167,7 +2169,7 @@ html.gsap-active .reveal {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: #171816;
+  background: #242424;
 }
 
 .gallery-item img {
@@ -2197,18 +2199,18 @@ html.gsap-active .reveal {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--ink);
+  background: #242424;
   color: var(--paper);
   padding: 12px 24px;
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 600;
-  border: 1px solid var(--ink);
+  border: 1px solid #242424;
   transition: color var(--trans-fast), background-color var(--trans-fast), border-color var(--trans-fast), box-shadow var(--trans-fast);
 }
 
 .btn-detail-primary:hover {
-  background: #171717;
+  background: #242424;
   border-color: #F26A21;
   color: #F26A21;
   box-shadow: 0 0 16px rgba(242, 106, 33, 0.45);
@@ -2230,7 +2232,7 @@ html.gsap-active .reveal {
 
 .btn-detail-secondary:hover {
   background: var(--paper-card);
-  border-color: var(--ink);
+  border-color: #242424;
 }
 
 /* Previous / Next Project Pagination */
@@ -2551,7 +2553,7 @@ html.gsap-active .reveal {
 /* Card Hover & Focus States: Solid Black Background + Vibrant Orange Text */
 .project-card:hover,
 .project-card:focus-visible {
-  background-color: #171717;
+  background-color: #242424;
   border-color: #F26A21;
   transform: translateY(-6px);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.38), 0 0 24px rgba(242, 106, 33, 0.28);
@@ -2580,7 +2582,7 @@ html.gsap-active .reveal {
 }
 
 .project-card:hover .tech-pill-mini {
-  background: #171717;
+  background: #242424;
   border-color: rgba(242, 106, 33, 0.45);
   color: #F26A21;
   box-shadow: 0 0 10px rgba(242, 106, 33, 0.35);
@@ -2623,7 +2625,7 @@ html.gsap-active .reveal {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
-  background: linear-gradient(145deg, #1d1e1c 0%, #151614 100%);
+  background: linear-gradient(145deg, #2a2a2a 0%, #242424 100%);
   border-bottom: 1px solid rgba(23, 23, 23, 0.08);
   display: flex;
   align-items: center;

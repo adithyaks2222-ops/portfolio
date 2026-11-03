@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==========================================================================
   // SIGNATURE INTERACTION: SOPHISTICATED LIQUID CURSOR NAVIGATION
   // Liquid drop follows pointer inside navbar, stretches, absorbs hovered links,
-  // fills with solid black (#171717), and contracts smoothly upon exit.
+  // fills with solid charcoal (#242424), and contracts smoothly upon exit.
   // ==========================================================================
   function initNavLiquidCursor() {
     if (typeof gsap === "undefined") return;
@@ -2035,8 +2035,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ".curved-marquee-header h2 span",
 
     ".contact-main h2 span",
-
-    ".title-outline",
 
     ".subpage-intro",
 

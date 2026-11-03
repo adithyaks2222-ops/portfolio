@@ -71,7 +71,7 @@ html.gsap-active .section-heading-row .section-intro {
   left: -20%;
   right: -20%;
   height: 220%;
-  background-color: #171717;
+  background-color: #242424;
   border-radius: 50% 50% 0 0 / 40% 40% 0 0;
   transform: translateY(0);
   transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1),
@@ -225,7 +225,7 @@ html.gsap-active .section-heading-row .section-intro {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #171717; /* Solid Black Box Fill */
+  background-color: #242424; /* Solid Charcoal Box Fill */
   transform-origin: center center;
   transform: scale(0);
   transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
@@ -265,8 +265,7 @@ html.gsap-active .section-heading-row .section-intro {
 }
 
 .header-cta:hover span,
-.all-work-link:hover span,
-{
+.all-work-link:hover span {
   color: #F26A21;
   text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
 }

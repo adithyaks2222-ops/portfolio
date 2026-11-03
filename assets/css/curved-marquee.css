@@ -251,7 +251,7 @@
 .curved-marquee-section .tech-marquee-card:hover,
 .curved-marquee-section .tech-marquee-card:focus-visible,
 .curved-marquee-section .tech-marquee-card:active {
-  background-color: #171717;
+  background-color: #242424;
   border-color: #F26A21;
   transform: translateY(-3px);
   box-shadow: 0 0 20px rgba(242, 106, 33, 0.42), 0 8px 24px rgba(0, 0, 0, 0.38);
