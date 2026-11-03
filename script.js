@@ -494,6 +494,176 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initNavLiquidCursor();
 
+  // ==========================================================================
+  // PREMIUM LIQUID SMOOTH SCROLLING ENGINE
+  // Natural momentum LERP scroller with precision trackpad detection,
+  // 60/120 FPS requestAnimationFrame synchronization, GSAP ScrollTrigger
+  // integration, silk-smooth anchor glides, and 100% native mobile touch passthrough.
+  // ==========================================================================
+  function initLiquidSmoothScroll() {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (typeof ScrollTrigger !== "undefined") {
+      ScrollTrigger.config({ limitCallbacks: true });
+    }
+
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.scrollBehavior = "auto";
+
+    // Smooth anchor navigation (desktop & mobile)
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      if (href === "#top" || href === "#") {
+        e.preventDefault();
+        smoothGlideTo(0);
+        return;
+      }
+
+      const targetEl = document.querySelector(href);
+      if (targetEl) {
+        e.preventDefault();
+        const headerHeight = 75;
+        const rect = targetEl.getBoundingClientRect();
+        const destY = Math.max(0, rect.top + window.scrollY - headerHeight);
+        smoothGlideTo(destY);
+
+        if (history.pushState) {
+          history.pushState(null, "", href);
+        }
+      }
+    });
+
+    let currentY = window.scrollY || window.pageYOffset;
+    let targetY = currentY;
+    let isGliding = false;
+    let isRunning = false;
+    let ease = 0.088;
+    let maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+    const updateMax = () => {
+      maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    };
+
+    window.addEventListener("resize", updateMax, { passive: true });
+
+    function smoothGlideTo(destY) {
+      updateMax();
+      destY = Math.max(0, Math.min(maxScroll, destY));
+      isGliding = true;
+      targetY = destY;
+
+      if (typeof gsap !== "undefined") {
+        const dummy = { y: window.scrollY || window.pageYOffset };
+        gsap.to(dummy, {
+          y: destY,
+          duration: 1.1,
+          ease: "power3.inOut",
+          onUpdate: () => {
+            currentY = dummy.y;
+            targetY = dummy.y;
+            window.scrollTo(0, currentY);
+            if (typeof ScrollTrigger !== "undefined") ScrollTrigger.update();
+          },
+          onComplete: () => {
+            isGliding = false;
+            currentY = destY;
+            targetY = destY;
+            window.scrollTo(0, destY);
+            if (typeof ScrollTrigger !== "undefined") ScrollTrigger.update();
+          }
+        });
+      } else {
+        window.scrollTo({ top: destY, behavior: "smooth" });
+        isGliding = false;
+      }
+    }
+
+    // On touch screens or reduced motion, preserve native 120Hz touch physics completely
+    if (isTouch || prefersReducedMotion) {
+      return;
+    }
+
+    const onWheel = (e) => {
+      // Do not hijack scroll inside overflowed elements (e.g. pre, code, modals)
+      let el = e.target;
+      while (el && el !== document.body && el !== document.documentElement) {
+        if (el.scrollHeight > el.clientHeight) {
+          const overflowY = window.getComputedStyle(el).overflowY;
+          if (overflowY === "auto" || overflowY === "scroll") return;
+        }
+        el = el.parentElement;
+      }
+
+      e.preventDefault();
+      updateMax();
+
+      let deltaY = e.deltaY;
+      if (e.deltaMode === 1) deltaY *= 36;
+      else if (e.deltaMode === 2) deltaY *= window.innerHeight;
+
+      // Detect precision trackpads vs mouse wheel notches
+      const isTrackpad = Math.abs(deltaY) < 38 && Math.abs(deltaY) % 1 !== 0;
+
+      if (isTrackpad) {
+        // Direct 1:1 responsive feel for trackpad gestures
+        targetY = Math.max(0, Math.min(maxScroll, targetY + deltaY * 1.05));
+        ease = 0.22;
+      } else {
+        // Silky fluid acceleration & deceleration for mouse wheels
+        targetY = Math.max(0, Math.min(maxScroll, targetY + deltaY * 0.92));
+        ease = 0.088;
+      }
+
+      if (!isRunning && !isGliding) {
+        isRunning = true;
+        requestAnimationFrame(tick);
+      }
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+
+    // Sync target with native scroll events (scrollbar drag, page keys)
+    window.addEventListener("scroll", () => {
+      if (!isRunning && !isGliding) {
+        currentY = window.scrollY || window.pageYOffset;
+        targetY = currentY;
+      }
+    }, { passive: true });
+
+    function tick() {
+      if (isGliding) {
+        isRunning = false;
+        return;
+      }
+
+      const diff = targetY - currentY;
+
+      if (Math.abs(diff) > 0.4) {
+        currentY += diff * ease;
+        window.scrollTo(0, currentY);
+        if (typeof ScrollTrigger !== "undefined") {
+          ScrollTrigger.update();
+        }
+        requestAnimationFrame(tick);
+      } else {
+        currentY = targetY;
+        window.scrollTo(0, targetY);
+        if (typeof ScrollTrigger !== "undefined") {
+          ScrollTrigger.update();
+        }
+        isRunning = false;
+      }
+    }
+  }
+
+  initLiquidSmoothScroll();
+
+
     // 2. Mobile Menu Toggle
 
   const menuButton = document.querySelector(".menu-toggle");
@@ -772,7 +942,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             end: "bottom 15%",
 
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
 
           }
 
@@ -832,7 +1002,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             end: "bottom 15%",
 
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
 
           }
 
@@ -852,7 +1022,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // 5. 3D Curved Logo Marquee Stage Entrance (Reversible)
+    // 5. 3D Curved Logo Marquee Stage Entrance & Liquid Parallax Depth
 
     const marqueeViewport = document.querySelector(".curved-marquee-viewport");
 
@@ -860,7 +1030,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       gsap.fromTo(marqueeViewport,
 
-        { scale: 0.94, opacity: 0.4 },
+        { scale: 0.96, opacity: 0.5 },
 
         {
 
@@ -880,13 +1050,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
             end: "bottom 15%",
 
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
 
           }
 
         }
 
       );
+
+      // Subtle liquid parallax depth on central portrait cutout
+      const stageCutout = marqueeViewport.querySelector(".stage-cutout");
+      if (stageCutout) {
+        gsap.to(stageCutout, {
+          y: -30,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#perspective-experience",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.0,
+          }
+        });
+      }
 
     }
 
@@ -908,7 +1093,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           end: "bottom 15%",
 
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
 
         }
 
@@ -1125,7 +1310,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
               end: "bottom 10%",
 
-              toggleActions: "play reverse play reverse",
+              toggleActions: "play none none reverse",
 
             }
 
@@ -1155,7 +1340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           end: "bottom 15%",
 
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
 
         }
 
@@ -1235,7 +1420,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           end: "bottom 15%",
 
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
 
         }
 
@@ -1309,7 +1494,7 @@ document.addEventListener("DOMContentLoaded", () => {
           trigger: academicWrap,
           start: "top 85%",
           end: "bottom 15%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
         }
       });
 
@@ -1362,7 +1547,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             end: "bottom 15%",
 
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
 
           }
 
@@ -1450,7 +1635,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             end: "bottom 15%",
 
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
 
           }
 
@@ -1502,7 +1687,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           end: "bottom 15%",
 
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
 
         }
 
@@ -1564,7 +1749,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           end: "bottom 15%",
 
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none reverse",
 
         }
 
@@ -1638,7 +1823,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             end: "bottom bottom",
 
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
 
           }
 
@@ -1793,22 +1978,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }).filter(Boolean);
 
     if (anchorLinks.length > 0 && navSections.length > 0) {
+      let sectionData = [];
+      const cacheSectionPositions = () => {
+        sectionData = navSections.map((section) => {
+          const top = section.getBoundingClientRect().top + window.scrollY;
+          return {
+            id: section.getAttribute("id"),
+            top: top,
+            height: section.offsetHeight
+          };
+        });
+      };
+
+      cacheSectionPositions();
+      window.addEventListener("resize", cacheSectionPositions, { passive: true });
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.addEventListener("refresh", cacheSectionPositions);
+      }
+
+      let navTicking = false;
       const updateActiveNavLink = () => {
-        let currentId = "";
-        const scrollPosition = window.scrollY + 250;
+        if (!navTicking) {
+          requestAnimationFrame(() => {
+            const scrollPosition = window.scrollY + 250;
+            let currentId = "";
+            for (let i = 0; i < sectionData.length; i++) {
+              const s = sectionData[i];
+              if (scrollPosition >= s.top && scrollPosition < s.top + s.height) {
+                currentId = s.id;
+                break;
+              }
+            }
 
-        navSections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          const top = rect.top + window.scrollY;
-          const height = section.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            currentId = section.getAttribute("id");
-          }
-        });
-
-        anchorLinks.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
-        });
+            anchorLinks.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+            });
+            navTicking = false;
+          });
+          navTicking = true;
+        }
       };
 
       window.addEventListener("scroll", updateActiveNavLink, { passive: true });
