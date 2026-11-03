@@ -635,8 +635,7 @@ textarea {
   cursor: pointer;
   user-select: none;
   vertical-align: baseline;
-  transition: -webkit-text-stroke-color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.38s ease;
+  transition: -webkit-text-stroke-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .title-outline::before {
@@ -681,23 +680,10 @@ textarea {
   }
 }
 
-@keyframes symbiotePulse {
-
-  0%,
-  100% {
-    filter: drop-shadow(0 0 16px rgba(242, 106, 33, 0.52)) drop-shadow(0 0 32px rgba(242, 106, 33, 0.28));
-  }
-
-  50% {
-    filter: drop-shadow(0 0 24px rgba(242, 106, 33, 0.72)) drop-shadow(0 0 44px rgba(242, 106, 33, 0.42));
-  }
-}
-
 .title-outline:hover,
 .title-outline:focus-visible,
 .title-outline:active {
   -webkit-text-stroke-color: #F26A21;
-  animation: symbiotePulse 2.8s ease-in-out infinite;
 }
 
 .title-outline:hover::before,
