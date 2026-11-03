@@ -37,33 +37,6 @@
   color: var(--marquee-accent);
 }
 
-.curved-marquee-header {
-  margin-top: 36px;
-  margin-bottom: 40px;
-}
-
-.curved-marquee-header h2 {
-  color: var(--marquee-ink);
-  margin: 0;
-  font-family: var(--display, "Manrope", sans-serif);
-  font-size: clamp(38px, 5.5vw, 68px);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 1.05;
-}
-
-.curved-marquee-header h2 .period {
-  color: var(--marquee-accent);
-}
-
-.curved-marquee-header .section-intro {
-  color: var(--marquee-muted);
-  margin-top: 14px;
-  max-width: 580px;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
 /* ==========================================================================
    Marquee Viewport & 3D Perspective Stage
    ========================================================================== */
@@ -347,11 +320,6 @@
   .curved-marquee-section {
     padding-top: 65px;
     padding-bottom: 70px;
-  }
-
-  .curved-marquee-header {
-    margin-top: 26px;
-    margin-bottom: 28px;
   }
 
   .curved-marquee-viewport {

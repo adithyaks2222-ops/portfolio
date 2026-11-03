@@ -264,12 +264,6 @@ html.gsap-active .section-heading-row .section-intro {
   text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
 }
 
-.header-cta:hover span,
-.all-work-link:hover span {
-  color: #F26A21;
-  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
-}
-
 /* ==========================================================================
    ALL SUBHEADINGS & GRAY-LIKE TEXT: TOUCH & HOVER ORANGE GLOW
    Every subheading, kicker, intro, note, label, metadata across each section
@@ -277,7 +271,6 @@ html.gsap-active .section-heading-row .section-intro {
    ========================================================================== */
 .section-intro,
 .section-intro *,
-.curved-marquee-header .section-intro,
 .eyebrow,
 .eyebrow *,
 .eyebrow-year,
@@ -320,7 +313,6 @@ html.gsap-active .section-heading-row .section-intro {
 
 .section-intro:hover,
 .section-intro:hover *,
-.curved-marquee-header .section-intro:hover,
 .eyebrow:hover,
 .eyebrow:hover *,
 .eyebrow-year:hover,
@@ -380,6 +372,8 @@ html.gsap-active .section-heading-row .section-intro:hover,
 
 .header-cta:hover span,
 .all-work-link:hover span {
+  color: #F26A21;
+  text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
   transform: translate(3px, -3px);
 }
 

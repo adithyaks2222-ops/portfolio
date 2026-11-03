@@ -621,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isRunning && !isGliding) {
         isRunning = true;
-        requestAnimationFrame(tick);
+        requestAnimationFrame(smoothScrollTick);
       }
     };
 
@@ -635,7 +635,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }, { passive: true });
 
-    function tick() {
+    function smoothScrollTick() {
       if (isGliding) {
         isRunning = false;
         return;
@@ -649,7 +649,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof ScrollTrigger !== "undefined") {
           ScrollTrigger.update();
         }
-        requestAnimationFrame(tick);
+        requestAnimationFrame(smoothScrollTick);
       } else {
         currentY = targetY;
         window.scrollTo(0, targetY);
@@ -984,9 +984,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const kicker = sec.querySelector(".section-kicker");
 
-      const heading = sec.querySelector(".section-heading-row h2, .curved-marquee-header h2");
+      const heading = sec.querySelector(".section-heading-row h2");
 
-      const intro = sec.querySelector(".section-heading-row .section-intro, .curved-marquee-header .section-intro");
+      const intro = sec.querySelector(".section-heading-row .section-intro");
 
 
 
@@ -2026,31 +2026,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // 6. Back-to-Top Button
-
-  const backToTopLinks = document.querySelectorAll('a[href="#top"]');
-
-  backToTopLinks.forEach((link) => {
-
-    link.addEventListener("click", (e) => {
-
-      if (link.getAttribute("href") === "#top") {
-
-        e.preventDefault();
-
-        window.scrollTo({
-
-          top: 0,
-
-          behavior: "smooth"
-
-        });
-
-      }
-
-    });
-
-  });
+  // (Back-to-top smoothly handled by initLiquidSmoothScroll)
 
 
 
@@ -2258,7 +2234,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ".perspective-header h2 span",
 
-    ".curved-marquee-header h2 span",
 
     ".contact-main h2 span",
 
