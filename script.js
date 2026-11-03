@@ -160,6 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         preloader.classList.add("is-loaded");
+        preloader.style.pointerEvents = "none";
+        preloader.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
 
         if (typeof ScrollTrigger !== "undefined") {
@@ -552,6 +554,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+  }
+
+  // 2b. Atom Nucleus Interactive LinkedIn Gateway
+  const atomNucleus = document.querySelector(".atom-nucleus");
+  if (atomNucleus) {
+    const linkedInUrl = "https://www.linkedin.com/in/adithya-k-s-03a20i06/";
+    atomNucleus.setAttribute("href", linkedInUrl);
+    atomNucleus.setAttribute("target", "_blank");
+    atomNucleus.setAttribute("rel", "noopener noreferrer");
+
+    atomNucleus.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.open(linkedInUrl, "_blank", "noopener,noreferrer");
+      }
+    });
   }
 
 
