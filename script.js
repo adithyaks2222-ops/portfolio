@@ -754,7 +754,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================================================
 
-  function initScrollAssembly() {
+  function initScrollAssembly(skipHeroIntro = false) {
 
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
 
@@ -802,15 +802,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initial Hero Entrance Sequence (triggered once loading completes)
 
-    function playHeroEntrance() {
+    function playHeroEntrance(skipIntro = false) {
 
       const hero = document.querySelector(".hero");
 
       if (!hero) return;
 
 
-
-      const heroTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
       const siteHeader = document.querySelector(".site-header");
 
@@ -828,19 +826,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-      if (siteHeader) heroTl.fromTo(siteHeader, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.7 }, 0);
-
-      if (eyebrow) heroTl.fromTo(eyebrow, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.12);
-
-      if (title) heroTl.fromTo(title, { opacity: 0, y: 35, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: "power3.out" }, 0.22);
-
-      if (copy) heroTl.fromTo(copy, { opacity: 0, x: -30 * xMult, y: 15 }, { opacity: 1, x: 0, y: 0, duration: 0.8 }, 0.35);
-
-      if (aside) heroTl.fromTo(aside, { opacity: 0, x: 30 * xMult, y: 15 }, { opacity: 1, x: 0, y: 0, duration: 0.8 }, 0.42);
-
-      if (textLink) heroTl.fromTo(textLink, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 0.52);
-
-      if (heroArt) heroTl.fromTo(heroArt, { opacity: 0, scale: 0.86, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "power2.out" }, 0.3);
+      if (!skipIntro) {
+        const heroTl = gsap.timeline({ defaults: { ease: "power2.out" } });
+        if (siteHeader) heroTl.fromTo(siteHeader, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.7 }, 0);
+        if (eyebrow) heroTl.fromTo(eyebrow, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.12);
+        if (title) heroTl.fromTo(title, { opacity: 0, y: 35, scale: 0.98 }, { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: "power3.out" }, 0.22);
+        if (copy) heroTl.fromTo(copy, { opacity: 0, x: -30 * xMult, y: 15 }, { opacity: 1, x: 0, y: 0, duration: 0.8 }, 0.35);
+        if (aside) heroTl.fromTo(aside, { opacity: 0, x: 30 * xMult, y: 15 }, { opacity: 1, x: 0, y: 0, duration: 0.8 }, 0.42);
+        if (textLink) heroTl.fromTo(textLink, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 0.52);
+        if (heroArt) heroTl.fromTo(heroArt, { opacity: 0, scale: 0.86, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 1.1, ease: "power2.out" }, 0.3);
+      } else {
+        // Revealed by Swarm Reconstruction: establish final interactive states
+        if (siteHeader) gsap.set(siteHeader, { opacity: 1, y: 0 });
+        if (eyebrow) gsap.set(eyebrow, { opacity: 1, y: 0 });
+        if (title) gsap.set(title, { opacity: 1, y: 0, scale: 1 });
+        if (copy) gsap.set(copy, { opacity: 1, x: 0, y: 0 });
+        if (aside) gsap.set(aside, { opacity: 1, x: 0, y: 0 });
+        if (textLink) gsap.set(textLink, { opacity: 1, scale: 1 });
+        if (heroArt) gsap.set(heroArt, { opacity: 1, scale: 1, rotation: 0 });
+      }
 
 
 
@@ -1881,7 +1885,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Start hero entrance when preloader completes
 
-    playHeroEntrance();
+    playHeroEntrance(skipHeroIntro);
 
 
 
@@ -1907,11 +1911,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-  // Kick off Preloader and connect to Scroll Assembly
+  // Kick off Preloader and connect to Hero Swarm / Scroll Assembly
 
   initPreloader(() => {
 
-    initScrollAssembly();
+    const isCoarse = window.matchMedia("(pointer: coarse)").matches;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (window.HeroSwarm && !isCoarse && !prefersReduced) {
+      window.HeroSwarm.start({
+        onComplete: () => {
+          initScrollAssembly(true);
+        }
+      });
+    } else {
+      initScrollAssembly(false);
+    }
 
   });
 

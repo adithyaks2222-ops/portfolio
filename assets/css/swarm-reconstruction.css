@@ -1,134 +1,43 @@
 /* ==========================================================================
-   SWARM RECONSTRUCTION EXPERIENCE — STYLES & INTERACTION LAYER
-   Multiplayer simulated design-tool cursor swarm & blueprint reconstruction.
-   Editorial palette: Charcoal #242424 · Burnt Orange #F26A21 · Paper #F5F4EF
+   HERO SWARM CINEMATIC RECONSTRUCTION OVERLAY
+   Autonomous collaborative cursor reconstruction for the Hero Section.
+   Editorial palette: Warm Paper (#F5F4EF) · Charcoal (#171717 / #242424) · Burnt Orange (#F26A21)
    ========================================================================== */
 
-/* 1. Fullscreen Canvas Overlay Layer */
-.swarm-canvas {
+.hero-swarm-overlay {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 950; /* Above sections & cards, below header (1000) & preloader (999999) */
-  pointer-events: none; /* Never blocks clicks, links or atom interaction */
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.4s ease;
-}
-
-.swarm-canvas.is-active {
+  background-color: #F5F4EF;
+  z-index: 998; /* Below preloader (999999), below header (1000), above hero section */
+  pointer-events: none;
   opacity: 1;
-  visibility: visible;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
 }
 
-/* 2. Header Reconstruct Trigger Button */
-.swarm-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--line, #D8D8D1);
-  border-radius: var(--radius-pill, 9999px);
-  padding: 8px 14px;
-  font-family: var(--mono, "DM Mono", monospace);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink, #171717);
-  cursor: pointer;
-  outline: none;
-  text-decoration: none;
-  margin-right: 12px;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
+.hero-swarm-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999; /* Above overlay, below header */
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
 }
 
-.swarm-btn:hover {
-  background: #242424;
-  color: #F26A21;
-  border-color: #242424;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12), 0 0 10px rgba(242, 106, 33, 0.25);
-  transform: translateY(-1px);
+.hero-swarm-overlay.is-exiting,
+.hero-swarm-canvas.is-exiting {
+  opacity: 0;
 }
 
-.swarm-btn:focus-visible {
-  outline: 2px solid #F26A21;
-  outline-offset: 2px;
-}
-
-.swarm-btn-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--accent, #F26A21);
-  display: inline-block;
-  transition: transform 0.25s ease, background-color 0.25s ease;
-}
-
-.swarm-btn:hover .swarm-btn-dot {
-  background-color: #F26A21;
-  box-shadow: 0 0 8px rgba(242, 106, 33, 0.8);
-  transform: scale(1.2);
-}
-
-/* Active State when Swarm is Running */
-.swarm-btn.is-active {
-  background: #242424;
-  color: #F26A21;
-  border-color: #F26A21;
-  box-shadow: 0 0 14px rgba(242, 106, 33, 0.35);
-}
-
-.swarm-btn.is-active .swarm-btn-dot {
-  background-color: #F26A21;
-  animation: swarmPulse 1.2s ease-in-out infinite;
-}
-
-@keyframes swarmPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.55;
-  }
-}
-
-/* 3. Subtle Blueprint Mode wireframe styling while being reconstructed */
-.is-reconstructing {
-  transition: opacity 0.5s ease, filter 0.5s ease;
-}
-
-/* 4. Responsive Visibility */
-@media (max-width: 900px) {
-  .swarm-btn {
-    padding: 7px 11px;
-    font-size: 10.5px;
-    margin-right: 8px;
-  }
-}
-
-@media (max-width: 640px) {
-  /* On compact mobile, hide text and show compact icon pill */
-  .swarm-btn {
-    padding: 6px 9px;
-    font-size: 10px;
-    margin-right: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Ultra compact screens */
-  .swarm-btn-text {
-    display: none;
-  }
-  .swarm-btn {
-    padding: 7px;
-    margin-right: 6px;
+/* Accessibility: when user prefers reduced motion, hide overlay immediately */
+@media (prefers-reduced-motion: reduce) {
+  .hero-swarm-overlay,
+  .hero-swarm-canvas {
+    display: none !important;
   }
 }
