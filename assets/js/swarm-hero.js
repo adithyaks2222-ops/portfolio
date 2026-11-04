@@ -9,11 +9,12 @@
  * Original clean-room implementation in Vanilla JavaScript & HTML5 Canvas.
  * Zero external dependencies.
  *
- * Design System & Color Architecture:
- * - Canvas & Overlay Paper: #F5F4EF
- * - Primary Lead Cursor (AKS): #F26A21 (Burnt Orange)
- * - Collaborator Cursors: #171717 / #242424 (Charcoal)
- * - Alignment Guides: #F26A21 / #D8D8D1
+ * Collaborative Mechanics:
+ * - Real character-by-character typing with moving typing carets
+ * - Figma-style vector cursors & interactive selection bounding boxes
+ * - Caliper crosshairs & rotational alignment guides for 3D atom
+ * - Dimension pill badges & alignment guides
+ * - Design System: Paper #F5F4EF · Burnt Orange #F26A21 · Charcoal #171717 / #242424
  * ============================================================================
  */
 
@@ -64,7 +65,6 @@
       this.color = color;
       this.pos = startPos.copy();
       this.target = startPos.copy();
-      this.vel = new Vec2(0, 0);
       this.scale = 1;
       this.clicking = false;
       this.maxSpeed = 16;
@@ -145,7 +145,7 @@
       ctx.textBaseline = 'middle';
       ctx.fillText(badgeText, badgeX + badgeW / 2, badgeY + badgeH / 2);
 
-      // Pulse / ripple effect if clicking
+      // Click ripple effect if clicking
       if (this.clicking) {
         ctx.beginPath();
         ctx.arc(0, 0, 14, 0, Math.PI * 2);
@@ -158,7 +158,61 @@
     }
   }
 
-  // --- 3. Hero Swarm Orchestrator ---
+  // --- 3. Text Typing Wrapper Helper ---
+  function prepareTypingElement(el) {
+    if (!el) return null;
+    const originalHTML = el.innerHTML;
+    const charSpans = [];
+
+    function wrapText(node) {
+      if (node.nodeType === 3) { // TEXT_NODE
+        const text = node.nodeValue;
+        if (!text || text.length === 0) return;
+        const parent = node.parentNode;
+        const frag = document.createDocumentFragment();
+        for (let i = 0; i < text.length; i++) {
+          const span = document.createElement('span');
+          span.className = 'swarm-char';
+          span.textContent = text[i];
+          span.style.opacity = '0';
+          span.style.display = 'inline';
+          frag.appendChild(span);
+          charSpans.push(span);
+        }
+        parent.replaceChild(frag, node);
+      } else if (node.nodeType === 1) { // ELEMENT_NODE
+        if (!node.classList.contains('swarm-char') && !node.classList.contains('status-dot')) {
+          const children = Array.from(node.childNodes);
+          children.forEach(wrapText);
+        }
+      }
+    }
+
+    wrapText(el);
+
+    return {
+      element: el,
+      originalHTML,
+      chars: charSpans,
+      revealCount: 0,
+      setCount(count) {
+        const target = Math.min(Math.max(count, 0), charSpans.length);
+        for (let i = this.revealCount; i < target; i++) {
+          charSpans[i].style.opacity = '1';
+        }
+        this.revealCount = target;
+        if (target > 0 && target <= charSpans.length) {
+          return charSpans[target - 1];
+        }
+        return null;
+      },
+      restore() {
+        el.innerHTML = originalHTML;
+      }
+    };
+  }
+
+  // --- 4. Hero Swarm Orchestrator ---
   class HeroSwarmController {
     constructor() {
       this.overlay = null;
@@ -169,7 +223,7 @@
       this.dpr = Math.min(window.devicePixelRatio || 1, 2);
       this.rafId = null;
       this.startTime = null;
-      this.duration = 3800; // brisk & cinematic (ms)
+      this.duration = 4400; // tuned cinematic duration for natural typing (ms)
       this.agents = [];
       this.hasPlayed = false;
       this.isFinished = false;
@@ -185,6 +239,17 @@
         header: null
       };
 
+      // Typing Trackers
+      this.typing = {
+        eyebrow: null,
+        title: null,
+        copy: null,
+        aside: null
+      };
+
+      // Active Typing Carets
+      this.carets = [];
+
       // Construction Operation Trackers
       this.ops = {
         eyebrowBox: 0,
@@ -196,9 +261,6 @@
       };
     }
 
-    /**
-     * Measure current DOM geometry for hero elements
-     */
     measureHeroElements() {
       const hero = document.querySelector('.hero');
       if (!hero) return false;
@@ -235,11 +297,7 @@
       return true;
     }
 
-    /**
-     * Mount full-screen paper overlay and drawing canvas
-     */
     setupDOM() {
-      // Pin scroll to top and lock overflow during intro
       window.scrollTo(0, 0);
       document.body.style.overflow = 'hidden';
 
@@ -248,7 +306,7 @@
       this.overlay.className = 'hero-swarm-overlay';
       document.body.appendChild(this.overlay);
 
-      // 2. High-DPI Canvas for cursor drawings
+      // 2. High-DPI Canvas for cursor drawings & typing carets
       this.canvas = document.createElement('canvas');
       this.canvas.className = 'hero-swarm-canvas';
       this.canvas.setAttribute('aria-hidden', 'true');
@@ -256,14 +314,29 @@
       document.body.appendChild(this.canvas);
       this.ctx = this.canvas.getContext('2d');
 
-      // 3. Prepare Hero Elements with zero opacity for synchronized reveal
+      // 3. Prepare Text Typing on hero elements
       const hero = document.querySelector('.hero');
       if (hero) {
-        const els = hero.querySelectorAll('.eyebrow, .hero-title, .hero-copy, .hero-aside, .hero-art');
-        els.forEach((el) => {
-          el.style.opacity = '0';
-          el.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-        });
+        const eyebrowEl = hero.querySelector('.eyebrow');
+        const titleEl = hero.querySelector('.hero-title');
+        const copyEl = hero.querySelector('.hero-copy');
+        const asideEl = hero.querySelector('.hero-aside p');
+        const atomEl = hero.querySelector('.hero-art');
+
+        this.typing.eyebrow = prepareTypingElement(eyebrowEl);
+        this.typing.title = prepareTypingElement(titleEl);
+        this.typing.copy = prepareTypingElement(copyEl);
+        this.typing.aside = prepareTypingElement(asideEl);
+
+        // Make parent containers visible so typed characters render inline cleanly
+        if (eyebrowEl) eyebrowEl.style.opacity = '1';
+        if (titleEl) titleEl.style.opacity = '1';
+        if (copyEl) copyEl.style.opacity = '1';
+        if (asideEl) asideEl.style.opacity = '1';
+        if (atomEl) {
+          atomEl.style.opacity = '0';
+          atomEl.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
       }
 
       const siteHeader = document.querySelector('.site-header');
@@ -286,33 +359,20 @@
       }
     }
 
-    /**
-     * Initialize the multiplayer swarm collaborators
-     */
     initAgents() {
       const W = this.width;
       const H = this.height;
 
-      // 6 collaborative cursors originating from diverse viewport edges
       this.agents = [
-        // Lead cursor: Adithya (AKS) in Burnt Orange
         new SwarmAgent('AKS', '#F26A21', new Vec2(-80, H * 0.25)),
-        // Kernel: Systems & Structure
         new SwarmAgent('Kernel', '#171717', new Vec2(W + 80, H * 0.15)),
-        // Syntax: Code & Typography
         new SwarmAgent('Syntax', '#242424', new Vec2(W * 0.3, -80)),
-        // Vector: Orbits & Geometry
         new SwarmAgent('Vector', '#E45B14', new Vec2(W + 90, H * 0.65)),
-        // Design: Layout & Details
         new SwarmAgent('Design', '#333333', new Vec2(W * 0.7, H + 80)),
-        // Core: Quantum / Atom Specialist
         new SwarmAgent('Core', '#1A1A1A', new Vec2(-90, H * 0.75))
       ];
     }
 
-    /**
-     * Start the cinematic rebuild intro sequence
-     */
     start(options = {}) {
       if (this.hasPlayed || sessionStorage.getItem('hero_swarm_played') === '1') {
         this.hasPlayed = true;
@@ -322,7 +382,6 @@
         return;
       }
 
-      // Check user preferences
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const isCoarse = window.matchMedia('(pointer: coarse)').matches;
 
@@ -348,9 +407,6 @@
       this.rafId = requestAnimationFrame(this.loop);
     }
 
-    /**
-     * Fallback for reduced motion / mobile: reveals hero immediately
-     */
     revealHeroImmediately() {
       document.body.style.overflow = '';
       const hero = document.querySelector('.hero');
@@ -369,13 +425,11 @@
       }
     }
 
-    /**
-     * Main animation loop & choreographed event milestones
-     */
     loop(now) {
       const elapsed = now - this.startTime;
       const progress = Math.min(elapsed / this.duration, 1);
 
+      this.carets = []; // Reset active carets for this frame
       this.updateChoreography(elapsed);
       this.render();
 
@@ -386,9 +440,6 @@
       }
     }
 
-    /**
-     * Synchronized Choreography Stages
-     */
     updateChoreography(elapsed) {
       const W = this.width;
       const H = this.height;
@@ -401,9 +452,9 @@
       const ag4 = this.agents[4]; // Design
       const ag5 = this.agents[5]; // Core
 
-      // --- STAGE 1: Entry & Flocking (0 - 500ms) ---
-      if (elapsed < 500) {
-        const p = elapsed / 500;
+      // --- PHASE 1: Entry & Flocking (0 - 450ms) ---
+      if (elapsed < 450) {
+        const p = elapsed / 450;
         this.ops.guidesAlpha = p * 0.45;
 
         ag0.setTarget(W * 0.22, H * 0.26, 18, 0.09);
@@ -414,55 +465,72 @@
         ag5.setTarget(W * 0.68, H * 0.55, 18, 0.09);
       }
 
-      // --- STAGE 2: Reconstruct Eyebrow & Headline (500 - 1500ms) ---
-      else if (elapsed < 1500) {
-        const p = (elapsed - 500) / 1000;
+      // --- PHASE 2: Type Eyebrow & Reconstruct Headline (450 - 1800ms) ---
+      else if (elapsed < 1800) {
+        const p = (elapsed - 450) / 1350;
 
-        // ag0 (AKS) draws eyebrow selection
-        if (r.eyebrow) {
-          const ebX = r.eyebrow.x;
-          const ebY = r.eyebrow.y;
-          const ebW = r.eyebrow.width;
-          ag0.setTarget(ebX + ebW * Math.min(p * 1.4, 1), ebY + r.eyebrow.height, 14, 0.12);
-          this.ops.eyebrowBox = Math.min(p * 1.3, 1);
+        // 1. Eyebrow Typing: AKS types "IMCA STUDENT · DEVELOPER · BUILDER"
+        if (this.typing.eyebrow && r.eyebrow) {
+          const ebP = Math.min(Math.max((elapsed - 450) / 750, 0), 1);
+          const totalChars = this.typing.eyebrow.chars.length;
+          const targetCount = Math.floor(totalChars * ebP);
+          const lastChar = this.typing.eyebrow.setCount(targetCount);
 
-          if (p > 0.3) {
-            const ebEl = document.querySelector('.hero .eyebrow');
-            if (ebEl) ebEl.style.opacity = '1';
+          this.ops.eyebrowBox = Math.min(ebP * 1.3, 1);
+
+          if (lastChar) {
+            const cr = lastChar.getBoundingClientRect();
+            ag0.setTarget(cr.right + 2, cr.top + cr.height / 2, 16, 0.15);
+            this.carets.push({ x: cr.right, y: cr.top, h: cr.height, color: '#F26A21' });
+          } else {
+            ag0.setTarget(r.eyebrow.x, r.eyebrow.y + r.eyebrow.height / 2, 14, 0.1);
           }
         }
 
-        // ag1 (Kernel) & ag2 (Syntax) drag title bounding box
+        // 2. Headline: Kernel drags bounding frame (700ms - 1300ms)
         if (r.title) {
           const tX = r.title.x;
           const tY = r.title.y;
           const tW = r.title.width;
           const tH = r.title.height;
 
-          const titleP = Math.max(0, (elapsed - 800) / 700);
-          ag1.setTarget(tX + tW * Math.min(titleP * 1.2, 1), tY + tH * Math.min(titleP * 1.2, 1), 16, 0.1);
-          ag2.setTarget(tX + tW * Math.min(titleP * 0.9, 1), tY, 14, 0.1);
+          const boxP = Math.min(Math.max((elapsed - 650) / 600, 0), 1);
+          this.ops.titleBox = boxP;
+          ag1.setTarget(tX + tW * boxP, tY + tH * boxP, 16, 0.1);
+        }
 
-          this.ops.titleBox = Math.min(titleP, 1);
+        // 3. Headline Typing: Syntax clicks into title and types "I build digital things." (900ms - 1800ms)
+        if (this.typing.title && r.title && elapsed > 850) {
+          const titleP = Math.min(Math.max((elapsed - 850) / 950, 0), 1);
+          const totalChars = this.typing.title.chars.length;
+          const targetCount = Math.floor(totalChars * titleP);
+          const lastChar = this.typing.title.setCount(targetCount);
 
-          if (titleP > 0.55) {
-            const tEl = document.querySelector('.hero .hero-title');
-            if (tEl) tEl.style.opacity = '1';
+          if (lastChar) {
+            const cr = lastChar.getBoundingClientRect();
+            ag2.setTarget(cr.right + 3, cr.top + cr.height / 2, 18, 0.18);
+            this.carets.push({ x: cr.right, y: cr.top, h: cr.height, color: '#F26A21' });
+          } else {
+            ag2.setTarget(r.title.x, r.title.y + 20, 16, 0.12);
           }
         }
 
-        // ag3 (Vector) & ag5 (Core) prepare atom station
+        // Pre-position atom specialists
         if (r.atom) {
           ag3.setTarget(r.atom.cx - 50, r.atom.cy - 50, 12, 0.08);
           ag5.setTarget(r.atom.cx + 50, r.atom.cy + 50, 12, 0.08);
         }
       }
 
-      // --- STAGE 3: Reconstruct 3D Atom & Hero Bottom (1500 - 2600ms) ---
-      else if (elapsed < 2600) {
-        const p = (elapsed - 1500) / 1100;
+      // --- PHASE 3: Type Hero Copy & Assemble 3D Atom (1800 - 3100ms) ---
+      else if (elapsed < 3100) {
+        const p = (elapsed - 1800) / 1300;
 
-        // Atom precision alignment
+        // Finish any remaining title characters
+        if (this.typing.title) this.typing.title.setCount(this.typing.title.chars.length);
+        if (this.typing.eyebrow) this.typing.eyebrow.setCount(this.typing.eyebrow.chars.length);
+
+        // 1. Atom precision assembly: Vector orbits, Core clicks nucleus into place
         if (r.atom) {
           this.ops.atomRings = Math.min(p * 1.3, 1);
           this.ops.atomCrosshair = Math.min(p * 1.6, 1);
@@ -471,27 +539,41 @@
           const radius = Math.min(r.atom.width, r.atom.height) * 0.35;
           ag3.setTarget(r.atom.cx + Math.cos(angle) * radius, r.atom.cy + Math.sin(angle) * radius, 16, 0.15);
           ag5.setTarget(r.atom.cx, r.atom.cy, 12, 0.1);
-          ag5.clicking = p > 0.35 && p < 0.75;
+          ag5.clicking = p > 0.3 && p < 0.75;
 
-          if (p > 0.4) {
+          if (p > 0.35) {
             const atomEl = document.querySelector('.hero .hero-art');
             if (atomEl) atomEl.style.opacity = '1';
           }
         }
 
-        // ag0 & ag4 reconstruct hero bottom (copy + aside)
-        if (r.copy && r.aside) {
-          const botP = Math.max(0, (elapsed - 1700) / 900);
-          this.ops.bottomBoxes = Math.min(botP, 1);
+        // 2. Type Hero Copy: Design streams text character-by-character
+        if (this.typing.copy && r.copy) {
+          const copyP = Math.min(Math.max((elapsed - 1800) / 1000, 0), 1);
+          const totalChars = this.typing.copy.chars.length;
+          const targetCount = Math.floor(totalChars * copyP);
+          const lastChar = this.typing.copy.setCount(targetCount);
 
-          ag0.setTarget(r.copy.x + r.copy.width * Math.min(botP, 1), r.copy.y + r.copy.height, 14, 0.1);
-          ag4.setTarget(r.aside.x + r.aside.width * Math.min(botP, 1), r.aside.y + r.aside.height, 14, 0.1);
+          this.ops.bottomBoxes = Math.min(copyP * 1.2, 1);
 
-          if (botP > 0.45) {
-            const copyEl = document.querySelector('.hero .hero-copy');
-            const asideEl = document.querySelector('.hero .hero-aside');
-            if (copyEl) copyEl.style.opacity = '1';
-            if (asideEl) asideEl.style.opacity = '1';
+          if (lastChar) {
+            const cr = lastChar.getBoundingClientRect();
+            ag4.setTarget(cr.right + 2, cr.top + cr.height / 2, 16, 0.15);
+            this.carets.push({ x: cr.right, y: cr.top, h: cr.height, color: '#171717' });
+          }
+        }
+
+        // 3. Type Hero Aside & Gateway Link: AKS types exploring info
+        if (this.typing.aside && r.aside && elapsed > 2000) {
+          const asideP = Math.min(Math.max((elapsed - 2000) / 900, 0), 1);
+          const totalChars = this.typing.aside.chars.length;
+          const targetCount = Math.floor(totalChars * asideP);
+          const lastChar = this.typing.aside.setCount(targetCount);
+
+          if (lastChar) {
+            const cr = lastChar.getBoundingClientRect();
+            ag0.setTarget(cr.right + 2, cr.top + cr.height / 2, 16, 0.15);
+            this.carets.push({ x: cr.right, y: cr.top, h: cr.height, color: '#F26A21' });
           }
         }
 
@@ -500,35 +582,34 @@
         if (headerEl) headerEl.style.opacity = '1';
       }
 
-      // --- STAGE 4: Verification & Fluid Exit (2600 - 3800ms) ---
+      // --- PHASE 4: Exit & Seamless Handoff (3100 - 4400ms) ---
       else {
-        const p = (elapsed - 2600) / 1200;
+        const p = (elapsed - 3100) / 1300;
 
-        // Fade construction guides
+        // Ensure all remaining characters are 100% visible
+        if (this.typing.copy) this.typing.copy.setCount(this.typing.copy.chars.length);
+        if (this.typing.aside) this.typing.aside.setCount(this.typing.aside.chars.length);
+
         this.ops.guidesAlpha = Math.max(0, 1 - p * 2.2);
 
         // Cursors accelerate off screen to natural exit boundaries
-        ag0.setTarget(-140, H * 0.2, 24, 0.08); // Exits left
-        ag1.setTarget(W + 140, -80, 26, 0.08); // Exits top-right
-        ag2.setTarget(W * 0.35, -140, 22, 0.08); // Exits top
-        ag3.setTarget(W + 160, H * 0.45, 24, 0.08); // Exits right
-        ag4.setTarget(W * 0.6, H + 140, 22, 0.08); // Exits bottom
-        ag5.setTarget(-140, H * 0.8, 24, 0.08); // Exits bottom-left
+        ag0.setTarget(-140, H * 0.2, 24, 0.08); // Left
+        ag1.setTarget(W + 140, -80, 26, 0.08); // Top-right
+        ag2.setTarget(W * 0.35, -140, 22, 0.08); // Top
+        ag3.setTarget(W + 160, H * 0.45, 24, 0.08); // Right
+        ag4.setTarget(W * 0.6, H + 140, 22, 0.08); // Bottom
+        ag5.setTarget(-140, H * 0.8, 24, 0.08); // Bottom-left
 
-        // At 40% of exit phase, fade out paper overlay & canvas
+        // Fade overlay & canvas
         if (p > 0.4) {
           if (this.overlay) this.overlay.classList.add('is-exiting');
           if (this.canvas) this.canvas.classList.add('is-exiting');
         }
       }
 
-      // Update individual agent physics
       this.agents.forEach(ag => ag.update());
     }
 
-    /**
-     * Render Canvas Guides, Dimension Badges & Multiplayer Cursors
-     */
     render() {
       const ctx = this.ctx;
       if (!ctx) return;
@@ -602,7 +683,7 @@
         );
       }
 
-      // 5. Hero Bottom / Copy & Aside Bounding Guides
+      // 5. Hero Bottom Bounding Guides
       if (this.ops.bottomBoxes > 0) {
         if (r.copy) {
           this.drawBoundingBox(
@@ -628,15 +709,30 @@
         }
       }
 
-      // 6. Render Multiplayer Cursors
+      // 6. Draw Active Typing Carets
+      this.carets.forEach((c) => {
+        this.drawCaret(c.x, c.y, c.h, c.color);
+      });
+
+      // 7. Render Multiplayer Cursors
       this.agents.forEach(ag => ag.render(ctx));
 
       ctx.restore();
     }
 
-    /**
-     * Draw professional design-tool selection box with handles and dimension pill
-     */
+    drawCaret(x, y, height, color) {
+      if (Math.floor(performance.now() / 240) % 2 === 0) return;
+      const ctx = this.ctx;
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2.25;
+      ctx.beginPath();
+      ctx.moveTo(x + 1, y + 2);
+      ctx.lineTo(x + 1, y + height - 2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
     drawBoundingBox(x, y, w, h, progress, color, label) {
       if (progress <= 0) return;
       const ctx = this.ctx;
@@ -650,7 +746,6 @@
 
       ctx.strokeRect(x, y, curW, curH);
 
-      // Corner handles
       if (progress > 0.45) {
         ctx.fillStyle = '#FFFFFF';
         ctx.strokeStyle = color;
@@ -668,7 +763,6 @@
         });
       }
 
-      // Dimension Pill Badge
       if (progress > 0.65 && label) {
         ctx.setLineDash([]);
         ctx.font = '600 9px "DM Mono", monospace';
@@ -696,9 +790,6 @@
       ctx.restore();
     }
 
-    /**
-     * Draw circular alignment calipers and crosshairs for 3D atom
-     */
     drawAtomGuides(cx, cy, radius, progressRings, progressCrosshair, color) {
       const ctx = this.ctx;
       ctx.save();
@@ -706,19 +797,16 @@
       ctx.lineWidth = 1.1;
       ctx.setLineDash([3, 4]);
 
-      // Outer caliper circle
       ctx.beginPath();
       ctx.arc(cx, cy, radius * progressRings, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Inner caliper circle
       if (progressRings > 0.4) {
         ctx.beginPath();
         ctx.arc(cx, cy, radius * 0.48 * progressRings, 0, Math.PI * 2);
         ctx.stroke();
       }
 
-      // Center crosshairs
       if (progressCrosshair > 0) {
         ctx.setLineDash([]);
         const crossLen = 18 * progressCrosshair;
@@ -729,7 +817,6 @@
         ctx.lineTo(cx, cy + crossLen);
         ctx.stroke();
 
-        // Coordinate tag
         ctx.font = '600 9px "DM Mono", monospace';
         const coord = `ATOM · R:${Math.round(radius)}px`;
         const tw = ctx.measureText(coord).width;
@@ -756,9 +843,6 @@
       ctx.restore();
     }
 
-    /**
-     * Complete the sequence, cleanup DOM and hand off to main portfolio engines
-     */
     finish() {
       if (this.rafId) {
         cancelAnimationFrame(this.rafId);
@@ -767,7 +851,12 @@
 
       this.isFinished = true;
 
-      // Smoothly remove overlay and canvas
+      // Restore clean original HTML across all typed elements
+      if (this.typing.eyebrow) this.typing.eyebrow.restore();
+      if (this.typing.title) this.typing.title.restore();
+      if (this.typing.copy) this.typing.copy.restore();
+      if (this.typing.aside) this.typing.aside.restore();
+
       setTimeout(() => {
         if (this.overlay && this.overlay.parentNode) {
           this.overlay.parentNode.removeChild(this.overlay);
@@ -778,10 +867,8 @@
           this.canvas = null;
         }
 
-        // Unlock scroll
         document.body.style.overflow = '';
 
-        // Ensure all hero elements are fully opaque with default styling
         const hero = document.querySelector('.hero');
         if (hero) {
           const els = hero.querySelectorAll('.eyebrow, .hero-title, .hero-copy, .hero-aside, .hero-art');
@@ -797,7 +884,6 @@
           siteHeader.style.transition = '';
         }
 
-        // Handoff to main site engine (scroll assembly & smooth scroll)
         if (typeof this.onCompleteCallback === 'function') {
           this.onCompleteCallback();
         }
@@ -805,7 +891,6 @@
     }
   }
 
-  // Export Singleton
   const heroSwarm = new HeroSwarmController();
   window.HeroSwarm = heroSwarm;
 

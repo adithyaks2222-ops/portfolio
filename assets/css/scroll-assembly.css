@@ -24,11 +24,11 @@ html.gsap-active .stack-feature,
 html.gsap-active .stack-group,
 html.gsap-active .about-statement,
 html.gsap-active .about-copy,
-html.gsap-active .about-facts > div,
+html.gsap-active .about-facts>div,
 html.gsap-active .process-step,
 html.gsap-active .credential-box,
 html.gsap-active .credentials-row,
-html.gsap-active .faq-layout > div,
+html.gsap-active .faq-layout>div,
 html.gsap-active .faq-list details,
 html.gsap-active .contact-main,
 html.gsap-active .contact-bottom,
@@ -55,8 +55,8 @@ html.gsap-active .section-heading-row .section-intro {
   isolation: isolate;
   background-color: var(--color-background, #F5F4EF);
   transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Symbiote Liquid Layer: Organic curved meniscus expanding from bottom */
@@ -75,23 +75,24 @@ html.gsap-active .section-heading-row .section-intro {
   border-radius: 50% 50% 0 0 / 40% 40% 0 0;
   transform: translateY(0);
   transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1),
-              border-radius 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius 0.62s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, border-radius;
   z-index: 0;
   pointer-events: none;
 }
 
 /* Ensure inner elements sit cleanly above the liquid fill */
-.service-card > *,
-.process-step > *,
-.credential-box > *,
-.curriculum-card > *,
-.project-card > * {
+.service-card>*,
+.process-step>*,
+.credential-box>*,
+.curriculum-card>*,
+.project-card>* {
   position: relative;
   z-index: 1;
 }
 
 @media (hover: hover) {
+
   /* Fluid liquid surge engulfing card interior */
   .service-card:hover::before,
   .service-card:focus-visible::before,
@@ -130,7 +131,7 @@ html.gsap-active .section-heading-row .section-intro {
 .curriculum-card h4,
 .project-card .project-card-title,
 .service-card .card-index,
-.process-step > span,
+.process-step>span,
 .credential-box .badge,
 .service-card .card-arrow,
 .project-card .arrow-glyph,
@@ -140,12 +141,13 @@ html.gsap-active .section-heading-row .section-intro {
 .curriculum-card p,
 .project-card .project-one-liner {
   transition: color 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.35s ease,
-              border-color 0.38s ease,
-              background-color 0.38s ease;
+    transform 0.35s ease,
+    border-color 0.38s ease,
+    background-color 0.38s ease;
 }
 
 @media (hover: hover) {
+
   /* Headings: Crisp pure white */
   .service-card:hover h3,
   .process-step:hover h3,
@@ -172,7 +174,7 @@ html.gsap-active .section-heading-row .section-intro {
 
   /* Numeric Indices & Dynamic Glyphs: Burnt Orange Accent */
   .service-card:hover .card-index,
-  .process-step:hover > span,
+  .process-step:hover>span,
   .service-card:hover .card-arrow,
   .project-card:hover .arrow-glyph {
     color: #F26A21;
@@ -212,10 +214,10 @@ html.gsap-active .section-heading-row .section-intro {
   border-radius: var(--radius-pill, 9999px);
   color: var(--ink);
   transition: border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.32s ease,
-              text-shadow 0.32s ease,
-              transform 0.22s ease;
+    color 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease,
+    text-shadow 0.32s ease,
+    transform 0.22s ease;
   cursor: pointer;
 }
 
@@ -225,7 +227,8 @@ html.gsap-active .section-heading-row .section-intro {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #242424; /* Solid Charcoal Box Fill */
+  background-color: #242424;
+  /* Solid Charcoal Box Fill */
   transform-origin: center center;
   transform: scale(0);
   transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
@@ -258,7 +261,8 @@ html.gsap-active .section-heading-row .section-intro {
 .stack-tags b:focus-visible,
 .stack-tags b:active {
   border-color: #F26A21;
-  color: #F26A21; /* Text is ALWAYS Orange when box is black */
+  color: #F26A21;
+  /* Text is ALWAYS Orange when box is black */
   transform: translateY(-2px);
   box-shadow: 0 0 16px rgba(242, 106, 33, 0.48), 0 4px 14px rgba(0, 0, 0, 0.28);
   text-shadow: 0 0 8px rgba(242, 106, 33, 0.6);
@@ -282,7 +286,7 @@ html.gsap-active .section-heading-row .section-intro {
 .card-index,
 .process-step h3,
 .process-step p,
-.process-step > span,
+.process-step>span,
 .credential-box p,
 .credential-box .badge,
 .stack-group h3,
@@ -308,7 +312,7 @@ html.gsap-active .section-heading-row .section-intro {
 .site-footer span,
 html.gsap-active .section-heading-row .section-intro {
   transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              text-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    text-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .section-intro:hover,
@@ -324,7 +328,7 @@ html.gsap-active .section-heading-row .section-intro {
 .card-index:hover,
 .process-step h3:hover,
 .process-step p:hover,
-.process-step:hover > span,
+.process-step:hover>span,
 .credential-box p:hover,
 .credential-box:hover .badge,
 .stack-group h3:hover,
@@ -416,7 +420,7 @@ html.gsap-active .section-heading-row .section-intro:hover,
   .stack-group,
   .about-statement,
   .about-copy,
-  .about-facts > div,
+  .about-facts>div,
   .process-step,
   .credential-box,
   .faq-list details,
@@ -429,8 +433,8 @@ html.gsap-active .section-heading-row .section-intro:hover,
   .project-card::before,
   .header-cta::before,
   .all-work-link::before,
-  .stack-tags b::before,
-  {
+
+  .stack-tags b::before {
     transform: none;
     opacity: 1;
     transition: none;
