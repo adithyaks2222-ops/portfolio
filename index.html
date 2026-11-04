@@ -41,6 +41,7 @@
       </div>
     </div>
   </div>
+  <canvas id="swarm-canvas" class="swarm-canvas" aria-hidden="true"></canvas>
   <div class="page-shell">
     <!-- ======================================================================
          01. SITE HEADER & NAVIGATION
@@ -58,6 +59,10 @@
         <a href="#contact">Contact</a>
         <div class="nav-liquid-pill" aria-hidden="true"></div>
       </nav>
+      <button class="swarm-btn" id="swarm-reconstruct-btn" aria-label="Toggle swarm reconstruction experience" title="Watch simulated multiplayer cursors rebuild the portfolio (Hotkey: B)">
+        <span class="swarm-btn-dot" aria-hidden="true"></span>
+        <span class="swarm-btn-text">Reconstruct</span>
+      </button>
       <a class="header-cta" href="mailto:adithyaks2222@gmail.com">Let’s talk <span>↗</span></a>
       <button class="menu-toggle" aria-label="Open navigation"
         aria-expanded="false"><span></span><span></span><span></span></button>
@@ -1205,6 +1210,7 @@
     integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <script src="assets/js/swarm-engine.js"></script>
   <script src="script.js"></script>
 </body>
 
